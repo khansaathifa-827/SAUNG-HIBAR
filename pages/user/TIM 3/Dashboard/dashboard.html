@@ -2,110 +2,96 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- Meta viewport wajib untuk memastikan layout menyesuaikan layar perangkat mobile -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saung Hibar - Admin Flow</title>
+    <title>Saung Hibar - Admin Dashboard</title>
     
-    <!-- Memuat font 'Poppins' dari Google Fonts agar tipografi terlihat modern dan profesional -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Memuat FontAwesome untuk ikon (mata password, ikon sosial media, ikon pohon) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* ==========================================================================
-           1. VARIABEL CSS & RESET
-           ========================================================================== */
         :root {
-            --primary-green: #2c5e31;      /* Hijau khas Saung Hibar */
-            --bg-white: #ffffff;           /* Warna latar putih murni */
-            --bg-gray: #f4f6f8;            /* Warna latar abu-abu terang untuk dashboard */
-            --text-dark: #333333;          /* Warna teks utama (gelap) */
-            --text-gray: #777777;          /* Warna teks sekunder (abu-abu) */
-            --border-color: #e2e8f0;       /* Warna garis pembatas yang lembut */
-            --border-radius: 12px;         /* Radius standar untuk kartu/elemen */
-            --border-radius-lg: 24px;      /* Radius besar untuk input dan tombol */
+            --primary-green: #2c5e31;
+            --primary-green-hover: #234b27;
+            --bg-white: #ffffff;
+            --bg-gray: #f4f6f8;
+            --text-dark: #333333;
+            --text-gray: #777777;
+            --border-color: #e2e8f0;
+            --border-radius: 12px;
+            --border-radius-lg: 24px;
         }
 
-        /* Reset margin, padding, dan penerapan box-sizing yang konsisten */
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box; /* Memastikan padding tidak menambah lebar elemen */
+            box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
         }
 
-        /* Latar belakang halaman di luar kontainer aplikasi (terlihat di desktop) */
         body {
-            background-color: #d1d5db; 
-            display: flex;
-            justify-content: center; /* Memosisikan aplikasi di tengah layar desktop */
-            align-items: flex-start;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
             min-height: 100vh;
-        }
-
-        /* ==========================================================================
-           2. WADAH APLIKASI (MOBILE CONTAINER - FLEXIBLE)
-           ========================================================================== */
-        .app-container {
-            width: 100%; /* Lebar selalu mengikuti layar */
-            max-width: 480px; /* Batas maksimal agar tidak terlalu lebar di layar PC/Tablet */
-            background-color: var(--bg-white);
-            min-height: 100vh;
-            box-shadow: 0 4px 25px rgba(0,0,0,0.15); /* Efek bayangan */
-            position: relative;
-            overflow-x: hidden; /* Mencegah elemen meluber ke samping (scroll horizontal) */
             display: flex;
-            flex-direction: column; /* Menyusun konten dari atas ke bawah */
-        }
-
-        /* Mengatur sistem Single Page Application (SPA) */
-        .view {
-            display: none; /* Sembunyikan semua halaman */
             flex-direction: column;
+        }
+
+        .app-container {
             width: 100%;
-            flex: 1; /* Memastikan view mengisi sisa tinggi yang tersedia */
-            animation: fadeIn 0.4s ease-out; /* Animasi transisi halaman */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .view {
+            display: none;
+            width: 100%;
+            flex: 1;
+            animation: fadeIn 0.4s ease-out;
         }
         
         .view.active {
-            display: flex; /* Hanya tampilkan halaman yang memiliki class 'active' */
+            display: flex;
+            flex-direction: column;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
+            from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ==========================================================================
-           3. HALAMAN LOGIN
-           ========================================================================== */
+        /* ==========================================
+           1. HALAMAN LOGIN (RESPONSIF)
+           ========================================== */
+        #view-login {
+            background-color: var(--bg-white);
+        }
+
         .login-topbar {
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 15px 20px;
-            font-weight: 500;
+            font-weight: 600;
             font-size: 16px;
-            color: var(--text-dark);
             border-bottom: 1px solid var(--border-color);
             position: relative;
-        }
-        
-        /* Ikon hamburger di kiri atas */
-        .login-topbar i.fa-bars {
-            position: absolute;
-            left: 20px;
-            color: #9ca3af;
+            background: white;
         }
 
-        /* Bagian banner gambar selamat datang */
+        /* Layout Split 2 Kolom untuk Desktop */
+        .login-main-wrapper {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
         .hero-section {
             position: relative;
-            height: 240px;
-            background-image: url('https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?auto=format&fit=crop&w=600&q=80');
+            min-height: 220px;
+            background-image: url('https://images.unsplash.com/photo-1537225228614-56cc3556d7ed?auto=format&fit=crop&w=1200&q=80');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -113,19 +99,20 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 20px;
+            padding: 30px 20px;
             color: white;
         }
         
         .hero-overlay {
             position: absolute;
-            inset: 0; /* Sama dengan top:0; left:0; right:0; bottom:0; */
-            background: rgba(0, 0, 0, 0.45); /* Efek gelap agar teks terbaca */
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            max-width: 500px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -133,7 +120,7 @@
 
         .hero-badge {
             background: white;
-            padding: 4px 8px;
+            padding: 4px 10px;
             border-radius: 6px;
             display: flex;
             align-items: center;
@@ -144,28 +131,30 @@
             margin-bottom: 15px;
         }
 
-        .hero-badge i { color: #d4a373; } /* Warna coklat kayu */
+        .hero-badge i { color: #d4a373; }
 
         .hero-content h1 {
             font-size: 24px;
             font-weight: 700;
-            line-height: 1.2;
-            margin-bottom: 8px;
+            line-height: 1.3;
+            margin-bottom: 10px;
         }
 
         .hero-content p {
-            font-size: 11px;
-            line-height: 1.5;
-            max-width: 90%;
+            font-size: 12px;
+            line-height: 1.6;
             opacity: 0.9;
         }
 
-        /* Bagian penampung form */
         .login-form-container {
-            padding: 30px 25px;
+            padding: 30px 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 440px;
+            margin: 0 auto;
         }
 
         .login-form-container h2 {
@@ -175,7 +164,6 @@
             letter-spacing: 1px;
         }
 
-        /* Form diatur lebar penuh */
         #loginForm {
             width: 100%;
             display: flex;
@@ -211,7 +199,7 @@
         }
         
         .input-control:focus {
-            border-color: #4CAF50; /* Indikator saat input di-klik */
+            border-color: #4CAF50;
         }
 
         .input-control::placeholder {
@@ -227,14 +215,13 @@
             padding: 5px;
         }
 
-        /* Flexbox untuk baris "Ingatkan Saya" & "Lupa Sandi" */
         .form-options {
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-size: 11px;
             padding: 0 10px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .checkbox-group {
@@ -250,7 +237,6 @@
             text-decoration: none;
         }
 
-        /* Opsi Login Sosial Media */
         .social-login-wrapper {
             display: flex;
             flex-direction: column;
@@ -279,7 +265,6 @@
         .social-icons i.fa-google { color: #DB4437; }
         .social-icons i.fa-facebook { color: #4267B2; }
         
-        /* Tombol Login Utama */
         .btn-login {
             background-color: var(--primary-green);
             color: white;
@@ -287,7 +272,7 @@
             border-radius: var(--border-radius-lg);
             padding: 14px;
             width: 160px;
-            align-self: center; /* Memosisikan tombol di tengah secara flex */
+            align-self: center;
             font-size: 14px;
             font-weight: 600;
             cursor: pointer;
@@ -295,21 +280,25 @@
             transition: 0.2s ease;
         }
 
-        .btn-login:active {
-            transform: scale(0.95); /* Efek saat ditekan */
+        .btn-login:hover {
+            background-color: var(--primary-green-hover);
         }
 
-        /* Footer Halaman Login */
+        /* Footer Responsive Grid */
         .footer {
             background-color: var(--primary-green);
             color: white;
-            padding: 30px 25px;
+            padding: 35px 25px 20px;
             font-size: 12px;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            margin-top: auto; /* Mendorong footer ke bawah jika ruang tersisa */
-            display: flex;
-            flex-direction: column;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .footer-logo {
@@ -318,22 +307,21 @@
             gap: 10px;
             font-weight: 600;
             font-size: 16px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
         }
 
         .footer-logo i { color: #d4a373; font-size: 18px; }
         
         .footer-desc {
-            margin-bottom: 20px;
             line-height: 1.6;
             opacity: 0.9;
             font-size: 11px;
+            margin-bottom: 15px;
         }
         
         .footer-social {
             display: flex;
             gap: 12px;
-            margin-bottom: 25px;
         }
 
         .circle-icon {
@@ -368,68 +356,63 @@
             text-align: center;
         }
 
-        /* ==========================================================================
-           4. HALAMAN DASHBOARD ADMIN
-           ========================================================================== */
+        /* ==========================================
+           2. DASHBOARD ADMIN (GRID RESPONSIF)
+           ========================================== */
         #view-dashboard {
             background-color: var(--bg-gray);
         }
 
         .dashboard-header {
             background: white;
-            padding: 15px 20px;
+            padding: 15px 30px;
             display: flex;
             align-items: center;
-            justify-content: center;
+            justify-content: space-between;
             border-bottom: 1px solid var(--border-color);
-            position: sticky; /* Tetap di atas saat di-scroll */
+            position: sticky;
             top: 0;
             z-index: 10;
         }
 
-        .dashboard-content { 
-            padding: 20px; 
+        .dashboard-container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 25px 20px;
             display: flex;
             flex-direction: column;
-            flex: 1;
-        }
-
-        .welcome-text {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 15px;
+            gap: 20px;
         }
 
         .welcome-text h2 {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--text-dark);
         }
 
         .welcome-text p {
-            font-size: 12px;
+            font-size: 13px;
             color: var(--text-gray);
             margin-top: 4px;
-            line-height: 1.4;
         }
 
         .date-badge {
             background: white;
             border: 1px solid var(--border-color);
-            padding: 8px 15px;
+            padding: 10px 18px;
             border-radius: 8px;
             font-size: 12px;
             color: var(--text-gray);
-            width: 100%;
-            text-align: left;
-            margin-bottom: 20px;
+            display: inline-block;
+            align-self: flex-start;
         }
 
-        /* Kartu Statistik menggunakan Flexbox agar membagi lebar dengan adil */
-        .stats-flex {
-            display: flex;
+        /* Kartu Statistik Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 15px;
-            margin-bottom: 20px;
             width: 100%;
         }
 
@@ -437,80 +420,79 @@
             background: white;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            padding: 18px 15px;
-            flex: 1; /* Membuat setiap kartu mengambil lebar porsi yang sama */
+            padding: 20px;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
         .stat-card h3 {
-            font-size: 12px;
+            font-size: 13px;
             font-weight: 600;
             color: var(--text-dark);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .stat-card .value {
             font-size: 32px;
             font-weight: 700;
-            color: var(--text-dark);
-            text-align: center;
+            color: var(--primary-green);
         }
 
-        /* Daftar Menu Utama */
+        /* Layout Grid Dua Kolom untuk Menu & Chart di Desktop */
+        .dashboard-main-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
         .menu-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 25px;
         }
 
         .menu-item {
             background: white;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            padding: 16px;
+            padding: 18px 20px;
             display: flex;
-            justify-content: space-between; /* Teks di kiri, panah di kanan */
-            align-items: center; /* Posisi vertikal di tengah */
+            justify-content: space-between;
+            align-items: center;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.2s ease;
         }
 
-        .menu-item:active {
-            background: #f8fafc; /* Efek ditekan */
-        }
-
-        .menu-item-text {
-            display: flex;
-            flex-direction: column;
+        .menu-item:hover {
+            border-color: var(--primary-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
         .menu-item-text h4 {
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--text-dark);
             margin-bottom: 2px;
         }
 
         .menu-item-text p {
-            font-size: 11px;
+            font-size: 12px;
             color: var(--text-gray);
         }
 
         .menu-item i {
-            color: var(--text-dark);
+            color: var(--primary-green);
             font-size: 14px;
         }
 
-        /* Area Grafik placeholder */
         .chart-card {
             background: white;
             border: 1px solid var(--border-color);
             border-radius: var(--border-radius);
-            padding: 15px;
-            min-height: 180px; /* Tinggi minimum area grafik */
+            padding: 20px;
+            min-height: 250px;
             display: flex;
             flex-direction: column;
         }
@@ -523,7 +505,7 @@
         }
 
         .chart-header h3 {
-            font-size: 12px;
+            font-size: 14px;
             font-weight: 600;
             color: var(--text-dark);
         }
@@ -531,7 +513,7 @@
         .chart-legends {
             display: flex;
             gap: 12px;
-            font-size: 10px;
+            font-size: 11px;
             color: var(--text-gray);
         }
 
@@ -542,96 +524,141 @@
             width: 8px;
             height: 8px;
             border-radius: 50%;
-            background-color: #d1d5db; /* Warna dot standar */
+            background-color: var(--primary-green);
+        }
+
+        /* ==========================================
+           3. MEDIA QUERIES (DESKTOP & TABLET)
+           ========================================== */
+        @media (min-width: 768px) {
+            /* Tampilan Split Login untuk Tablet/Desktop */
+            .login-main-wrapper {
+                flex-direction: row;
+                min-height: calc(100vh - 180px);
+            }
+
+            .hero-section {
+                flex: 1.2;
+                min-height: auto;
+                padding: 40px;
+                text-align: left;
+                align-items: flex-start;
+            }
+
+            .hero-content {
+                align-items: flex-start;
+                max-width: 480px;
+            }
+
+            .hero-content h1 {
+                font-size: 32px;
+            }
+
+            .hero-content p {
+                font-size: 14px;
+            }
+
+            .login-form-container {
+                flex: 1;
+                max-width: 460px;
+                padding: 50px 40px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            /* Dashboard Main Layout di Desktop (Kolom Berdampingan) */
+            .dashboard-main-grid {
+                grid-template-columns: 1fr 1.2fr;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Kontainer Utama Aplikasi (Max-width 480px, Responsif) -->
     <div class="app-container">
         
-        <!-- =========================================================
-             VIEW 1: HALAMAN LOGIN
-             ========================================================= -->
+        <!-- VIEW 1: HALAMAN LOGIN -->
         <div id="view-login" class="view active">
             
             <div class="login-topbar">
-                <i class="fa-solid fa-bars"></i>
                 <span>Saung Hibar</span>
             </div>
 
-            <div class="hero-section">
-                <div class="hero-overlay"></div>
-                <div class="hero-content">
-                    <div class="hero-badge">
-                        <i class="fa-solid fa-tree"></i> Saung Hibar
+            <div class="login-main-wrapper">
+                <div class="hero-section">
+                    <div class="hero-overlay"></div>
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <i class="fa-solid fa-tree"></i> Saung Hibar
+                        </div>
+                        <h1>Selamat Datang<br>Saung Hibar</h1>
+                        <p>Destinasi wisata keluarga yang menghadirkan ketenangan alam dan asrinya pedesaan. Tempat terbaik untuk mengukir momen tak terlupakan bersama orang tersayang.</p>
                     </div>
-                    <h1>Selamat Datang<br>Saung Hibar</h1>
-                    <p>Destinasi wisata keluarga yang menghadirkan ketenangan alam dan asrinya pedesaan. Tempat terbaik untuk mengukir momen tak terlupakan bersama orang tersayang.</p>
+                </div>
+
+                <div class="login-form-container">
+                    <h2>LOGIN</h2>
+                    
+                    <form id="loginForm" onsubmit="event.preventDefault(); doLogin();">
+                        <div class="input-group">
+                            <label>Username/Email:</label>
+                            <input type="text" class="input-control" required>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label>Password:</label>
+                            <input type="password" id="passwordInput" class="input-control" required>
+                            <i class="fa-solid fa-eye-slash password-toggle" onclick="togglePassword()"></i>
+                        </div>
+
+                        <div class="form-options">
+                            <label class="checkbox-group">
+                                <input type="checkbox"> Ingatkan Saya
+                            </label>
+                            <a href="#" class="forgot-link">Lupa Kata Sandi?</a>
+                        </div>
+
+                        <div class="social-login-wrapper">
+                            <div class="alt-login-text">Atau Login Dengan:</div>
+                            <div class="social-icons">
+                                <i class="fa-brands fa-google"></i>
+                                <i class="fa-brands fa-facebook"></i>
+                                <i class="fa-brands fa-apple"></i>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-login">LOGIN</button>
+                    </form>
                 </div>
             </div>
 
-            <div class="login-form-container">
-                <h2>LOGIN</h2>
-                
-                <form id="loginForm" onsubmit="event.preventDefault(); doLogin();">
-                    <div class="input-group">
-                        <label>Username/Email:</label>
-                        <input type="text" class="input-control" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <label>Password:</label>
-                        <input type="password" id="passwordInput" class="input-control" required>
-                        <i class="fa-solid fa-eye-slash password-toggle" onclick="togglePassword()"></i>
-                    </div>
-
-                    <div class="form-options">
-                        <label class="checkbox-group">
-                            <input type="checkbox"> Ingatkan Saya
-                        </label>
-                        <a href="#" class="forgot-link">Lupa Kata Sandi?</a>
-                    </div>
-
-                    <div class="social-login-wrapper">
-                        <div class="alt-login-text">Atau Login Dengan:</div>
-                        <div class="social-icons">
-                            <i class="fa-brands fa-google"></i>
-                            <i class="fa-brands fa-facebook"></i>
-                            <i class="fa-brands fa-apple"></i>
+            <!-- Footer -->
+            <div class="footer">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-logo">
+                            <i class="fa-solid fa-tree"></i>
+                            <div>
+                                <div>Saung Hibar</div>
+                                <div style="font-size: 9px; font-weight: 300;">WISATA KELUARGA</div>
+                            </div>
+                        </div>
+                        <p class="footer-desc">Destinasi wisata keluarga terbaik di Purwakarta yang menghadirkan suasana alam yang tenang, nyaman, dan asri. Tempat sempurna untuk menciptakan momen berharga bersama keluarga.</p>
+                        <div class="footer-social">
+                            <div class="circle-icon"><i class="fa-brands fa-instagram"></i></div>
+                            <div class="circle-icon"><i class="fa-brands fa-facebook-f"></i></div>
+                            <div class="circle-icon"><i class="fa-brands fa-twitter"></i></div>
                         </div>
                     </div>
 
-                    <!-- Tombol untuk memicu transisi SPA ke Dashboard -->
-                    <button type="submit" class="btn-login">LOGIN</button>
-                </form>
-            </div>
-
-            <!-- Footer area -->
-            <div class="footer">
-                <div class="footer-logo">
-                    <i class="fa-solid fa-tree"></i>
-                    <div>
-                        <div>Saung Hibar</div>
-                        <div style="font-size: 9px; font-weight: 300;">WISATA KELUARGA</div>
+                    <div class="footer-contact">
+                        <h4>Hubungi Kami</h4>
+                        <p>Pasir muncang, Kec. Wanayasa, Kabupaten Purwakarta, Jawa Barat 41117</p>
+                        <p>(+62) 877-4095-4371</p>
+                        <p>saunghibar@gmail.com</p>
                     </div>
-                </div>
-                
-                <p class="footer-desc">Destinasi wisata keluarga terbaik di Purwakarta yang menghadirkan suasana alam yang tenang, nyaman, dan asri. Tempat sempurna untuk menciptakan momen berharga bersama keluarga.</p>
-                
-                <div class="footer-social">
-                    <div class="circle-icon"><i class="fa-brands fa-instagram"></i></div>
-                    <div class="circle-icon"><i class="fa-brands fa-facebook-f"></i></div>
-                    <div class="circle-icon"><i class="fa-brands fa-twitter"></i></div>
-                </div>
-
-                <div class="footer-contact">
-                    <h4>Hubungi Kami</h4>
-                    <p>Pasir muncang, Kec. Wanayasa, Kabupaten</p>
-                    <p>Purwakarta, Jawa Barat 41117</p>
-                    <p>(+62) 877-4095-4371</p>
-                    <p>saunghibar@gmail.com</p>
                 </div>
 
                 <div class="footer-bottom">
@@ -640,34 +667,34 @@
             </div>
         </div>
 
-        <!-- =========================================================
-             VIEW 2: HALAMAN DASHBOARD ADMIN
-             ========================================================= -->
+        <!-- VIEW 2: HALAMAN DASHBOARD ADMIN -->
         <div id="view-dashboard" class="view">
             
             <div class="dashboard-header">
                 <div class="footer-logo" style="margin: 0; color: var(--text-dark);">
                     <i class="fa-solid fa-tree"></i>
                     <div style="line-height: 1.2;">
-                        <div style="font-size: 15px;">Saung Hibar</div>
+                        <div style="font-size: 16px;">Saung Hibar</div>
                         <div style="font-size: 9px; font-weight: 300;">WISATA KELUARGA</div>
                     </div>
                 </div>
+                <button onclick="location.reload()" style="background: none; border: none; color: var(--text-gray); cursor: pointer; font-size: 13px;">
+                    <i class="fa-solid fa-right-from-bracket"></i> Keluar
+                </button>
             </div>
 
-            <div class="dashboard-content">
+            <div class="dashboard-container">
                 <div class="welcome-text">
                     <h2>Dashboard Admin</h2>
-                    <p>Halo Admin, berikut ringkasan aktivitas terbaru<br>di Saung Hibar.</p>
+                    <p>Halo Admin, berikut ringkasan aktivitas terbaru di Saung Hibar.</p>
                 </div>
 
-                <!-- Menampilkan tanggal saat ini -->
                 <div class="date-badge" id="currentDate">
                     Memuat tanggal...
                 </div>
 
-                <!-- Kartu Statistik (Flexbox) -->
-                <div class="stats-flex">
+                <!-- Ringkasan Statistik -->
+                <div class="stats-grid">
                     <div class="stat-card">
                         <h3>Booking Hari Ini</h3>
                         <div class="value">10</div>
@@ -676,47 +703,51 @@
                         <h3>Booking Mendatang</h3>
                         <div class="value">15</div>
                     </div>
-                </div>
-
-                <!-- Daftar Menu Vertikal (Flexbox Column) -->
-                <div class="menu-list">
-                    <div class="menu-item">
-                        <div class="menu-item-text">
-                            <h4>Booking Villa</h4>
-                            <p>Cek ketersediaan & monitor tamu</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                    
-                    <div class="menu-item">
-                        <div class="menu-item-text">
-                            <h4>Pesanan Makanan</h4>
-                            <p>Monitor pesanan makanan tamu</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-
-                    <div class="menu-item">
-                        <div class="menu-item-text">
-                            <h4>Cek Inventaris</h4>
-                            <p>Lihat stok & kelola inventaris</p>
-                        </div>
-                        <i class="fa-solid fa-chevron-right"></i>
+                    <div class="stat-card">
+                        <h3>Total Tamu Aktif</h3>
+                        <div class="value">32</div>
                     </div>
                 </div>
 
-                <!-- Area Grafik Placeholder -->
-                <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Tren Booking (Per 30 Hari Terakhir)</h3>
-                        <div class="chart-legends">
-                            <div class="legend-item">Villa</div>
-                            <div class="legend-item">Makanan</div>
+                <!-- Grid Menu Utama & Grafik -->
+                <div class="dashboard-main-grid">
+                    <div class="menu-list">
+                        <div class="menu-item">
+                            <div class="menu-item-text">
+                                <h4>Booking Villa</h4>
+                                <p>Cek ketersediaan & monitor tamu</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+                        
+                        <div class="menu-item">
+                            <div class="menu-item-text">
+                                <h4>Pesanan Makanan</h4>
+                                <p>Monitor pesanan makanan tamu</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </div>
+
+                        <div class="menu-item">
+                            <div class="menu-item-text">
+                                <h4>Cek Inventaris</h4>
+                                <p>Lihat stok & kelola inventaris</p>
+                            </div>
+                            <i class="fa-solid fa-chevron-right"></i>
                         </div>
                     </div>
-                    <!-- Area kosong untuk integrasi chart/grafik di masa depan (misal: Chart.js) -->
-                    <div style="flex:1; display:flex; justify-content:center; align-items:center; color: #cbd5e1; font-size:12px;">
-                        [ Area Grafik ]
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Tren Booking (Per 30 Hari Terakhir)</h3>
+                            <div class="chart-legends">
+                                <div class="legend-item">Villa</div>
+                                <div class="legend-item">Makanan</div>
+                            </div>
+                        </div>
+                        <div style="flex:1; display:flex; justify-content:center; align-items:center; color: #cbd5e1; font-size:13px;">
+                            [ Area Grafik Chart.js ]
+                        </div>
                     </div>
                 </div>
             </div>
@@ -726,56 +757,31 @@
     </div>
 
     <script>
-        /* ==========================================================================
-           LOGIKA JAVASCRIPT APLIKASI (SPA Sederhana)
-           ========================================================================== */
-        
-        /**
-         * Fungsi untuk menyembunyikan/menampilkan teks password pada halaman login
-         */
         function togglePassword() {
             const passwordInput = document.getElementById('passwordInput');
             const icon = document.querySelector('.password-toggle');
             
-            // Jika tipe input adalah password, ubah jadi text dan ubah ikon
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
                 icon.classList.remove('fa-eye-slash');
                 icon.classList.add('fa-eye');
             } else {
-                // Jika tipe input text, kembalikan ke password
                 passwordInput.type = 'password';
                 icon.classList.remove('fa-eye');
                 icon.classList.add('fa-eye-slash');
             }
         }
 
-        /**
-         * Fungsi untuk memanipulasi transisi halaman (SPA logic)
-         * Dipanggil ketika form disubmit (tombol login diklik).
-         */
         function doLogin() {
-            // 1. Menghapus class 'active' dari tampilan login untuk menyembunyikannya
             document.getElementById('view-login').classList.remove('active');
-            
-            // 2. Menambahkan class 'active' ke tampilan dashboard untuk menampilkannya
             document.getElementById('view-dashboard').classList.add('active');
-            
-            // 3. Mengembalikan scroll layer ke paling atas agar tampilan rapi
             window.scrollTo(0, 0);
         }
 
-        /**
-         * Fungsi otomatis untuk mencetak tanggal hari ini pada saat halaman dimuat
-         */
         window.onload = function() {
             const dateElement = document.getElementById('currentDate');
-            
-            // Membuat opsi format tanggal bahasa Indonesia
-            const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric' };
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
             const today = new Date();
-            
-            // Contoh output: "Kamis, 8 Oktober 2026"
             dateElement.innerText = today.toLocaleDateString('id-ID', options);
         }
     </script>
