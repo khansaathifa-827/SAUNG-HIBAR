@@ -1,0 +1,325 @@
+
+:root {
+   --hijau: #2d5016;
+  --krem: #fbfcf6;
+  --hijau-tua: #122b01;
+  --garis: #e8e4da;
+  --teks: #3b2f28;
+  --teks-pudar: #7d6e62;
+}
+
+/* Umum */
+body {
+  background-color: var(--krem);
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--teks);
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 8px 0;
+}
+
+.navbar-brand {
+  color: var(--hijau);
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.navbar-brand:hover {
+  color: var(--hijau);
+}
+
+.navbar-brand small {
+  display: block;
+  font-size: 9px;
+  font-weight: 400;
+  color: var(--teks-pudar);
+}
+
+.navbar .nav-link {
+  color: var(--teks);
+  font-size: 12px;
+  padding: 6px 10px;
+}
+
+.navbar .nav-link:hover {
+  color: var(--hijau);
+}
+
+/* menu aktif (Panduan) */
+.navbar .nav-link.active-menu {
+  background-color: var(--hijau);
+  color: #fff;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-weight: 500;
+}
+
+
+/* Judul Halaman */
+.judul {
+  font-weight: 700;
+  font-size: 30px;
+  color: #1a1a1a;
+}
+
+.subjudul {
+  font-size: 14px;
+  color: var(--teks-pudar);
+}
+
+/* Kartu */
+.kartu {
+  background-color: #fff;
+  border: 1px solid var(--garis);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.kartu h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  color: var(--teks);
+}
+
+.kartu h5 i {
+  margin-right: 8px;
+}
+
+.kartu .ket {
+  font-size: 13px;
+  color: var(--teks-pudar);
+  margin-bottom: 16px;
+}
+
+/* Cara Booking */
+.langkah {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.nomor {
+  flex-shrink: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: var(--hijau);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.langkah h6 {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.langkah p {
+  font-size: 12px;
+  color: var(--teks-pudar);
+  margin: 0;
+}
+
+/* Peraturan Pengunjung */
+.aturan {
+  list-style: none;      
+  padding: 0;
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.aturan li {
+  margin-bottom: 10px;
+}
+
+.aturan i {
+  font-size: 15px;
+  margin-right: 4px;
+  vertical-align: middle;
+}
+
+/* FAQ */
+.accordion-button {
+  font-size: 13px;
+  padding: 12px 0;
+  background: none;
+  box-shadow: none;
+  color: var(--teks);
+}
+
+.accordion-button:not(.collapsed) {
+  color: var(--hijau);
+  background: none;
+}
+
+.accordion-item {
+  border: none;
+  border-bottom: 1px solid #eee;
+  background: none;
+}
+
+.accordion-body {
+  font-size: 12.5px;
+  color: #555;
+  padding: 0 0 12px 0;
+}
+
+/* jam operasional */
+.jam {
+  border: none;                    
+  border-bottom: 1px solid #eee; 
+  border-radius: 0;
+  padding: 12px 0;
+  margin-bottom: 0;
+}
+
+.jam:last-child {
+  border-bottom: none;           
+  padding-bottom: 0;
+}
+
+.jam small {
+  font-size: 13px;
+  color: #555;
+}
+
+.jam strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--hijau);
+  margin-top: 4px;
+}
+
+.badge-hari {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 8px;
+  color: #fff;
+}
+
+.weekday {
+  background-color: #fafdfc;
+  color: #000;
+  border: 1px solid #e3e3e3;
+  font-weight: bold;
+}
+
+.weekend { background-color: #01330c; }
+.holiday { background-color: #8b6b3d; }
+
+/*  Kebijakan Pembatalan */
+.kartu-batal {
+  border-color: #f1c9c9;
+}
+
+.kartu-batal h5,
+.kartu-batal h5 i {
+  color: #d9304f;
+}
+
+.batal {
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.batal strong {
+  display: block;
+  font-size: 12.5px;
+}
+
+.batal-1 { background-color: #fef2f2; color: #262626; }
+.batal-2 { background-color: #fff7ed; color: #262626; }
+.batal-3 { background-color: #ffe2e2; color: #262626; }
+
+/*  Tips Berkunjung  */
+.kartu-tips {
+  background-color: #e8f5e9;
+  border-color: #cfe5c2;
+}
+
+.kartu-tips h5,
+.kartu-tips h5 i {
+  color: var(--hijau);
+}
+
+.kartu-tips ul {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 12.5px;
+}
+
+.kartu-tips li {
+  margin-bottom: 6px;
+}
+
+/*Tombol*/
+.btn-hijau {
+  background-color: var(--hijau);
+  color: #fff;
+  font-size: 13px;
+  width: 100%;
+}
+
+.btn-hijau:hover {
+  background-color: var(--hijau-tua);
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  background-color: var(--hijau);
+  color: #fff;
+  margin-top: 40px;
+  padding: 40px 0 20px;
+}
+
+footer h6 {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+footer p {
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #e3ecd9;
+}
+
+footer hr {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.copy {
+  text-align: center;
+  font-size: 12px;
+  color: #e3ecd9;
+}
+
+@media (max-width: 767px) {
+  .judul {
+    font-size: 24px;
+  }
+
+  .kartu {
+    padding: 16px;
+  }
+
+  .navbar .nav-link.active-menu {
+    display: inline-block;
+    margin-top: 4px;
+  }
+}
