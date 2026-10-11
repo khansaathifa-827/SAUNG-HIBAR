@@ -1,1 +1,678 @@
+
 <!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Booking - Saung Hibar</title>
+
+    <!-- FONT INTER -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS EKSTERNAL -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JAVASCRIPT EKSTERNAL -->
+    <script src="script.js" defer></script>
+
+</head>
+
+<body id="beranda">
+
+    <!-- ===================================
+         NAVBAR
+    ==================================== -->
+
+    <header class="site-header">
+
+        <div class="navbar-wrap">
+
+            <!-- LOGO SAUNG HIBAR -->
+            <a href="#beranda" class="brand">
+
+                <!-- GANTI GAMBAR LOGO DI SINI -->
+                <img src="logo.png"
+                     alt="Logo Saung Hibar"
+                     class="brand-logo">
+
+                <span class="brand-text">
+                    <strong>Saung Hibar</strong>
+                    <small>Wisata Keluarga</small>
+                </span>
+
+            </a>
+
+            <!-- TOMBOL HAMBURGER -->
+            <button type="button"
+                    class="menu-toggle"
+                    id="menuToggle"
+                    aria-label="Buka menu"
+                    aria-expanded="false"
+                    aria-controls="navLinks">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+            </button>
+
+            <!-- MENU NAVIGASI -->
+            <nav class="nav-links" id="navLinks">
+
+                <a href="#beranda">Home</a>
+                <a href="#paket">Kapasitas</a>
+                <a href="#kontak">Customer Service</a>
+                <a href="#harga" class="active">Harga</a>
+                <a href="#fasilitas">Fasilitas</a>
+                <a href="#petunjuk">Booking</a>
+                <a href="#addons">Menu</a>
+                <a href="#kontak">Maps</a>
+                <a href="#harga">Rating</a>
+                <a href="#harga">Gallery</a>
+                <a href="#petunjuk">Panduan</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- ===================================
+         KONTEN UTAMA
+    ==================================== -->
+
+    <main id="harga">
+
+        <!-- JUDUL DAFTAR HARGA -->
+        <section class="intro container">
+
+            <h1>Daftar Harga</h1>
+
+            <p>
+                Pilih paket yang sesuai dengan kebutuhan Anda.
+                Semua harga sudah termasuk PPN.
+            </p>
+
+        </section>
+
+
+        <!-- ===================================
+             DAFTAR PAKET HARGA
+        ==================================== -->
+
+        <section class="packages container" id="paket">
+
+            <!-- PAKET REGULER -->
+            <article class="package-card">
+
+                <h2>Paket Reguler</h2>
+
+                <p class="package-desc">
+                    Cocok untuk kunjungan casual bersama
+                    keluarga kecil
+                </p>
+
+                <p class="price">Rp 150.000</p>
+
+                <p class="duration">
+                    per saung / 4 jam
+                </p>
+
+                <ul class="features">
+                    <li>Saung Reguler (kapasitas 10 orang)</li>
+                    <li>Akses ke semua area umum</li>
+                    <li>Wifi gratis</li>
+                    <li>Parkir gratis</li>
+                    <li>Air mineral</li>
+                </ul>
+
+                <button type="button"
+                        class="booking-btn"
+                        data-paket="Paket Reguler"
+                        data-harga="150000">
+
+                    ▣ &nbsp; Pesan Sekarang
+
+                </button>
+
+            </article>
+
+
+            <!-- PAKET KELUARGA -->
+            <article class="package-card featured-card">
+
+                <span class="popular-badge">
+                    Paling Populer
+                </span>
+
+                <h2>Paket Keluarga</h2>
+
+                <p class="package-desc">
+                    Paket terbaik untuk keluarga besar
+                </p>
+
+                <p class="price">Rp 350.000</p>
+
+                <p class="duration">
+                    per saung / 6 jam
+                </p>
+
+                <ul class="features">
+                    <li>Saung Keluarga (kapasitas 15 orang)</li>
+                    <li>Welcome drink untuk semua</li>
+                    <li>Akses playground anak</li>
+                    <li>Sound system</li>
+                    <li>Wifi gratis</li>
+                    <li>Parkir gratis</li>
+                    <li>Dokumentasi gratis (10 foto)</li>
+                </ul>
+
+                <button type="button"
+                        class="booking-btn"
+                        data-paket="Paket Keluarga"
+                        data-harga="350000">
+
+                    ▣ &nbsp; Pesan Sekarang
+
+                </button>
+
+            </article>
+
+
+            <!-- PAKET ACARA / GATHERING -->
+            <article class="package-card">
+
+                <h2>Paket Acara / Gathering</h2>
+
+                <p class="package-desc">
+                    Ideal untuk acara kantor atau
+                    gathering komunitas
+                </p>
+
+                <p class="price">Rp 750.000</p>
+
+                <p class="duration">
+                    per saung / 8 jam
+                </p>
+
+                <ul class="features">
+                    <li>Saung VIP (kapasitas 20–30 orang)</li>
+                    <li>Dekorasi sederhana</li>
+                    <li>Sound system profesional</li>
+                    <li>Proyektor &amp; layar</li>
+                    <li>Welcome drink &amp; snack</li>
+                    <li>Wifi gratis</li>
+                    <li>Parkir luas</li>
+                    <li>Dokumentasi profesional</li>
+                    <li>Free extra time 1 jam</li>
+                </ul>
+
+                <button type="button"
+                        class="booking-btn"
+                        data-paket="Paket Acara / Gathering"
+                        data-harga="750000">
+
+                    ▣ &nbsp; Pesan Sekarang
+
+                </button>
+
+            </article>
+
+
+            <!-- PAKET ULANG TAHUN -->
+            <article class="package-card">
+
+                <h2>Paket Ulang Tahun</h2>
+
+                <p class="package-desc">
+                    Rayakan momen spesial dengan meriah
+                </p>
+
+                <p class="price">Rp 600.000</p>
+
+                <p class="duration">
+                    per saung / 6 jam
+                </p>
+
+                <ul class="features">
+                    <li>Saung Premium (kapasitas 20 orang)</li>
+                    <li>Dekorasi ulang tahun</li>
+                    <li>Sound system</li>
+                    <li>Welcome drink untuk semua</li>
+                    <li>Kue ulang tahun sederhana</li>
+                    <li>Akses playground</li>
+                    <li>Wifi gratis</li>
+                    <li>Parkir gratis</li>
+                    <li>Dokumentasi (20 foto)</li>
+                    <li>Balon &amp; banner</li>
+                </ul>
+
+                <button type="button"
+                        class="booking-btn"
+                        data-paket="Paket Ulang Tahun"
+                        data-harga="600000">
+
+                    ▣ &nbsp; Pesan Sekarang
+
+                </button>
+
+            </article>
+
+        </section>
+
+
+        <!-- ===================================
+             LAYANAN TAMBAHAN ADD-ONS
+        ==================================== -->
+
+        <section class="addons-section container"
+                 id="fasilitas">
+
+            <h2>Layanan Tambahan (Add-ons)</h2>
+
+            <!-- TEKS KECIL TRANSPARAN -->
+            <p class="addons-hint">
+                Klik untuk memilih • Klik 2x untuk membatalkan add-on
+            </p>
+
+            <div class="addons-box" id="addons">
+
+                <!-- EXTRA TIME -->
+                <button type="button"
+                        class="addon-item"
+                        data-name="Extra Time (per jam)"
+                        data-price="50000"
+                        aria-pressed="false">
+
+                    <span>Extra Time (per jam)</span>
+                    <strong>Rp 50.000</strong>
+
+                </button>
+
+
+                <!-- DEKORASI PREMIUM -->
+                <button type="button"
+                        class="addon-item"
+                        data-name="Dekorasi Premium"
+                        data-price="200000"
+                        aria-pressed="false">
+
+                    <span>Dekorasi Premium</span>
+                    <strong>Rp 200.000</strong>
+
+                </button>
+
+
+                <!-- FOTOGRAFER -->
+                <button type="button"
+                        class="addon-item"
+                        data-name="Fotografer Profesional"
+                        data-price="300000"
+                        aria-pressed="false">
+
+                    <span>Fotografer Profesional</span>
+                    <strong>Rp 300.000</strong>
+
+                </button>
+
+
+                <!-- SOUND SYSTEM -->
+                <button type="button"
+                        class="addon-item"
+                        data-name="Sound System Upgrade"
+                        data-price="150000"
+                        aria-pressed="false">
+
+                    <span>Sound System Upgrade</span>
+                    <strong>Rp 150.000</strong>
+
+                </button>
+
+
+                <!-- PROYEKTOR -->
+                <button type="button"
+                        class="addon-item"
+                        data-name="Proyektor &amp; Layar"
+                        data-price="100000"
+                        aria-pressed="false">
+
+                    <span>Proyektor &amp; Layar</span>
+                    <strong>Rp 100.000</strong>
+
+                </button>
+
+
+                <!-- KATERING -->
+                <button type="button"
+                        class="addon-item"
+                        data-name="Katering (per orang)"
+                        data-price="50000"
+                        data-per-person="true"
+                        aria-pressed="false">
+
+                    <span>Katering (per orang)</span>
+                    <strong>Rp 50.000</strong>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================
+             PETUNJUK DAN CUSTOM BOOKING
+        ==================================== -->
+
+        <section class="info-grid container" id="petunjuk">
+
+            <!-- KOTAK ATURAN BOOKING -->
+            <div class="booking-guide">
+
+                <h2>Petunjuk Booking Saung Hibar</h2>
+
+                <ul>
+
+                    <li>
+                        Harga sewaktu-waktu dapat berubah tanpa
+                        pemberitahuan terlebih dahulu
+                    </li>
+
+                    <li>
+                        Booking minimal H-3 sebelum tanggal kunjungan
+                    </li>
+
+                    <li>
+                        DP minimal 30% dari total harga untuk
+                        konfirmasi booking
+                    </li>
+
+                    <li>
+                        Pembatalan H-3 dikenakan biaya administrasi 20%
+                    </li>
+
+                    <li>
+                        Pembatalan H-1 atau hari H tidak dapat
+                        dikembalikan
+                    </li>
+
+                    <li>
+                        Keterlambatan lebih dari 30 menit akan
+                        mengurangi waktu sewa
+                    </li>
+
+                    <li>
+                        Overtime dikenakan biaya tambahan
+                        Rp 50.000/jam
+                    </li>
+
+                    <li>
+                        Kerusakan fasilitas dikenakan biaya
+                        sesuai kerugian
+                    </li>
+
+                    <li>
+                        Dilarang membawa makanan dan minuman beralkohol
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- KOTAK HUBUNGI CUSTOMER SERVICE -->
+            <div class="custom-wrap">
+
+                <div class="custom-card">
+
+                    <h2>Butuh Paket Custom?</h2>
+
+                    <p>
+                        Hubungi customer service kami
+                        untuk penawaran khusus
+                    </p>
+
+                    <a href="#kontak" class="contact-btn">
+                        Hubungi CS
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ===================================
+         FOOTER
+    ==================================== -->
+
+    <footer class="site-footer" id="kontak">
+
+        <div class="footer-inner container">
+
+            <div class="footer-columns">
+
+                <!-- TENTANG -->
+                <div>
+
+                    <h3>Saung Hibar</h3>
+
+                    <p>
+                        Destinasi wisata keluarga yang
+                        menghadirkan suasana alam yang
+                        tenang, nyaman, dan asri.
+                    </p>
+
+                </div>
+
+
+                <!-- KONTAK -->
+                <div>
+
+                    <h3>Kontak</h3>
+
+                    <p>
+                        Pasir Muncang, Kec. Wanayasa,
+                        Kabupaten Purwakarta,
+                        Jawa Barat 41171
+                    </p>
+
+                    <p>Telepon: Hubungi pengelola</p>
+                    <p>Email: Hubungi pengelola</p>
+
+                </div>
+
+
+                <!-- JAM OPERASIONAL -->
+                <div>
+
+                    <h3>Jam Operasional</h3>
+
+                    <p>Senin – Jumat: 09:00 – 21:00</p>
+                    <p>Sabtu – Minggu: 08:00 – 22:00</p>
+                    <p>Libur Nasional: 08:00 – 22:00</p>
+
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                © 2026 Saung Hibar. All rights reserved.
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ===================================
+         POPUP FORM BOOKING
+    ==================================== -->
+
+    <div class="modal-overlay"
+         id="bookingModal"
+         hidden>
+
+        <section class="booking-modal"
+                 role="dialog"
+                 aria-modal="true"
+                 aria-labelledby="modalTitle">
+
+            <!-- TOMBOL TUTUP -->
+            <button type="button"
+                    class="modal-close"
+                    id="closeModal"
+                    aria-label="Tutup form booking">
+
+                &times;
+
+            </button>
+
+
+            <h2 id="modalTitle">Form Booking</h2>
+
+            <p class="modal-subtitle">
+                Isi data untuk membuat ringkasan pemesanan.
+            </p>
+
+
+            <form id="bookingForm">
+
+                <!-- NAMA PAKET -->
+                <div class="form-field">
+
+                    <label for="selectedPackage">
+                        Paket yang Dipilih
+                    </label>
+
+                    <input type="text"
+                           id="selectedPackage"
+                           readonly>
+
+                </div>
+
+
+                <!-- NAMA PEMESAN -->
+                <div class="form-field">
+
+                    <label for="guestName">
+                        Nama Pemesan
+                    </label>
+
+                    <input type="text"
+                           id="guestName"
+                           placeholder="Masukkan nama Anda"
+                           required>
+
+                </div>
+
+
+                <!-- TANGGAL DAN JUMLAH TAMU -->
+                <div class="form-row">
+
+                    <div class="form-field">
+
+                        <label for="bookingDate">
+                            Tanggal Kunjungan
+                        </label>
+
+                        <input type="date"
+                               id="bookingDate"
+                               required>
+
+                    </div>
+
+
+                    <div class="form-field">
+
+                        <label for="guestCount">
+                            Jumlah Orang
+                        </label>
+
+                        <input type="number"
+                               id="guestCount"
+                               min="1"
+                               value="1"
+                               required>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ADD-ONS YANG DIPILIH -->
+                <div class="form-field">
+
+                    <label>
+                        Layanan Tambahan Dipilih
+                    </label>
+
+                    <div class="modal-addon-summary"
+                         id="modalAddonSummary">
+
+                        Belum ada add-on dipilih
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL HARGA -->
+                <div class="total-row">
+
+                    <span>Estimasi Total</span>
+
+                    <strong id="totalPrice">
+                        Rp 0
+                    </strong>
+
+                </div>
+
+
+                <!-- TOMBOL SUBMIT -->
+                <button type="submit" class="submit-btn">
+
+                    Buat Ringkasan Booking
+
+                </button>
+
+                <p class="form-note">
+                    Demo front-end, belum terhubung ke
+                    sistem reservasi atau pembayaran.
+                </p>
+
+
+                <!-- HASIL PEMESANAN -->
+                <div class="booking-result"
+                     id="bookingResult"
+                     role="status"
+                     aria-live="polite"
+                     hidden>
+                </div>
+
+            </form>
+
+        </section>
+
+    </div>
+
+</body>
+</html>
