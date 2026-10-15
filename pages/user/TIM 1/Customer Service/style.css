@@ -1,0 +1,357 @@
+/* ============================================================
+   Saung Hibar - Customer Service (CSS untuk halaman ini saja)
+   Warna dan ukuran dapat disesuaikan lewat variabel di .sh-cs
+   ============================================================ */
+.sh-cs {
+  --sh-cs-green: #2d5016;
+  --sh-cs-green-dark: #2a4a16;
+  --sh-cs-whatsapp: #04b347;
+  --sh-cs-background: #faf9f6;
+  --sh-cs-text: #34231d;
+  --sh-cs-muted: #847064;
+  --sh-cs-border: #e9e5df;
+  --sh-cs-input: #e7f4e9;
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, "Segoe UI", sans-serif;
+  font-size: 14px;
+  color: var(--sh-cs-text);
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.sh-cs, .sh-cs *, .sh-cs *::before, .sh-cs *::after { box-sizing: border-box; }
+.sh-cs h1, .sh-cs h2, .sh-cs h3, .sh-cs p, .sh-cs dl, .sh-cs dd { margin: 0; }
+.sh-cs a { text-decoration: none; color: inherit; }
+.sh-cs button, .sh-cs input, .sh-cs textarea { font: inherit; }
+.sh-cs button { cursor: pointer; }
+.sh-cs a:focus-visible, .sh-cs button:focus-visible,
+.sh-cs input:focus-visible, .sh-cs textarea:focus-visible {
+  outline: 3px solid #a7ce7d;
+  outline-offset: 2px;
+}
+.sh-cs__sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+.sh-cs__icon {
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+  vertical-align: middle;
+}
+.sh-cs__container, .sh-cs__footer-inner {
+  width: min(1120px, calc(100% - 40px));
+  margin-inline: auto;
+}
+/* Top bar dan menu navigasi */
+.sh-cs__header { position: relative; z-index: 10; background: #fff; }
+.sh-cs__topbar { border-bottom: 1px solid #eeeae5; }
+.sh-cs__topbar-inner {
+  min-height: 23px;
+  padding-inline: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  color: #766453;
+  font-size: 10px;
+}
+.sh-cs__topbar-left, .sh-cs__topbar-left a,
+.sh-cs__topbar-location { display: flex; align-items: center; gap: 6px; }
+.sh-cs__topbar-left { gap: 17px; }
+.sh-cs__topbar .sh-cs__icon { width: 12px; height: 12px; }
+.sh-cs__topbar a:hover { text-decoration: underline; }
+.sh-cs__navbar {
+  width: min(1400px, calc(100% - 38px));
+  min-height: 63px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.sh-cs__brand { display: inline-flex; align-items: center; flex-shrink: 0; }
+.sh-cs__brand img { display: block; width: 136px; height: 44px; object-fit: contain; }
+.sh-cs__nav { display: flex; align-items: center; justify-content: flex-end; gap: 4px; }
+.sh-cs__nav a {
+  padding: 11px 10px;
+  border-radius: 7px;
+  font-size: 12px;
+  white-space: nowrap;
+  color: #382b24;
+  transition: background .2s ease, color .2s ease;
+}
+.sh-cs__nav a:hover { background: #edf4e9; color: var(--sh-cs-green); }
+.sh-cs__nav a.sh-cs__nav-active {
+  color: #fff;
+  background: var(--sh-cs-green);
+}
+.sh-cs__menu-toggle { display: none; }
+
+/* Latar halaman dan judul */
+.sh-cs__main {
+  background: var(--sh-cs-background);
+  padding: 18px 0 64px;
+  min-height: 775px;
+}
+.sh-cs__page-heading { text-align: center; margin-bottom: 36px; }
+.sh-cs__page-heading h1 {
+  font-size: 28px;
+  line-height: 1.3;
+  letter-spacing: -.5px;
+  font-weight: 750;
+}
+.sh-cs__page-heading p {
+  margin-top: 8px;
+  color: var(--sh-cs-muted);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Layout utama, dua kolom pada desktop */
+.sh-cs__layout { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.sh-cs__column { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.sh-cs__card {
+  border: 1px solid var(--sh-cs-border);
+  border-radius: 12px;
+  background: #fff;
+  padding: 18px;
+}
+.sh-cs__card-header h2, .sh-cs__faq h2 { font-size: 13px; line-height: 1.3; font-weight: 500; }
+.sh-cs__card-header p { font-size: 11px; color: var(--sh-cs-muted); line-height: 1.6; margin-top: 5px; }
+
+/* Kartu Hubungi Kami */
+.sh-cs__contact-items { display: grid; gap: 11px; margin-top: 18px; }
+.sh-cs__contact-item {
+  border: 1px solid #e9e4df;
+  border-radius: 9px;
+  padding: 12px;
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  min-height: 88px;
+}
+.sh-cs__contact-item:first-child { min-height: 101px; }
+.sh-cs__contact-icon {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+.sh-cs__contact-icon .sh-cs__icon { width: 21px; height: 21px; }
+.sh-cs__contact-icon--whatsapp { color: #00a83f; background: #d9fbe6; }
+.sh-cs__contact-icon--phone { color: #496b34; background: #eaf0e4; }
+.sh-cs__contact-icon--email { color: #957244; background: #f2eee9; }
+.sh-cs__contact-detail { min-width: 0; }
+.sh-cs__contact-detail h3 { font-size: 13px; font-weight: 500; line-height: 1.4; }
+.sh-cs__contact-detail p { margin-top: 4px; font-size: 11px; color: var(--sh-cs-muted); line-height: 1.35; }
+.sh-cs__contact-link { display: inline-block; margin-top: 8px; font-size: 11px; color: var(--sh-cs-green) !important; overflow-wrap: anywhere; }
+.sh-cs__contact-link:hover { text-decoration: underline; }
+.sh-cs__whatsapp-button {
+  margin-top: 9px;
+  min-height: 31px;
+  padding: 7px 13px;
+  border: 0;
+  border-radius: 7px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: white;
+  background: var(--sh-cs-whatsapp);
+  font-size: 11px;
+  transition: background .2s ease;
+}
+.sh-cs__whatsapp-button:hover { background: #008f35; }
+.sh-cs__whatsapp-button .sh-cs__icon { width: 14px; height: 14px; }
+.sh-cs__whatsapp-status, .sh-cs__form-status {
+  margin-top: 11px !important;
+  color: #745419;
+  background: #fff4d6;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+.sh-cs [hidden] { display: none !important; }
+
+/* Jam operasional */
+.sh-cs__hours h2 { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 500; }
+.sh-cs__hours h2 .sh-cs__icon { width: 17px; height: 17px; }
+.sh-cs .sh-cs__hours-list { display: grid; gap: 13px; margin-top: 24px; }
+.sh-cs__hours-list > div { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; font-size: 11px; }
+.sh-cs__hours-list dt { color: var(--sh-cs-muted); }
+.sh-cs__hours-list dd { text-align: right; white-space: nowrap; }
+.sh-cs__hours-tip {
+  margin-top: 14px !important;
+  padding: 10px 12px;
+  min-height: 32px;
+  border-radius: 7px;
+  display: flex; align-items: center; gap: 7px;
+  background: #e5f5e8;
+  color: #736859;
+  font-size: 10px;
+  line-height: 1.5;
+}
+.sh-cs__hours-tip .sh-cs__icon { width: 13px; height: 13px; color: #73b185; }
+
+/* Form kirim pesan */
+.sh-cs__form { margin-top: 17px; display: grid; gap: 17px; }
+.sh-cs__field { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.sh-cs__field label { font-size: 11px; font-weight: 500; }
+.sh-cs__field input, .sh-cs__field textarea {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: var(--sh-cs-input);
+  color: var(--sh-cs-text);
+  outline: none;
+  padding: 9px 12px;
+  font-size: 11px;
+}
+.sh-cs__field input { width: min(100%, 205px); min-height: 29px; }
+.sh-cs__field textarea { width: 100%; min-height: 49px; resize: vertical; }
+.sh-cs__field input::placeholder, .sh-cs__field textarea::placeholder { color: #a3afa1; }
+.sh-cs__field input:focus, .sh-cs__field textarea:focus { border-color: #87ba89; background: #eff9ef; }
+.sh-cs__field input:focus-visible, .sh-cs__field textarea:focus-visible { outline: 2px solid #99c49d; outline-offset: 1px; }
+.sh-cs__submit {
+  background: var(--sh-cs-green);
+  color: white;
+  border: 0;
+  border-radius: 7px;
+  min-height: 32px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  font-size: 11px;
+  transition: background .2s ease;
+}
+.sh-cs__submit .sh-cs__icon { width: 14px; height: 14px; }
+.sh-cs__submit:hover { background: #3e6821; }
+
+/* Pertanyaan Umum */
+.sh-cs__faq p { color: var(--sh-cs-muted); font-size: 11px; line-height: 1.6; margin: 15px 0 11px; }
+.sh-cs__faq-link {
+  display: flex;
+  min-height: 29px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #e7e0d7;
+  border-radius: 6px;
+  background: var(--sh-cs-background);
+  font-size: 11px;
+}
+.sh-cs__faq-link:hover { background: #edece7; }
+
+/* Tombol WhatsApp di pojok layar */
+.sh-cs__floating-whatsapp {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 30;
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--sh-cs-whatsapp);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,.12);
+  transition: transform .2s ease;
+}
+.sh-cs__floating-whatsapp:hover { transform: translateY(-3px); }
+.sh-cs__floating-whatsapp .sh-cs__icon { width: 23px; height: 23px; }
+
+/* Footer */
+.sh-cs__footer { background: var(--sh-cs-green-dark); color: #fff; padding: 38px 0 27px; }
+.sh-cs__footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 53px; padding-bottom: 30px; }
+.sh-cs__footer-grid h2 { font-size: 13px; font-weight: 600; margin-bottom: 17px; }
+.sh-cs__footer-grid p, .sh-cs__footer-grid a { font-size: 11px; color: #c5d1b9; line-height: 1.7; }
+.sh-cs__footer-grid p + p { margin-top: 8px; }
+.sh-cs__footer-grid a:hover { color: #fff; text-decoration: underline; }
+.sh-cs__footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  padding-top: 25px;
+  text-align: center;
+  color: #bdcbb1;
+  font-size: 11px;
+}
+
+/* Tablet: menu mobile dan kartu tetap dua kolom jika cukup ruang */
+@media (max-width: 1100px) {
+  .sh-cs__navbar { min-height: 62px; }
+  .sh-cs__menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--sh-cs-border);
+    border-radius: 9px;
+    background: #fff;
+    color: var(--sh-cs-green);
+    margin-left: auto;
+  }
+  .sh-cs__menu-toggle .sh-cs__icon { width: 23px; height: 23px; }
+  .sh-cs__close-icon { display: none; }
+  .sh-cs__menu-toggle[aria-expanded="true"] .sh-cs__menu-icon { display: none; }
+  .sh-cs__menu-toggle[aria-expanded="true"] .sh-cs__close-icon { display: inline; }
+  .sh-cs__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #fff;
+    border-top: 1px solid var(--sh-cs-border);
+    box-shadow: 0 12px 20px rgba(0,0,0,.11);
+    padding: 9px 22px 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1px;
+    max-height: calc(100dvh - 80px);
+    overflow-y: auto;
+  }
+  .sh-cs__nav.sh-cs__nav--open { display: flex; }
+  .sh-cs__nav a { padding: 13px 14px; font-size: 14px; }
+}
+@media (max-width: 800px) {
+  .sh-cs__container, .sh-cs__footer-inner { width: min(100% - 36px, 640px); }
+  .sh-cs__main { min-height: 0; padding: 30px 0 48px; }
+  .sh-cs__layout { grid-template-columns: minmax(0,1fr); gap: 18px; }
+  .sh-cs__page-heading { margin-bottom: 27px; }
+  .sh-cs__contact-item:first-child { min-height: 101px; }
+  .sh-cs__footer-grid { gap: 30px; }
+}
+@media (max-width: 520px) {
+  .sh-cs__topbar-inner { padding: 8px 16px; min-height: 30px; }
+  .sh-cs__topbar-left { gap: 10px; flex-wrap: wrap; }
+  .sh-cs__topbar-left a { font-size: 10px; }
+  .sh-cs__topbar-location { display: none; }
+  .sh-cs__navbar { width: calc(100% - 26px); }
+  .sh-cs__brand img { width: 125px; height: 40px; }
+  .sh-cs__page-heading h1 { font-size: 25px; }
+  .sh-cs__page-heading p { font-size: 12px; }
+  .sh-cs__card { padding: 16px; }
+  .sh-cs__field input { width: 100%; min-height: 43px; }
+  .sh-cs__field textarea { min-height: 80px; }
+  .sh-cs__submit, .sh-cs__faq-link { min-height: 44px; }
+  .sh-cs__whatsapp-button { min-height: 40px; }
+  .sh-cs__footer { padding: 32px 0 24px; }
+  .sh-cs__footer-grid { grid-template-columns: minmax(0,1fr); gap: 25px; }
+  .sh-cs__footer-grid h2 { margin-bottom: 9px; }
+  .sh-cs__footer-grid p + p { margin-top: 4px; }
+  .sh-cs__floating-whatsapp { right: 15px; bottom: 15px; }
+}
+@media (max-width: 360px) {
+  .sh-cs__contact-item { gap: 9px; padding: 10px; }
+  .sh-cs__contact-icon { width: 34px; height: 34px; }
+  .sh-cs__hours-list > div { font-size: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sh-cs *, .sh-cs *::before, .sh-cs *::after { transition: none !important; }
+}

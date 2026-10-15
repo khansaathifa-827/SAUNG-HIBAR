@@ -2,7 +2,7 @@
 :root {
    --hijau: #2d5016;
   --krem: #fbfcf6;
-  --hijau-tua: #122b01;
+  --hijau-tua: #294915;
   --garis: #e8e4da;
   --teks: #3b2f28;
   --teks-pudar: #7d6e62;
@@ -322,4 +322,25 @@ footer hr {
     display: inline-block;
     margin-top: 4px;
   }
+}
+
+.brand-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #2d4a1e; /* hijau tua, sesuaikan dengan warna di desainmu */
+}
+
+.brand-text small {
+  font-size: 0.6rem;
+  font-weight: 400;
+  color: #6b6b6b;
 }

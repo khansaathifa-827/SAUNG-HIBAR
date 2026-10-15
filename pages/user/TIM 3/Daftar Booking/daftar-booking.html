@@ -1,1 +1,215 @@
 <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Villa - Saung Hibar</title>
+    <link rel="stylesheet" href="daftar-booking.css">
+    <!-- Font Awesome untuk Ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+        <div class="logo-container">
+            <!-- SILAKAN MASUKKAN SRC LOGO DI SINI -->
+            <img src="" alt="Logo Saung Hibar" class="logo-img">
+            <div class="logo-text">
+                <h2>Saung Hibar</h2>
+                <span>WISATA KELUARGA</span>
+            </div>
+        </div>
+        <div class="user-profile">
+            <!-- SILAKAN MASUKKAN SRC FOTO PROFIL/AVATAR DI SINI -->
+            <img src="" alt="Avatar Admin" class="avatar-img">
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        
+        <!-- Header Halaman -->
+        <div class="page-header">
+            <button id="btn-back" class="btn-back">
+                <i class="fas fa-chevron-left"></i> Booking Villa
+            </button>
+            <p class="subtitle">Kelola semua data pemesanan villa di Saung Hibar</p>
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Cari nama pemesan, kode booking, atau villa...">
+        </div>
+
+        <!-- Tabs Filter -->
+        <div class="tabs-container">
+            <button class="tab active" data-filter="semua">Semua <span class="badge">8</span></button>
+            <button class="tab" data-filter="hari-ini">Hari Ini <span class="badge">3</span></button>
+            <button class="tab" data-filter="mendatang">Mendatang <span class="badge">5</span></button>
+        </div>
+
+        <!-- Daftar Booking Cards -->
+        <div class="booking-list">
+            
+            <!-- Card 1 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP11001</span>
+                    <span class="status lunas">Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Alya Fitriani</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> A01</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 4 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 2 Okt - 4 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP85390</span>
+                    <span class="status belum-lunas">Belum Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Kelsya Zakiyah</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> A05</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 4 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 5 Okt - 7 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP11002</span>
+                    <span class="status lunas">Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Niken Hasani</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> B04</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 9 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 2 Okt - 4 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP85395</span>
+                    <span class="status lunas">Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Fakhrul Hadzhuddin</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> A01</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 2 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 9 Okt - 10 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP85593</span>
+                    <span class="status belum-lunas">Belum Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Desta Permasa</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> A01</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 13 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 20 Okt - 23 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP85591</span>
+                    <span class="status belum-lunas">Belum Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Salman Alfarizie</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> A02</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 5 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 20 Okt - 21 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP86337</span>
+                    <span class="status lunas">Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Byas Ismail</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> B02</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 2 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 9 Okt - 10 Okt 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="booking-card">
+                <div class="card-header">
+                    <span class="booking-id">SHP87395</span>
+                    <span class="status lunas">Lunas</span>
+                </div>
+                <div class="card-body">
+                    <h4>Nadia Az-Zahra</h4>
+                    <div class="info-grid">
+                        <span class="info-item"><i class="fas fa-home"></i> B04</span>
+                        <span class="info-item"><i class="fas fa-user-friends"></i> 8 Orang</span>
+                        <span class="info-item full-width"><i class="far fa-calendar-alt"></i> 30 Okt - 1 Nov 2026</span>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn-detail">Lihat Detail <i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="daftar-booking.js"></script>
+</body>
+</html>

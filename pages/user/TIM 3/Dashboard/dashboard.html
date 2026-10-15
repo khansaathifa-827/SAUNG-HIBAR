@@ -3,329 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saung Hibar - Admin Dashboard</title>
-    
-    <!-- Google Fonts & FontAwesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Dashboard Admin - Saung Hibar</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome untuk Ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        /* ==========================================
-           1. VARIABEL & RESET GLOBAL
-           ========================================== */
-        :root {
-            --primary-green: #2c5e31;
-            --primary-green-hover: #234b27;
-            --bg-white: #ffffff;
-            --bg-gray: #f4f6f8;
-            --text-dark: #333333;
-            --text-gray: #777777;
-            --border-color: #e2e8f0;
-            --border-radius: 12px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-gray);
-            color: var(--text-dark);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ==========================================
-           2. HEADER DASHBOARD
-           ========================================== */
-        .dashboard-header {
-            background: var(--bg-white);
-            padding: 15px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid var(--border-color);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-
-        .header-logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: var(--text-dark);
-        }
-
-        .header-logo i {
-            color: #d4a373;
-            font-size: 20px;
-        }
-
-        .header-logo-text {
-            line-height: 1.2;
-        }
-
-        .header-logo-title {
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .header-logo-subtitle {
-            font-size: 9px;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        .btn-logout {
-            background: none;
-            border: none;
-            color: var(--text-gray);
-            cursor: pointer;
-            font-size: 13px;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            transition: color 0.2s ease;
-        }
-
-        .btn-logout:hover {
-            color: #d32f2f;
-        }
-
-        /* ==========================================
-           3. KONTAINER UTAMA DASHBOARD
-           ========================================== */
-        .dashboard-container {
-            max-width: 1200px;
-            width: 100%;
-            margin: 0 auto;
-            padding: 25px 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .welcome-text h2 {
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--text-dark);
-        }
-
-        .welcome-text p {
-            font-size: 13px;
-            color: var(--text-gray);
-            margin-top: 4px;
-        }
-
-        .date-badge {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            padding: 10px 18px;
-            border-radius: 8px;
-            font-size: 12px;
-            color: var(--text-gray);
-            display: inline-block;
-            align-self: flex-start;
-            font-weight: 500;
-        }
-
-        /* ==========================================
-           4. GRID KARTU STATISTIK
-           ========================================== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            width: 100%;
-        }
-
-        .stat-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-        }
-
-        .stat-card h3 {
-            font-size: 13px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 10px;
-        }
-
-        .stat-card .value {
-            font-size: 32px;
-            font-weight: 700;
-            color: var(--primary-green);
-        }
-
-        /* ==========================================
-           5. LAYOUT GRID UTAMA (MENU & GRAFIK)
-           ========================================== */
-        .dashboard-main-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        /* Daftar Menu Utama */
-        .menu-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .menu-item {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 18px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-
-        .menu-item:hover {
-            border-color: var(--primary-green);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-        }
-
-        .menu-item-text h4 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 2px;
-        }
-
-        .menu-item-text p {
-            font-size: 12px;
-            color: var(--text-gray);
-        }
-
-        .menu-item i {
-            color: var(--primary-green);
-            font-size: 14px;
-        }
-
-        /* Kartu Area Grafik */
-        .chart-card {
-            background: var(--bg-white);
-            border: 1px solid var(--border-color);
-            border-radius: var(--border-radius);
-            padding: 20px;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .chart-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .chart-header h3 {
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-dark);
-        }
-
-        .chart-legends {
-            display: flex;
-            gap: 12px;
-            font-size: 11px;
-            color: var(--text-gray);
-        }
-
-        .legend-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .legend-item::before {
-            content: "";
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--primary-green);
-        }
-
-        .chart-placeholder {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #cbd5e1;
-            font-size: 13px;
-            border: 2px dashed #f1f5f9;
-            border-radius: 8px;
-            margin-top: 10px;
-        }
-
-        /* ==========================================
-           6. RESPONSIVE BREAKPOINT (TABLET/DESKTOP)
-           ========================================== */
-        @media (min-width: 768px) {
-            .dashboard-main-grid {
-                grid-template-columns: 1fr 1.2fr;
-            }
-        }
-    </style>
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Header Navigation Bar -->
-    <header class="dashboard-header">
-        <div class="header-logo">
-            <i class="fa-solid fa-tree"></i>
-            <div class="header-logo-text">
-                <div class="header-logo-title">Saung Hibar</div>
-                <div class="header-logo-subtitle">WISATA KELUARGA</div>
+    <!-- TOPBAR / HEADER -->
+    <header class="topbar">
+        <div class="logo">
+            <h2>Saung Hibar</h2>
+            <span>WISATA KELUARGA</span>
+        </div>
+        <div class="page-title">
+            Dashboard Admin
+        </div>
+        <div class="user-profile">
+            <div class="avatar">
+                <i class="fas fa-user"></i>
             </div>
         </div>
-        <button class="btn-logout" onclick="handleLogout()">
-            <i class="fa-solid fa-right-from-bracket"></i> Keluar
-        </button>
     </header>
 
-    <!-- Kontainer Utama -->
-    <main class="dashboard-container">
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
         
-        <!-- Welcome Banner -->
-        <section class="welcome-text">
-            <h2>Dashboard Admin</h2>
-            <p>Halo Admin, berikut ringkasan aktivitas terbaru di Saung Hibar.</p>
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <div class="welcome-text">
+                <h2>Selamat datang,<br>Halo Admin!</h2>
+                <p>Berikut ringkasan aktivitas terbaru di Saung Hibar.</p>
+            </div>
+            <div class="date-badge">
+                <i class="far fa-calendar-alt"></i> Senin, 5 Oktober 2026
+            </div>
         </section>
 
-        <!-- Dynamic Date Badge -->
-        <div class="date-badge" id="currentDate">
-            Memuat tanggal...
-        </div>
-
-        <!-- Kartu Ringkasan Statistik -->
+        <!-- Stats Section -->
         <section class="stats-grid">
             <div class="stat-card">
                 <h3>Booking Hari Ini</h3>
@@ -335,81 +52,135 @@
                 <h3>Booking Mendatang</h3>
                 <div class="value">15</div>
             </div>
-            <div class="stat-card">
-                <h3>Total Tamu Aktif</h3>
-                <div class="value">32</div>
-            </div>
         </section>
 
-        <!-- Grid Menu & Chart -->
-        <section class="dashboard-main-grid">
-            
-            <!-- Menu Navigasi Admin -->
-            <div class="menu-list">
-                <div class="menu-item" onclick="navigateTo('booking-villa')">
-                    <div class="menu-item-text">
+        <!-- Operational Menu Section -->
+        <section class="operational-section">
+            <h3 class="section-title">Kelola Operasional</h3>
+            <div class="menu-grid">
+                <!-- Card 1: Booking Villa -->
+                <div class="menu-card" id="menu-booking">
+                    <div class="icon-box"><i class="fas fa-home"></i></div>
+                    <div class="menu-details">
                         <h4>Booking Villa</h4>
                         <p>Cek ketersediaan & monitor tamu</p>
                     </div>
-                    <i class="fa-solid fa-chevron-right"></i>
-                </div>
-                
-                <div class="menu-item" onclick="navigateTo('pesanan-makanan')">
-                    <div class="menu-item-text">
-                        <h4>Pesanan Makanan</h4>
-                        <p>Monitor pesanan makanan tamu</p>
-                    </div>
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
                 </div>
 
-                <div class="menu-item" onclick="navigateTo('cek-inventaris')">
-                    <div class="menu-item-text">
-                        <h4>Cek Inventaris</h4>
-                        <p>Lihat stok & kelola inventaris</p>
+                <!-- Card 2: Kelola Pesanan -->
+                <div class="menu-card">
+                    <div class="icon-box"><i class="fas fa-utensils"></i></div>
+                    <div class="menu-details">
+                        <h4>Kelola Pesanan</h4>
+                        <p>Monitor pesanan menu tamu</p>
                     </div>
-                    <i class="fa-solid fa-chevron-right"></i>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <!-- Card 3: Kelola Menu -->
+                <div class="menu-card">
+                    <div class="icon-box"><i class="fas fa-book-open"></i></div>
+                    <div class="menu-details">
+                        <h4>Kelola Menu</h4>
+                        <p>Kelola menu makanan dan minuman</p>
+                    </div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <!-- Card 4: Stok/Inventaris -->
+                <div class="menu-card">
+                    <div class="icon-box"><i class="fas fa-boxes"></i></div>
+                    <div class="menu-details">
+                        <h4>Stok/Inventaris</h4>
+                        <p>Lihat stok dan kelola inventaris</p>
+                    </div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <!-- Card 5: Kelola Area dan Villa -->
+                <div class="menu-card">
+                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
+                    <div class="menu-details">
+                        <h4>Kelola Area dan Villa</h4>
+                        <p>Atur area, kapasitas, dan ketersediaan</p>
+                    </div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                </div>
+
+                <!-- Card 6: Laporan -->
+                <div class="menu-card">
+                    <div class="icon-box"><i class="fas fa-chart-bar"></i></div>
+                    <div class="menu-details">
+                        <h4>Laporan</h4>
+                        <p>Pantau rekap reservasi dan transaksi</p>
+                    </div>
+                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
                 </div>
             </div>
+        </section>
 
-            <!-- Kartu Visualisasi Grafik -->
-            <div class="chart-card">
-                <div class="chart-header">
-                    <h3>Tren Booking (Per 30 Hari Terakhir)</h3>
-                    <div class="chart-legends">
-                        <div class="legend-item">Villa</div>
-                        <div class="legend-item">Makanan</div>
-                    </div>
-                </div>
-                <div class="chart-placeholder">
-                    [ Area Grafik Chart.js ]
+        <!-- Chart Section -->
+        <section class="chart-section">
+            <div class="chart-header">
+                <h3>Tren Booking <span>30 hari terakhir</span></h3>
+                <div class="chart-legend">
+                    <span class="legend-item"><div class="box villa"></div> Villa</span>
+                    <span class="legend-item"><div class="box makanan"></div> Makanan</span>
                 </div>
             </div>
-
+            
+            <div class="chart-container">
+                <!-- Y-Axis -->
+                <div class="y-axis">
+                    <span>30</span>
+                    <span>20</span>
+                    <span>15</span>
+                    <span>10</span>
+                    <span>5</span>
+                    <span>0</span>
+                </div>
+                <!-- Bars Area -->
+                <div class="bars-area">
+                    <!-- Sep -->
+                    <div class="bar-group">
+                        <div class="bar villa" style="height: 40%;"></div>
+                        <div class="bar makanan" style="height: 20%;"></div>
+                    </div>
+                    <!-- Okt -->
+                    <div class="bar-group">
+                        <div class="bar villa" style="height: 60%;"></div>
+                        <div class="bar makanan" style="height: 40%;"></div>
+                    </div>
+                    <!-- Nov -->
+                    <div class="bar-group">
+                        <div class="bar villa" style="height: 30%;"></div>
+                        <div class="bar makanan" style="height: 50%;"></div>
+                    </div>
+                    <!-- Des -->
+                    <div class="bar-group">
+                        <div class="bar villa" style="height: 80%;"></div>
+                        <div class="bar makanan" style="height: 70%;"></div>
+                    </div>
+                    <!-- Jan -->
+                    <div class="bar-group">
+                        <div class="bar villa" style="height: 50%;"></div>
+                        <div class="bar makanan" style="height: 60%;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- X-Axis -->
+            <div class="x-axis">
+                <span>Sep</span>
+                <span>Okt</span>
+                <span>Nov</span>
+                <span>Des</span>
+                <span>Jan</span>
+            </div>
         </section>
 
     </main>
 
-    <script>
-        // Set tanggal otomatis bahasa Indonesia
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateElement = document.getElementById('currentDate');
-            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-            const today = new Date();
-            dateElement.innerText = today.toLocaleDateString('id-ID', options);
-        });
-
-        // Handler Navigasi Menu
-        function navigateTo(targetRoute) {
-            console.log('Membuka menu:', targetRoute);
-            // Tambahkan logika navigasi/routing Anda di sini
-        }
-
-        // Handler Logout
-        function handleLogout() {
-            if (confirm('Apakah Anda yakin ingin keluar?')) {
-                window.location.href = 'login.html'; // Sesuaikan URL halaman login Anda
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
