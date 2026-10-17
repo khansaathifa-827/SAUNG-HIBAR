@@ -1,0 +1,289 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fdfcf8;
+    color: #222;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 8px 0;
+}
+
+.brand-logo {
+    height: 32px;
+    width: auto;
+    max-width: 48px;
+    object-fit: contain;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+    font-size: 14px;
+    font-weight: 700;
+    color: #1b3a0f;
+}
+
+.brand-text small {
+    font-size: 10px;
+    font-weight: 400;
+    color: #777;
+}
+
+.navbar-nav .nav-link {
+    color: #222;
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 5px;
+    white-space: nowrap;
+}
+
+.navbar-nav .nav-link:hover {
+    background-color: #eef3ea;
+}
+
+.navbar-nav .nav-link.active-menu {
+    background-color: #2d5016;
+    color: #ffffff;
+}
+
+
+.konten {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.judul {
+    text-align: center;
+    padding: 56px 0 36px;
+}
+
+.judul h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #1b3a0f;
+    margin-bottom: 10px;
+}
+
+.judul p {
+    font-size: 13px;
+    color: #444;
+    margin: 0;
+}
+
+
+.kartu {
+    background-color: #ffffff;
+    border: 1px solid #ece9e0;
+    border-radius: 12px;
+    padding: 22px 24px 20px;
+    height: 100%;
+}
+
+.kartu .label {
+    font-size: 13px;
+    margin: 0 0 22px;
+    color: #333;
+}
+
+.kartu .label i {
+    margin-right: 4px;
+    color: #2d5016;
+}
+
+.kartu .angka {
+    font-size: 32px;
+    font-weight: 700;
+    color: #2b1a10;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.kartu small {
+    display: block;
+    font-size: 11px;
+    color: #777;
+}
+
+.kartu .hijau,
+.kartu .label i.hijau {
+    color: #16a34a;
+}
+
+.kartu .oranye,
+.kartu .label i.oranye {
+    color: #e0710c;
+}
+
+
+.judul-detail {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1b3a0f;
+    margin: 44px 0 18px;
+}
+
+.item {
+    background-color: #ffffff;
+    border: 1px solid #ece9e0;
+    border-radius: 12px;
+    padding: 16px 22px 18px;
+    margin-bottom: 14px;
+}
+
+.item-atas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.item h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0;
+    color: #222;
+}
+
+.item p {
+    font-size: 12px;
+    color: #666;
+    margin: 3px 0 0;
+}
+
+.item-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #666;
+    margin-bottom: 6px;
+}
+
+.status {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+}
+
+.status i {
+    margin-right: 2px;
+}
+
+.status.tersedia {
+    background-color: #dff3e3;
+    color: #1f7a35;
+}
+
+.status.hampir {
+    background-color: #fdf0c8;
+    color: #a6770b;
+}
+
+.status.penuh {
+    background-color: #fbdada;
+    color: #b32525;
+}
+
+.bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e3e3e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.bar-isi {
+    height: 100%;
+    background-color: #2d5016;
+    border-radius: 10px;
+}
+
+
+.info {
+    background-color: #e6f4e8;
+    border: 1px solid #c8e5cd;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin: 34px 0 64px;
+}
+
+.info h4 {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1b3a0f;
+    margin-bottom: 10px;
+}
+
+.info ul {
+    margin: 0;
+    padding-left: 24px;
+}
+
+.info li {
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 4px;
+}
+
+
+footer {
+    background-color: #2d5016;
+    color: #ffffff;
+    padding: 44px 0 20px;
+}
+
+footer h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+footer p {
+    font-size: 12px;
+    line-height: 1.7;
+    color: #dfe8d8;
+    margin-bottom: 4px;
+}
+
+footer .copyright {
+    border-top: 1px solid #4a6b35;
+    margin-top: 34px;
+    padding-top: 16px;
+    text-align: center;
+    font-size: 11px;
+}
+
+
+@media (max-width: 991px) {
+    .navbar-nav .nav-link {
+        padding: 10px 12px;
+    }
+}
+
+@media (max-width: 767px) {
+    .judul {
+        padding: 36px 0 24px;
+    }
+
+    .judul h1 {
+        font-size: 26px;
+    }
+
+    .item-atas {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .judul-detail {
+        margin-top: 32px;
+    }
+}
