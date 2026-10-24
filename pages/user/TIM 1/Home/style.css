@@ -144,9 +144,127 @@
   justify-content: center;
   isolation: isolate;
   color: #fff;
-  background: #536d4b url("assets/images/home\ image.png") center 76% /
-    cover no-repeat;
+  background: #536d4b;
+  overflow: hidden;
 }
+/* =========================================================
+   HERO SLIDER
+   ========================================================= */
+
+.sh-home__hero-slider {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+}
+
+/* setiap photo */
+.sh-home__hero-slide {
+  position: absolute;
+  inset: 0;
+
+  background-position: center 76%;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transform: scale(1.03);
+
+  transition:
+    opacity 0.8s ease,
+    transform 5s ease;
+}
+
+/* yang aktif */
+.sh-home__hero-slide.is-active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+
+/* =========================
+   button
+   ========================= */
+
+.sh-home__slider-button {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+
+  width: 42px;
+  height: 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.25);
+  color: white;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 22px;
+
+  cursor: pointer;
+
+  transform: translateY(-50%);
+
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+
+.sh-home__slider-button:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.sh-home__slider-button--prev {
+  left: 24px;
+}
+
+.sh-home__slider-button--next {
+  right: 24px;
+}
+
+.sh-home__slider-dots {
+  position: absolute;
+
+  left: 50%;
+  bottom: 70px;
+
+  z-index: 5;
+
+  display: flex;
+  gap: 8px;
+
+  transform: translateX(-50%);
+}
+
+.sh-home__slider-dot {
+  width: 9px;
+  height: 9px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.5);
+
+  cursor: pointer;
+
+  transition:
+    width 0.3s,
+    background 0.3s;
+}
+
+.sh-home__slider-dot.is-active {
+  width: 25px;
+
+  border-radius: 10px;
+
+  background: white;
+}
+
 .sh-home__hero-shade {
   position: absolute;
   inset: 0;
@@ -728,5 +846,31 @@
   .sh-home *::after {
     transition: none !important;
     scroll-behavior: auto !important;
+  }
+}
+
+@media (max-width: 600px) {
+
+  .sh-home__slider-button {
+    width: 36px;
+    height: 36px;
+
+    font-size: 18px;
+  }
+
+  .sh-home__slider-button--prev {
+    left: 10px;
+  }
+
+  .sh-home__slider-button--next {
+    right: 10px;
+  }
+
+  .sh-home__slider-dots {
+    bottom: 78px;
+  }
+
+  .sh-home__hero-slide {
+    background-position: center;
   }
 }
