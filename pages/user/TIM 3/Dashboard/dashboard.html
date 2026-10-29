@@ -3,184 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Admin - Saung Hibar</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome untuk Ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Poppins -->
+    <title>Saung Hibar - Dashboard Admin</title>
+    <!-- Font Poppins & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Style Dashboard -->
+    <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
-
-    <!-- TOPBAR / HEADER -->
-    <header class="topbar">
-        <div class="logo">
-            <h2>Saung Hibar</h2>
-            <span>WISATA KELUARGA</span>
-        </div>
-        <div class="page-title">
-            Dashboard Admin
-        </div>
-        <div class="user-profile">
-            <div class="avatar">
-                <i class="fas fa-user"></i>
-            </div>
-        </div>
-    </header>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
+    <!-- Kontainer Aplikasi Lebar Penuh (Fluid) -->
+    <div class="app-container">
         
-        <!-- Welcome Section -->
-        <section class="welcome-section">
-            <div class="welcome-text">
-                <h2>Selamat datang,<br>Halo Admin!</h2>
-                <p>Berikut ringkasan aktivitas terbaru di Saung Hibar.</p>
+        <!-- HEADER / NAVBAR -->
+        <header class="navbar">
+            <div class="nav-container">
+                <div class="brand">
+                    <img src="../assets/logo.png" alt="Logo Saung Hibar" onerror="this.src='logo.png'">
+                    <div class="brand-text">
+                        <span class="title">Saung Hibar Hillside</span>
+                        <span class="subtitle">MENYENANGKAN & MENENANGKAN</span>
+                    </div>
+                </div>
+                <div class="nav-icons">
+                    <i class="fa-solid fa-bell" id="btnNotification" title="Notifikasi"></i>
+                    <i class="fa-solid fa-bars" id="btnMenu" title="Menu"></i>
+                </div>
             </div>
-            <div class="date-badge">
-                <i class="far fa-calendar-alt"></i> Senin, 5 Oktober 2026
-            </div>
-        </section>
+        </header>
 
-        <!-- Stats Section -->
-        <section class="stats-grid">
-            <div class="stat-card">
-                <h3>Booking Hari Ini</h3>
-                <div class="value">10</div>
-            </div>
-            <div class="stat-card">
-                <h3>Booking Mendatang</h3>
-                <div class="value">15</div>
-            </div>
-        </section>
+        <!-- KONTEN UTAMA -->
+        <main class="main-content">
+            
+            <!-- SAMBUTAN & PEMILIH TANGGAL -->
+            <section class="welcome-section">
+                <p class="greeting">Selamat datang,</p>
+                <h1 class="admin-name">Halo Admin!</h1>
+                <p class="summary-text">Berikut ringkasan aktivitas terbaru di Saung Hibar.</p>
+                
+                <!-- Pemilih Tanggal Fungsional -->
+                <div class="date-selector-pill" id="datePickerBtn">
+                    <i class="fa-regular fa-calendar"></i>
+                    <span id="displayDate">Senin, 5 Oktober 2026</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <input type="date" id="datePickerInput" class="hidden-date-input">
+                </div>
+            </section>
 
-        <!-- Operational Menu Section -->
-        <section class="operational-section">
-            <h3 class="section-title">Kelola Operasional</h3>
-            <div class="menu-grid">
-                <!-- Card 1: Booking Villa -->
-                <div class="menu-card" id="menu-booking">
-                    <div class="icon-box"><i class="fas fa-home"></i></div>
-                    <div class="menu-details">
-                        <h4>Booking Villa</h4>
-                        <p>Cek ketersediaan & monitor tamu</p>
+            <!-- RINGKASAN STATISTIK (Fluid Grid) -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="fa-regular fa-calendar-check stat-icon"></i>
+                        <span>Booking Hari Ini</span>
                     </div>
-                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                    <div class="stat-value" id="statToday">0</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="fa-regular fa-calendar-plus stat-icon"></i>
+                        <span>Mendatang</span>
+                    </div>
+                    <div class="stat-value" id="statUpcoming">0</div>
                 </div>
 
-                <!-- Card 2: Kelola Pesanan -->
-                <div class="menu-card">
-                    <div class="icon-box"><i class="fas fa-utensils"></i></div>
-                    <div class="menu-details">
-                        <h4>Kelola Pesanan</h4>
-                        <p>Monitor pesanan menu tamu</p>
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <i class="fa-solid fa-chart-simple stat-icon"></i>
+                        <span>Total</span>
                     </div>
-                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                    <div class="stat-value" id="statTotal">0</div>
                 </div>
+            </section>
 
-                <!-- Card 3: Kelola Menu -->
-                <div class="menu-card">
-                    <div class="icon-box"><i class="fas fa-book-open"></i></div>
-                    <div class="menu-details">
-                        <h4>Kelola Menu</h4>
-                        <p>Kelola menu makanan dan minuman</p>
+            <!-- KELOLA OPERASIONAL (Fluid Grid) -->
+            <section class="operational-section">
+                <h2 class="section-title">Kelola Operasional</h2>
+                <div class="operational-grid">
+                    <div class="menu-card" id="btnKelolaMenu">
+                        <div class="menu-icon-wrapper">
+                            <i class="fa-solid fa-utensils"></i>
+                        </div>
+                        <div class="menu-text">
+                            <h3>Kelola Menu</h3>
+                            <p>Kelola menu makanan dan minuman</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right chevron-icon"></i>
                     </div>
-                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
 
-                <!-- Card 4: Stok/Inventaris -->
-                <div class="menu-card">
-                    <div class="icon-box"><i class="fas fa-boxes"></i></div>
-                    <div class="menu-details">
-                        <h4>Stok/Inventaris</h4>
-                        <p>Lihat stok dan kelola inventaris</p>
+                    <div class="menu-card" id="btnKelolaArea">
+                        <div class="menu-icon-wrapper">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div class="menu-text">
+                            <h3>Kelola Area dan Villa</h3>
+                            <p>Atur area, kapasitas, dan ketersediaan</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right chevron-icon"></i>
                     </div>
-                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
                 </div>
+            </section>
 
-                <!-- Card 5: Kelola Area dan Villa -->
-                <div class="menu-card">
-                    <div class="icon-box"><i class="fas fa-map-marked-alt"></i></div>
-                    <div class="menu-details">
-                        <h4>Kelola Area dan Villa</h4>
-                        <p>Atur area, kapasitas, dan ketersediaan</p>
+            <!-- GRAFIK PENGUNJUNG -->
+            <section class="chart-section">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <div class="chart-title">
+                            <i class="fa-solid fa-arrow-trend-up"></i>
+                            <h2>Grafik Pengunjung</h2>
+                        </div>
+                        
+                        <!-- Dropdown Bulan -->
+                        <div class="month-select-wrapper">
+                            <select id="selectMonth" class="month-dropdown">
+                                <option value="01">Januari</option>
+                                <option value="02">Februari</option>
+                                <option value="03">Maret</option>
+                                <option value="04">April</option>
+                                <option value="05">Mei</option>
+                                <option value="06">Juni</option>
+                                <option value="07">Juli</option>
+                                <option value="08">Agustus</option>
+                                <option value="09" selected>September</option>
+                                <option value="10">Oktober</option>
+                                <option value="11">November</option>
+                                <option value="12">Desember</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down month-arrow"></i>
+                        </div>
                     </div>
-                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
-                </div>
+                    
+                    <!-- PERBAIKAN SVG: Viewbox diperluas, Font diletakkan di atribut SVG -->
+                    <div class="chart-body">
+                        <svg viewBox="-15 -10 335 175" width="100%" height="100%" class="line-chart">
+                            <!-- Sumbu / Axes -->
+                            <line x1="30" y1="10" x2="30" y2="130" stroke="#999" stroke-width="1.5" stroke-linecap="round" />
+                            <line x1="30" y1="130" x2="290" y2="130" stroke="#999" stroke-width="1.5" stroke-linecap="round" />
+                            
+                            <!-- Grup Teks Axis (Native SVG Font Size agar scaling presisi dan tidak overflow) -->
+                            <g font-family="'Poppins', sans-serif" font-size="11" fill="#666">
+                                <!-- Label Y-Axis -->
+                                <text x="22" y="14" text-anchor="end">100</text>
+                                <text x="22" y="44" text-anchor="end">75</text>
+                                <text x="22" y="74" text-anchor="end">50</text>
+                                <text x="22" y="104" text-anchor="end">20</text>
+                                <text x="22" y="134" text-anchor="end">0</text>
 
-                <!-- Card 6: Laporan -->
-                <div class="menu-card">
-                    <div class="icon-box"><i class="fas fa-chart-bar"></i></div>
-                    <div class="menu-details">
-                        <h4>Laporan</h4>
+                                <!-- Label X-Axis -->
+                                <text x="45" y="150" text-anchor="middle">Minggu 1</text>
+                                <text x="120" y="150" text-anchor="middle">Minggu 2</text>
+                                <text x="195" y="150" text-anchor="middle">Minggu 3</text>
+                                <text x="270" y="150" text-anchor="middle">Minggu 4</text>
+                            </g>
+
+                            <!-- Garis bantu / Ticks Sumbu X -->
+                            <line x1="45" y1="130" x2="45" y2="135" stroke="#999" stroke-width="1.5" />
+                            <line x1="120" y1="130" x2="120" y2="135" stroke="#999" stroke-width="1.5" />
+                            <line x1="195" y1="130" x2="195" y2="135" stroke="#999" stroke-width="1.5" />
+                            <line x1="270" y1="130" x2="270" y2="135" stroke="#999" stroke-width="1.5" />
+
+                            <!-- Data Line Orange -->
+                            <polyline id="lineOrange" points="45,108 120,80 195,85 270,45" fill="none" stroke="#CC6B49" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="45" cy="108" r="3.5" fill="#CC6B49" />
+                            <circle cx="120" cy="80" r="3.5" fill="#CC6B49" />
+                            <circle cx="195" cy="85" r="3.5" fill="#CC6B49" />
+                            <circle cx="270" cy="45" r="3.5" fill="#CC6B49" />
+
+                            <!-- Data Line Green -->
+                            <polyline id="lineGreen" points="45,85 120,60 195,50 270,20" fill="none" stroke="#345e37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <circle cx="45" cy="85" r="3.5" fill="#345e37" />
+                            <circle cx="120" cy="60" r="3.5" fill="#345e37" />
+                            <circle cx="195" cy="50" r="3.5" fill="#345e37" />
+                            <circle cx="270" cy="20" r="3.5" fill="#345e37" />
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <!-- LAPORAN -->
+            <section class="report-section">
+                <div class="menu-card" id="btnLaporan">
+                    <div class="menu-icon-wrapper">
+                        <i class="fa-regular fa-file-lines"></i>
+                    </div>
+                    <div class="menu-text">
+                        <h3>Laporan</h3>
                         <p>Pantau rekap reservasi dan transaksi</p>
                     </div>
-                    <div class="arrow"><i class="fas fa-chevron-right"></i></div>
+                    <i class="fa-solid fa-chevron-right chevron-icon"></i>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Chart Section -->
-        <section class="chart-section">
-            <div class="chart-header">
-                <h3>Tren Booking <span>30 hari terakhir</span></h3>
-                <div class="chart-legend">
-                    <span class="legend-item"><div class="box villa"></div> Villa</span>
-                    <span class="legend-item"><div class="box makanan"></div> Makanan</span>
-                </div>
-            </div>
-            
-            <div class="chart-container">
-                <!-- Y-Axis -->
-                <div class="y-axis">
-                    <span>30</span>
-                    <span>20</span>
-                    <span>15</span>
-                    <span>10</span>
-                    <span>5</span>
-                    <span>0</span>
-                </div>
-                <!-- Bars Area -->
-                <div class="bars-area">
-                    <!-- Sep -->
-                    <div class="bar-group">
-                        <div class="bar villa" style="height: 40%;"></div>
-                        <div class="bar makanan" style="height: 20%;"></div>
-                    </div>
-                    <!-- Okt -->
-                    <div class="bar-group">
-                        <div class="bar villa" style="height: 60%;"></div>
-                        <div class="bar makanan" style="height: 40%;"></div>
-                    </div>
-                    <!-- Nov -->
-                    <div class="bar-group">
-                        <div class="bar villa" style="height: 30%;"></div>
-                        <div class="bar makanan" style="height: 50%;"></div>
-                    </div>
-                    <!-- Des -->
-                    <div class="bar-group">
-                        <div class="bar villa" style="height: 80%;"></div>
-                        <div class="bar makanan" style="height: 70%;"></div>
-                    </div>
-                    <!-- Jan -->
-                    <div class="bar-group">
-                        <div class="bar villa" style="height: 50%;"></div>
-                        <div class="bar makanan" style="height: 60%;"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- X-Axis -->
-            <div class="x-axis">
-                <span>Sep</span>
-                <span>Okt</span>
-                <span>Nov</span>
-                <span>Des</span>
-                <span>Jan</span>
-            </div>
-        </section>
+        </main>
+    </div>
 
-    </main>
-
-    <script src="script.js"></script>
+    <!-- Script Dashboard -->
+    <script src="dashboard.js"></script>
 </body>
 </html>
