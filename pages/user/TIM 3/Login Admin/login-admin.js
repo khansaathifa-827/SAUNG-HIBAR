@@ -1,23 +1,43 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
+document.addEventListener("DOMContentLoaded", function() {
+    
+    // 1. Logika untuk Sembunyikan/Tampilkan Password
+    const togglePassword = document.getElementById("togglePassword");
+    const passwordInput = document.getElementById("password");
 
-    if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
-            // Mencegah halaman reload secara default (perilaku asli form)
-            e.preventDefault(); 
-            
-            const usernameInput = document.getElementById('username').value;
-            const passwordInput = document.getElementById('password').value;
-
-            // Validasi sederhana (pastikan input tidak kosong)
-            if (usernameInput.trim() === "" || passwordInput.trim() === "") {
-                alert("Harap masukkan Username/Email dan Password Anda.");
-                return;
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener("click", function() {
+            // Deteksi tipe input: ubah bolak-balik antara password/text
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                this.classList.replace("fa-eye-slash", "fa-eye");
+            } else {
+                passwordInput.type = "password";
+                this.classList.replace("fa-eye", "fa-eye-slash");
             }
-
-            // Di sini nantinya Anda bisa menambahkan integrasi API/Backend.
-            // Untuk sementara, kita langsung mengarahkan user ke halaman Dashboard
-            window.location.href = '../Dashboard/dashboard.html';
         });
     }
+
+    // 2. Logika Penanganan Submit Form
+    const formLogin = document.getElementById("formLoginAdmin");
+
+    if (formLogin) {
+        formLogin.addEventListener("submit", function(event) {
+            // Mencegah halaman me-refresh ketika tombol ditekan
+            event.preventDefault(); 
+            
+            // Mengalihkan ke Halaman Dashboard secara langsung dalam satu direktori
+            window.location.href = "../Dashboard/dashboard.html";
+        });
+    }
+
+    // 3. Logika Integrasi Ikon Lonceng menuju Halaman Notifikasi
+    const btnNotification = document.getElementById("btnNotification");
+    
+    if (btnNotification) {
+        btnNotification.addEventListener("click", function() {
+            // Navigasi langsung ke notifikasi.html dalam satu direktori
+            window.location.href = "../Notifikasi/notifikasi.html";
+        });
+    }
+
 });

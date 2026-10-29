@@ -3,87 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin - Saung Hibar</title>
-    <link rel="stylesheet" href="login-admin.css">
-    <!-- Font Awesome untuk Ikon -->
+    <title>Saung Hibar - Login Admin</title>
+    <!-- Import Font Lora & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts: Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Hubungkan CSS -->
+    <link rel="stylesheet" href="login-admin.css">
 </head>
 <body>
-
-    <div class="login-wrapper">
-        <!-- Bagian Kiri: Banner & Ilustrasi -->
-        <div class="login-left">
-            <div class="branding">
-                <h1>Saung Hibar</h1>
-                <span class="badge">WISATA KELUARGA</span>
+    
+    <!-- HEADER / NAVBAR (Melebar 100%) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="../assets/logo.png" alt="Logo Saung Hibar" onerror="this.src='logo.png'">
+                <div class="brand-text">
+                    <span class="title">Saung Hibar Hillside</span>
+                    <span class="subtitle">MENYENANGKAN & MENENANGKAN</span>
+                </div>
             </div>
-            <div class="welcome-text">
-                <h2>Selamat Datang<br>Saung Hibar</h2>
-                <p>Destinasi wisata keluarga yang menghadirkan ketenangan alam dan asrinya pedesaan. Tempat terbaik untuk mengukir momen tak terlupakan bersama orang tersayang.</p>
-            </div>
-        </div>
-
-        <!-- Bagian Kanan: Form Login -->
-        <div class="login-right">
-            <div class="login-box">
-                <h3>LOGIN</h3>
-                <form id="loginForm">
-                    <div class="input-group">
-                        <label for="username">Username/Email:</label>
-                        <input type="text" id="username" placeholder="Masukkan username atau email" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="password">Password:</label>
-                        <input type="password" id="password" placeholder="Masukkan password" required>
-                    </div>
-                    <div class="login-options">
-                        <label class="remember-me">
-                            <input type="checkbox" id="remember"> Ingatkan Saya
-                        </label>
-                        <a href="#" class="forgot-pw">Lupa Kata Sandi?</a>
-                    </div>
-                    <button type="submit" class="btn-primary">LOGIN</button>
-                    
-                    <div class="divider">
-                        <span>Atau Login Dengan</span>
-                    </div>
-                    
-                    <div class="social-login">
-                        <button type="button" class="btn-social">
-                            <i class="fab fa-google"></i>
-                        </button>
-                        <button type="button" class="btn-social">
-                            <i class="fab fa-apple"></i>
-                        </button>
-                    </div>
-                </form>
+            <div class="nav-icons">
+                <!-- ID btnNotification ditambahkan agar tombol lonceng fungsional -->
+                <i class="fa-solid fa-bell" id="btnNotification" title="Notifikasi"></i>
+                <i class="fa-solid fa-bars"></i>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Footer -->
-    <footer class="login-footer">
+    <!-- HERO SECTION (Gambar Latar Melebar 100%) -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="font-light">Selamat Datang</span><br>
+                <span class="font-bold">Saung Hibar</span>
+            </h1>
+            <p class="hero-desc">Destinasi wisata keluarga yang menghadirkan ketenangan alam dan asrinya pedesaan. Tempat terbaik untuk mengukir momen tak terlupakan bersama orang tersayang.</p>
+        </div>
+    </section>
+
+    <!-- MAIN KONTEN: FORM LOGIN (Terpusat dengan padding responsif) -->
+    <main class="main-container">
+        <div class="form-wrapper">
+            <h2>LOGIN ADMIN</h2>
+            
+            <form id="formLoginAdmin">
+                <!-- Input Username -->
+                <div class="input-group">
+                    <label for="username">Username/Email:</label>
+                    <input type="text" id="username" required>
+                </div>
+                
+                <!-- Input Password dengan toggle mata -->
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="password" required>
+                        <i class="fa-solid fa-eye-slash toggle-pw" id="togglePassword"></i>
+                    </div>
+                </div>
+
+                <!-- Opsi Tambahan -->
+                <div class="form-options">
+                    <label class="checkbox-container">
+                        <input type="checkbox"> Ingatkan Saya
+                    </label>
+                    <a href="#" class="forgot-pw">Lupa Kata Sandi?</a>
+                </div>
+
+                <!-- Sosmed Login -->
+                <div class="social-login">
+                    <p>Atau Login Dengan:</p>
+                    <div class="social-icons">
+                        <i class="fa-brands fa-google" style="color: #DB4437;"></i>
+                        <i class="fa-brands fa-facebook" style="color: #4267B2;"></i>
+                        <i class="fa-brands fa-apple" style="color: #000000;"></i>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-login">LOGIN</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- FOOTER (Melebar 100%, Grid Multi-Kolom di Desktop) -->
+    <footer class="footer">
         <div class="footer-container">
-            <div class="footer-brand">
-                <h3>Saung Hibar</h3>
-                <p>Destinasi wisata keluarga terbaik di Purwakarta yang menghadirkan suasana alam yang tenang, nyaman, dan asri. Tempat sempurna untuk menciptakan momen berharga bersama keluarga.</p>
+            <div class="footer-about">
+                <div class="footer-brand">
+                    <img src="../assets/logo.png" alt="Logo" class="invert-logo" onerror="this.src='logo.png'">
+                    <span>Saung Hibar</span>
+                </div>
+                <p class="about-desc">Destinasi wisata keluarga terbaik di Purwakarta yang menghadirkan suasana alam yang tenang, nyaman, dan asri. Tempat sempurna untuk menciptakan momen berharga bersama keluarga.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <!-- Hollow Icons -->
+                    <a href="#"><i class="fa-brands fa-facebook-f outline-icon"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter outline-icon"></i></a>
+                </div>
             </div>
+            
             <div class="footer-contact">
-                <h4>Hubungi Kami</h4>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> Pasir muncang, Kec. Wanayasa, Kabupaten Purwakarta, Jawa Barat 41117</li>
-                    <li><i class="fas fa-phone"></i> (+62) 877-4095-4371</li>
-                    <li><i class="fas fa-envelope"></i> saunghibar@gmail.com</li>
-                </ul>
+                <h3>Hubungi Kami</h3>
+                <p>Pasir muncang, Kec. Wanayasa, Kabupaten</p>
+                <p>Purwakarta, Jawa Barat 41117</p>
+                <p>(+62) 877-4095-4371</p>
+                <p>saunghibar@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Saung Hibar. Hak Cipta Dilindungi.</p>
+            <p>© 2026 Saung Hibar. Hak Cipta Dilindungi.</p>
         </div>
     </footer>
 
+    <!-- Hubungkan JavaScript -->
     <script src="login-admin.js"></script>
 </body>
 </html>
