@@ -8,437 +8,299 @@
 
   if (!homePage) return;
 
-
   /* ======================================================
      NAVBAR
      ====================================================== */
 
-  const menuButton = homePage.querySelector(
-    ".sh-home__menu-toggle"
-  );
+  const menuButton = homePage.querySelector(".sh-home__menu-toggle");
 
-  const navMenu = homePage.querySelector(
-    ".sh-home__nav"
-  );
-
+  const navMenu = homePage.querySelector(".sh-home__nav");
 
   function setMenuOpen(isOpen) {
-
     if (!menuButton || !navMenu) return;
 
-    navMenu.classList.toggle(
-      "is-open",
-      isOpen
-    );
+    navMenu.classList.toggle("is-open", isOpen);
 
-    menuButton.setAttribute(
-      "aria-expanded",
-      String(isOpen)
-    );
+    menuButton.setAttribute("aria-expanded", String(isOpen));
 
     menuButton.setAttribute(
       "aria-label",
-      isOpen
-        ? "Tutup menu navigasi"
-        : "Buka menu navigasi"
+      isOpen ? "Tutup menu navigasi" : "Buka menu navigasi",
     );
   }
-
 
   if (menuButton && navMenu) {
-
     // Toggle menu mobile
-    menuButton.addEventListener(
-      "click",
-      () => {
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuButton.getAttribute("aria-expanded") === "true";
 
-        const isOpen =
-          menuButton.getAttribute(
-            "aria-expanded"
-          ) === "true";
-
-        setMenuOpen(!isOpen);
-
-      }
-    );
-
+      setMenuOpen(!isOpen);
+    });
 
     // Tutup menu setelah klik link
-    navMenu
-      .querySelectorAll("a")
-      .forEach((link) => {
-
-        link.addEventListener(
-          "click",
-          () => setMenuOpen(false)
-        );
-
-      });
-
+    navMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setMenuOpen(false));
+    });
 
     // Tombol Escape
-    document.addEventListener(
-      "keydown",
-      (event) => {
-
-        if (
-          event.key === "Escape" &&
-          navMenu.classList.contains("is-open")
-        ) {
-
-          setMenuOpen(false);
-          menuButton.focus();
-
-        }
-
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && navMenu.classList.contains("is-open")) {
+        setMenuOpen(false);
+        menuButton.focus();
       }
-    );
-
+    });
 
     // Klik di luar navbar
-    document.addEventListener(
-      "click",
-      (event) => {
-
-        if (
-          !event.target.closest(
-            ".sh-home__navbar"
-          )
-        ) {
-
-          setMenuOpen(false);
-
-        }
-
+    document.addEventListener("click", (event) => {
+      if (!event.target.closest(".sh-home__navbar")) {
+        setMenuOpen(false);
       }
-    );
-
+    });
 
     // Reset ketika desktop
-    const desktopQuery =
-      window.matchMedia(
-        "(min-width: 901px)"
-      );
-
+    const desktopQuery = window.matchMedia("(min-width: 901px)");
 
     function onScreenChange(event) {
-
       if (event.matches) {
-
         setMenuOpen(false);
-
       }
-
     }
 
-
-    desktopQuery.addEventListener(
-      "change",
-      onScreenChange
-    );
-
+    if (desktopQuery.addEventListener) {
+      desktopQuery.addEventListener("change", onScreenChange);
+    } else {
+      desktopQuery.addListener(onScreenChange);
+    }
   }
-
-
 
   /* ======================================================
      HERO IMAGE SLIDER
      ====================================================== */
 
-  const hero = homePage.querySelector(
-    ".sh-home__hero"
-  );
+  const hero = homePage.querySelector(".sh-home__hero");
 
-  if (!hero) return;
+  if (hero) {
+    const slides = [...hero.querySelectorAll(".sh-home__hero-slide")];
 
+    const dots = [...hero.querySelectorAll(".sh-home__slider-dot")];
 
-  const slides = [
-    ...hero.querySelectorAll(
-      ".sh-home__hero-slide"
-    )
-  ];
+    const prevButton = hero.querySelector(".sh-home__slider-button--prev");
 
+    const nextButton = hero.querySelector(".sh-home__slider-button--next");
 
-  const dots = [
-    ...hero.querySelectorAll(
-      ".sh-home__slider-dot"
-    )
-  ];
+    if (slides.length > 0) {
+      let currentSlide = 0;
 
+      let autoSlide = null;
 
-  const prevButton =
-    hero.querySelector(
-      ".sh-home__slider-button--prev"
-    );
+      /* ========================
+         Tampilan slide
+         ======================== */
 
+      function showSlide(index) {
+        if (index >= slides.length) {
+          index = 0;
+        }
 
-  const nextButton =
-    hero.querySelector(
-      ".sh-home__slider-button--next"
-    );
+        if (index < 0) {
+          index = slides.length - 1;
+        }
 
+        slides.forEach((slide, slideIndex) => {
+          slide.classList.toggle("is-active", slideIndex === index);
+        });
 
-  if (slides.length === 0) return;
+        dots.forEach((dot, dotIndex) => {
+          dot.classList.toggle("is-active", dotIndex === index);
 
+          dot.setAttribute(
+            "aria-current",
+            dotIndex === index ? "true" : "false",
+          );
+        });
 
-  let currentSlide = 0;
-
-  let autoSlide;
-
-
-
-  /* ========================
-     tampilan
-     ======================== */
-
-  function showSlide(index) {
-
-    if (index >= slides.length) {
-      index = 0;
-    }
-
-    if (index < 0) {
-      index = slides.length - 1;
-    }
-
-
-    slides.forEach(
-      (slide, slideIndex) => {
-
-        slide.classList.toggle(
-          "is-active",
-          slideIndex === index
-        );
-
+        currentSlide = index;
       }
-    );
 
+      /* ========================
+         Next
+         ======================== */
 
-    dots.forEach(
-      (dot, dotIndex) => {
-
-        dot.classList.toggle(
-          "is-active",
-          dotIndex === index
-        );
-
+      function nextSlide() {
+        showSlide(currentSlide + 1);
       }
-    );
 
+      /* ========================
+         Previous
+         ======================== */
 
-    currentSlide = index;
-
-  }
-
-
-
-  /* ========================
-     next photo
-     ======================== */
-
-  function nextSlide() {
-
-    showSlide(
-      currentSlide + 1
-    );
-
-  }
-
-
-
-  /* ========================
-     photo sebelum
-     ======================== */
-
-  function previousSlide() {
-
-    showSlide(
-      currentSlide - 1
-    );
-
-  }
-
-
-
-  /* ========================
-     Auto Slide
-     ======================== */
-
-  function startAutoSlide() {
-
-    stopAutoSlide();
-
-    autoSlide = setInterval(
-      nextSlide,
-      4000
-    );
-
-  }
-
-
-
-  function stopAutoSlide() {
-
-    if (autoSlide) {
-
-      clearInterval(autoSlide);
-
-    }
-
-  }
-
-
-
-  /* ========================
-     Previous
-     ======================== */
-
-  if (prevButton) {
-
-    prevButton.addEventListener(
-      "click",
-      () => {
-
-        previousSlide();
-
-        startAutoSlide();
-
+      function previousSlide() {
+        showSlide(currentSlide - 1);
       }
-    );
 
-  }
+      /* ========================
+         Auto Slide
+         ======================== */
 
+      function startAutoSlide() {
+        stopAutoSlide();
 
-
-  /* ========================
-     Next
-     ======================== */
-
-  if (nextButton) {
-
-    nextButton.addEventListener(
-      "click",
-      () => {
-
-        nextSlide();
-
-        startAutoSlide();
-
+        autoSlide = setInterval(nextSlide, 4000);
       }
-    );
 
-  }
+      function stopAutoSlide() {
+        if (autoSlide !== null) {
+          clearInterval(autoSlide);
 
+          autoSlide = null;
+        }
+      }
 
+      /* ========================
+         Previous button
+         ======================== */
 
-  /* ========================
-    
-     ======================== */
+      if (prevButton) {
+        prevButton.addEventListener("click", () => {
+          previousSlide();
 
-  dots.forEach(
-    (dot, index) => {
+          startAutoSlide();
+        });
+      }
 
-      dot.addEventListener(
-        "click",
-        () => {
+      /* ========================
+         Next button
+         ======================== */
 
+      if (nextButton) {
+        nextButton.addEventListener("click", () => {
+          nextSlide();
+
+          startAutoSlide();
+        });
+      }
+
+      /* ========================
+         Dots
+         ======================== */
+
+      dots.forEach((dot, index) => {
+        dot.addEventListener("click", () => {
           showSlide(index);
 
           startAutoSlide();
+        });
+      });
 
-        }
+      /* ========================
+         Pause
+         ======================== */
+
+      hero.addEventListener("mouseenter", stopAutoSlide);
+
+      hero.addEventListener("mouseleave", startAutoSlide);
+
+      /* ========================
+         Swipe mobile
+         ======================== */
+
+      let touchStartX = 0;
+
+      hero.addEventListener(
+        "touchstart",
+        (event) => {
+          touchStartX = event.changedTouches[0].screenX;
+        },
+        {
+          passive: true,
+        },
       );
 
+      hero.addEventListener(
+        "touchend",
+        (event) => {
+          const touchEndX = event.changedTouches[0].screenX;
+
+          const distance = touchStartX - touchEndX;
+
+          // Swipe kiri
+          if (distance > 50) {
+            nextSlide();
+
+            startAutoSlide();
+          }
+
+          // Swipe kanan
+          if (distance < -50) {
+            previousSlide();
+
+            startAutoSlide();
+          }
+        },
+        {
+          passive: true,
+        },
+      );
+
+      /* ========================
+         Start Slider
+         ======================== */
+
+      showSlide(0);
+
+      startAutoSlide();
     }
-  );
+  }
 
+  /* ======================================================
+     FAQ ACCORDION
+     ====================================================== */
 
+  const faqItems = homePage.querySelectorAll(".sh-home__faq-item");
 
-  /* ========================
-     Pause
-     ======================== */
+  faqItems.forEach((item) => {
+    const question = item.querySelector(".sh-home__faq-question");
 
-  hero.addEventListener(
-    "mouseenter",
-    stopAutoSlide
-  );
+    const answer = item.querySelector(".sh-home__faq-answer");
 
+    if (!question) return;
 
-  hero.addEventListener(
-    "mouseleave",
-    startAutoSlide
-  );
+    question.setAttribute("aria-expanded", "false");
 
-
-
-  /* ========================
-     Swipe mobile
-     ======================== */
-
-  let touchStartX = 0;
-
-  let touchEndX = 0;
-
-
-  hero.addEventListener(
-    "touchstart",
-    (event) => {
-
-      touchStartX =
-        event.changedTouches[0].screenX;
-
-    },
-    {
-      passive: true
+    if (answer) {
+      answer.setAttribute("aria-hidden", "true");
     }
-  );
 
+    question.addEventListener("click", () => {
+      const isOpen = item.classList.contains("is-open");
 
-  hero.addEventListener(
-    "touchend",
-    (event) => {
+      // Tutup semua FAQ
+      faqItems.forEach((faq) => {
+        faq.classList.remove("is-open");
 
-      touchEndX =
-        event.changedTouches[0].screenX;
+        const faqQuestion = faq.querySelector(".sh-home__faq-question");
 
+        const faqAnswer = faq.querySelector(".sh-home__faq-answer");
 
-      const distance =
-        touchStartX - touchEndX;
+        if (faqQuestion) {
+          faqQuestion.setAttribute("aria-expanded", "false");
+        }
 
+        if (faqAnswer) {
+          faqAnswer.setAttribute("aria-hidden", "true");
+        }
+      });
 
-      // Swipe kiri
-      if (distance > 50) {
+      // Buka FAQ yang dipilih
+      if (!isOpen) {
+        item.classList.add("is-open");
 
-        nextSlide();
+        question.setAttribute("aria-expanded", "true");
 
-        startAutoSlide();
-
+        if (answer) {
+          answer.setAttribute("aria-hidden", "false");
+        }
       }
-
-
-      // Swipe ขวา
-      if (distance < -50) {
-
-        previousSlide();
-
-        startAutoSlide();
-
-      }
-
-    },
-    {
-      passive: true
-    }
-  );
-
-
-
-  /* ========================
-    start Slider
-     ======================== */
-
-  showSlide(0);
-
-  startAutoSlide();
-
+    });
+  });
 })();
