@@ -1,0 +1,79 @@
+/* RESET & VARIABEL UTAMA */
+:root {
+    --green-primary: #345e37;
+    --brown-logo: #7A4222;
+    --text-dark: #333333;
+    --text-gray: #777777;
+    --bg-body: #faf8f5; 
+    --border-color: #e5e5e5;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+/* BODY: Memenuhi seluruh tinggi layar dengan Flexbox */
+body { 
+    background-color: var(--bg-body); 
+    color: var(--text-dark); 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
+}
+
+/* NAVBAR: Lebar 100%, Konten terbatas max-width 1200px (Desktop-friendly) */
+.navbar { width: 100%; background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { height: 32px; }
+.brand-text { display: flex; flex-direction: column; }
+.title { font-size: 16px; font-weight: 700; line-height: 1.1; color: var(--text-dark); }
+.subtitle { font-size: 9px; letter-spacing: 0.5px; color: var(--brown-logo); font-weight: 600; }
+.nav-icons { display: flex; gap: 20px; color: var(--green-primary); font-size: 20px; cursor: pointer; }
+.nav-icons i { transition: transform 0.2s; }
+.nav-icons i:hover { transform: scale(1.1); }
+
+/* HERO SECTION: Lebar 100%, responsif */
+.hero { width: 100%; position: relative; min-height: 320px; background: url('../assets/dashboard-admin.jpeg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+.hero-content { position: relative; z-index: 1; max-width: 800px; color: #fff; }
+.hero-title { font-family: 'Lora', serif; line-height: 1.25; margin-bottom: 15px; }
+.font-light { font-size: 32px; font-weight: 400; }
+.font-bold { font-size: 40px; font-weight: 700; }
+.hero-desc { font-size: 14px; font-weight: 300; line-height: 1.6; opacity: 0.95; }
+
+/* KONTEN UTAMA: Mendorong footer ke bawah, menjaga kartu tetap di tengah */
+.main-container { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 60px 24px; display: flex; justify-content: center; align-items: center; }
+.login-card { background: #fff; width: 100%; max-width: 500px; border-radius: 20px; padding: 40px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); border: 1px solid var(--border-color); text-align: center; }
+.login-card h2 { font-size: 22px; font-weight: 700; margin-bottom: 6px; color: var(--text-dark); }
+.login-desc { font-size: 13px; color: var(--text-gray); margin-bottom: 30px; }
+
+/* OPSI LOGIN */
+.options-wrapper { display: flex; flex-direction: column; gap: 16px; }
+.login-option { display: flex; align-items: center; padding: 20px; border: 1px solid var(--border-color); border-radius: 14px; cursor: pointer; transition: all 0.25s ease; text-align: left; }
+.login-option:hover { border-color: var(--green-primary); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(52, 94, 55, 0.08); }
+.option-icon { font-size: 26px; color: var(--green-primary); width: 44px; text-align: center; margin-right: 12px; }
+.option-text { flex: 1; }
+.option-text h3 { font-size: 15px; font-weight: 600; color: var(--text-dark); margin-bottom: 2px; }
+.option-text span { font-size: 12px; color: var(--text-gray); display: block; }
+.arrow-icon { color: var(--text-gray); font-size: 14px; }
+
+/* FOOTER: Lebar 100%, Grid Responsif */
+.footer { width: 100%; background: var(--green-primary); color: #fff; padding: 60px 24px 20px; margin-top: auto; }
+.footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 768px) {
+    .footer-container { grid-template-columns: 1.5fr 1fr; }
+}
+
+.footer-brand { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+.invert-logo { height: 28px; filter: brightness(0) invert(1); }
+.about-desc { font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; opacity: 0.9; max-width: 600px; }
+
+.socials { display: flex; gap: 12px; margin-top: 20px; }
+.socials a { display: flex; justify-content: center; align-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; color: #fff; text-decoration: none; font-size: 15px; transition: 0.2s; }
+.socials a:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+.outline-icon { color: transparent; -webkit-text-stroke: 1.5px #fff; }
+
+.footer-contact h3, .footer-contact p { margin-bottom: 10px; line-height: 1.4; }
+.footer-contact h3 { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
+.footer-contact p { font-size: 13.5px; opacity: 0.9; }
+
+.footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; opacity: 0.75; }

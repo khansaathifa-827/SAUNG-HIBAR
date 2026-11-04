@@ -1,1 +1,501 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Selamat datang di Saung Hibar, destinasi wisata keluarga dengan suasana alam yang tenang dan asri.">
+  <title>Home | Saung Hibar</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body class="sh-home">
+  <!-- Ikon SVG dipakai ulang agar tidak perlu library eksternal. -->
+  <svg class="sh-home__svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="sh-icon-menu" viewBox="0 0 24 24">
+      <path d="M4 6h16M4 12h16M4 18h16" />
+    </symbol>
+    <symbol id="sh-icon-close" viewBox="0 0 24 24">
+      <path d="M18 6 6 18M6 6l12 12" />
+    </symbol>
+    <symbol id="sh-icon-users" viewBox="0 0 24 24">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M16 3.1a4 4 0 0 1 0 7.8M22 21v-2a4 4 0 0 0-3-3.87" />
+      <circle cx="9" cy="7" r="4" />
+    </symbol>
+    <symbol id="sh-icon-house" viewBox="0 0 24 24">
+      <path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V10Z" />
+      <path d="M9 21v-8h6v8" />
+    </symbol>
+    <symbol id="sh-icon-food" viewBox="0 0 24 24">
+      <path d="M4 3v7a3 3 0 0 0 6 0V3M7 3v18M19 3c-2.5 3-3 5-3 10h4V3h-1ZM20 13v8" />
+    </symbol>
+    <symbol id="sh-icon-star" viewBox="0 0 24 24">
+      <path d="m12 2.5 3 6.1 6.7 1-4.85 4.7 1.15 6.7L12 17.9 6 21l1.15-6.7L2.3 9.6l6.7-1L12 2.5Z" />
+    </symbol>
+    <symbol id="sh-icon-image" viewBox="0 0 24 24">
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <circle cx="8.5" cy="8.5" r="1.5" />
+      <path d="m21 15-5-5L5 21" />
+    </symbol>
+    <symbol id="sh-icon-pin" viewBox="0 0 24 24">
+      <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+      <circle cx="12" cy="10" r="2.5" />
+    </symbol>
+    <symbol id="sh-icon-arrow" viewBox="0 0 24 24">
+      <path d="m9 18 6-6-6-6" />
+    </symbol>
+  </svg>
+
+  <header class="sh-home__header" id="top">
+    <div class="sh-home__navbar">
+      <a class="sh-home__brand" href="../Home/home.html" aria-label="Saung Hibar - Home">
+        <img src="assets/images/logo.png" alt="Saung Hibar Wisata Keluarga" width="136" height="44">
+      </a>
+
+      <button class="sh-home__menu-toggle" type="button" aria-label="Buka menu navigasi" aria-controls="sh-home-nav"
+        aria-expanded="false">
+        <svg class="sh-home__icon sh-home__menu-open-icon" aria-hidden="true">
+          <use href="#sh-icon-menu"></use>
+        </svg>
+        <svg class="sh-home__icon sh-home__menu-close-icon" aria-hidden="true">
+          <use href="#sh-icon-close"></use>
+        </svg>
+      </button>
+
+      <!-- Ubah nama folder tujuan sesuai struktur proyek yang sudah ada. -->
+      <nav class="sh-home__nav" id="sh-home-nav" aria-label="Navigasi utama">
+        <a class="sh-home__nav-link sh-home__nav-link--active" href="../Home/home.html" aria-current="page">Home</a>
+        <a class="sh-home__nav-link" href="../../TIIM 2/Kapasitas/kapasitas.html">Kapasitas</a>
+        <a class="sh-home__nav-link" href="../Customer Service/CustomerService.html">Customer Service</a>
+        <a class="sh-home__nav-link" href="../Harga/index.html">Harga</a>
+        <a class="sh-home__nav-link" href="../Fasilitas/fasilitas.html">Fasilitas</a>
+        <a class="sh-home__nav-link" href="../../TIIM 2/Booking/booking.html">Booking</a>
+        <a class="sh-home__nav-link" href="../Menu//menu.html">Menu</a>
+        <a class="sh-home__nav-link" href="../Maps/maps.html">Maps</a>
+        <a class="sh-home__nav-link" href="../../TIIM 2/Rating/rating.html">Rating</a>
+        <a class="sh-home__nav-link" href="../Gallery/gallery.html">Gallery</a>
+        <a class="sh-home__nav-link" href="../../TIIM 2/Panduan/panduan.html">Panduan</a>
+        <a class="sh-home__nav-link sh-home__nav-link--mobile-book" href="../Booking/index.html">Pesan Sekarang</a>
+      </nav>
+      <a class="sh-home__header-cta" href="../Booking/index.html">Pesan Sekarang</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <section class="sh-home__hero" aria-labelledby="sh-home-title">
+
+      <!-- slide photo -->
+      <div class="sh-home__hero-slider">
+        <div class="sh-home__hero-slide is-active" style="background-image: url('assets/images/home\ image1.png');">
+        </div>
+
+        <div class="sh-home__hero-slide" style="background-image: url('assets/images/home\ image2.png');"></div>
+
+        <div class="sh-home__hero-slide" style="background-image: url('assets/images/home\ image3.png');"></div>
+      </div>
+
+      <!-- Overlay hitam -->
+      <div class="sh-home__hero-shade"></div>
+
+      <div class="sh-home__hero-content">
+        <h1 class="sh-home__hero-title" id="sh-home-title">
+          <span class="sh-home__hero-welcome">Selamat Datang</span>
+          <span class="sh-home__hero-name">Saung Hibar</span>
+        </h1>
+
+        <p class="sh-home__hero-description">
+          Destinasi wisata keluarga yang menghadirkan ketenangan alam dan
+          asrinya pedesaan. Tempat terbaik untuk mengukir momen tak
+          terlupakan bersama orang tersayang.
+        </p>
+
+        <div class="sh-home__hero-actions">
+          <a class="sh-home__hero-button" href="../../TIIM 2/Booking/booking.html">
+            Reservasi Sekarang
+          </a>
+
+          <a class="sh-home__hero-button sh-home__hero-button--outline" href="../../TIIM 2/Kapasitas/kapasitas.html">
+            Cek Kuota
+          </a>
+        </div>
+      </div>
+
+      <!-- next -->
+      <button class="sh-home__slider-button sh-home__slider-button--prev" type="button" aria-label="Gambar sebelumnya">
+        &#10094;
+      </button>
+
+      <!-- back -->
+      <button class="sh-home__slider-button sh-home__slider-button--next" type="button" aria-label="Gambar berikutnya">
+        &#10095;
+      </button>
+
+      <div class="sh-home__slider-dots">
+        <button class="sh-home__slider-dot is-active" type="button" aria-label="Gambar 1"></button>
+
+        <button class="sh-home__slider-dot" type="button" aria-label="Gambar 2"></button>
+
+        <button class="sh-home__slider-dot" type="button" aria-label="Gambar 3"></button>
+      </div>
+
+    </section>
+
+    <section class="sh-home__stats" aria-label="Saung Hibar dalam angka">
+      <div class="sh-home__stats-grid">
+        <div class="sh-home__stat">
+          <svg class="sh-home__icon" aria-hidden="true">
+            <use href="#sh-icon-users"></use>
+          </svg>
+          <strong>10K+</strong>
+          <span>Total Pengunjung</span>
+        </div>
+        <div class="sh-home__stat">
+          <svg class="sh-home__icon" aria-hidden="true">
+            <use href="#sh-icon-house"></use>
+          </svg>
+          <strong>15+</strong>
+          <span>Saung Nyaman</span>
+        </div>
+        <div class="sh-home__stat">
+          <svg class="sh-home__icon" aria-hidden="true">
+            <use href="#sh-icon-food"></use>
+          </svg>
+          <strong>50+</strong>
+          <span>Menu Pilihan</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="sh-home__explore sh-home__container" aria-labelledby="sh-home-explore-title">
+
+      <div class="sh-home__section-heading">
+        <h2 id="sh-home-explore-title">Aktivitas Saung Hibar</h2>
+
+        <p>
+          Temukan beragam aktivitas seru untuk mengisi waktu liburan
+          bersama keluarga di Saung Hibar.
+        </p>
+      </div>
+
+
+      <div class="sh-home__explore-grid">
+
+        <!-- Card 1 -->
+        <article class="sh-home__explore-card">
+
+          <span class="sh-home__feature-icon">
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-house"></use>
+            </svg>
+          </span>
+
+          <h3>Villa & Penginapan</h3>
+
+          <p>
+            Pilihan tempat menginap yang nyaman untuk liburan
+            bersama keluarga.
+          </p>
+
+          <a href="#">
+            Jelajahi Villa dan Penginapan
+
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-arrow"></use>
+            </svg>
+          </a>
+
+        </article>
+
+
+        <!-- Card 2 -->
+        <article class="sh-home__explore-card">
+
+          <span class="sh-home__feature-icon">
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-image"></use>
+            </svg>
+          </span>
+
+          <h3>Berenang & Bersantai</h3>
+
+          <p>
+            Nikmati kesegaran kolam renang dan waktu santai
+            bersama keluarga.
+          </p>
+
+          <a href="#">
+            Lihat Kolam Renang
+
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-arrow"></use>
+            </svg>
+          </a>
+
+        </article>
+
+
+        <!-- Card 3 -->
+        <article class="sh-home__explore-card">
+
+          <span class="sh-home__feature-icon">
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-pin"></use>
+            </svg>
+          </span>
+
+          <h3>Camping Ground</h3>
+
+          <p>
+            Rasakan pengalaman berkemah dengan suasana
+            alam yang asri.
+          </p>
+
+          <a href="#">
+            Jelajahi Area
+
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-arrow"></use>
+            </svg>
+          </a>
+
+        </article>
+
+
+        <!-- Card 4 -->
+        <article class="sh-home__explore-card">
+
+          <span class="sh-home__feature-icon">
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-food"></use>
+            </svg>
+          </span>
+
+          <h3>Resto</h3>
+
+          <p>
+            Nikmati berbagai pilihan makanan dan minuman
+            bersama orang terdekat.
+          </p>
+
+          <a href="../Menu/menu.html">
+            Buka Menu
+
+            <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-arrow"></use>
+            </svg>
+          </a>
+
+        </article>
+
+      </div>
+
+    </section>
+    <!-- TESTIMONI -->
+    <section class="sh-home__testimonials">
+      <div class="sh-home__container">
+
+        <div class="sh-home__section-heading">
+          <h2>Testimoni</h2>
+        </div>
+        <div class="sh-home__testimonial-grid">
+
+          <article class="sh-home__testimonial-card">
+            <img src="assets/images/TS2.png" alt="Testimoni pengunjung Saung Hibar 1">
+          </article>
+
+          <article class="sh-home__testimonial-card">
+            <img src="assets/images/TS3.png" alt="Testimoni pengunjung Saung Hibar 2">
+          </article>
+
+          <article class="sh-home__testimonial-card">
+            <img src="assets/images/TS9.png" alt="Testimoni pengunjung Saung Hibar 3">
+          </article>
+
+          <article class="sh-home__testimonial-card">
+            <img src="assets/images/TS4.png" alt="Testimoni pengunjung Saung Hibar 4">
+          </article>
+        </div>
+
+      </div>
+    </section>
+
+    </div>
+    </section>
+    <section class="sh-home__reservation">
+      <div class="sh-home__container">
+
+        <div class="sh-home__section-heading">
+          <h2>Tata Cara Reservasi</h2>
+        </div>
+
+        <div class="sh-home__reservation-grid">
+
+          <article class="sh-home__reservation-card">
+            <span class="sh-home__reservation-number">1</span>
+            <h3>Isi Formulir Reservasi</h3>
+            <p>Lengkapi formulir reservasi dengan data yang diperlukan.</p>
+          </article>
+
+          <article class="sh-home__reservation-card">
+            <span class="sh-home__reservation-number">2</span>
+            <h3>Konfirmasi melalui WhatsApp</h3>
+            <p>Admin akan menghubungi Anda untuk melakukan konfirmasi.</p>
+          </article>
+
+          <article class="sh-home__reservation-card">
+            <span class="sh-home__reservation-number">3</span>
+            <h3>Lakukan Pembayaran</h3>
+            <p>Lakukan pembayaran sesuai informasi yang diberikan.</p>
+          </article>
+
+          <article class="sh-home__reservation-card">
+            <span class="sh-home__reservation-number">4</span>
+            <h3>Reservasi Selesai</h3>
+            <p>Reservasi berhasil setelah pembayaran dikonfirmasi.</p>
+          </article>
+
+        </div>
+        <div class="sh-home__faq">
+
+          <div class="sh-home__faq-item">
+            <button class="sh-home__faq-question" type="button">
+              <span>Bagaimana cara melakukan reservasi?</span>
+              <span class="sh-home__faq-icon">+</span>
+            </button>
+
+            <div class="sh-home__faq-answer">
+              <p>
+                Pilih menu Booking, lengkapi formulir reservasi,
+                kemudian tunggu konfirmasi dari admin.
+              </p>
+            </div>
+          </div>
+
+          <div class="sh-home__faq-item">
+            <button class="sh-home__faq-question" type="button">
+              <span>Bagaimana cara melakukan pembayaran?</span>
+              <span class="sh-home__faq-icon">+</span>
+            </button>
+
+            <div class="sh-home__faq-answer">
+              <p>
+                Informasi pembayaran akan diberikan setelah reservasi dikonfirmasi.
+              </p>
+            </div>
+          </div>
+
+          <div class="sh-home__faq-item">
+            <button class="sh-home__faq-question" type="button">
+              <span>Apakah reservasi langsung terkonfirmasi setelah mengisi formulir?</span>
+              <span class="sh-home__faq-icon">+</span>
+            </button>
+
+            <div class="sh-home__faq-answer">
+              <p>
+                Reservasi akan dikonfirmasi terlebih dahulu oleh admin.
+              </p>
+            </div>
+          </div>
+
+          <div class="sh-home__faq-item">
+            <button class="sh-home__faq-question" type="button">
+              <span>Apakah saya bisa memilih villa atau camping?</span>
+              <span class="sh-home__faq-icon">+</span>
+            </button>
+
+            <div class="sh-home__faq-answer">
+              <p>
+                Pilihan dapat disesuaikan dengan ketersediaan saat reservasi.
+              </p>
+            </div>
+          </div>
+
+          <div class="sh-home__faq-item">
+            <button class="sh-home__faq-question" type="button">
+              <span>Apakah saya bisa menambahkan pesanan makanan?</span>
+              <span class="sh-home__faq-icon">+</span>
+            </button>
+
+            <div class="sh-home__faq-answer">
+              <p>
+                Pesanan makanan dapat ditambahkan sesuai pilihan menu yang tersedia.
+              </p>
+            </div>
+          </div>
+          <div class="sh-home__faq-item">
+            <button class="sh-home__faq-question" type="button">
+              <span>Bagaimana jika ingin mengubah atau membatalkan reservasi?</span>
+              <span class="sh-home__faq-icon">+</span>
+            </button>
+
+            <div class="sh-home__faq-answer">
+              <p>
+                Hubungi admin melalui WhatsApp untuk melakukan perubahan
+                atau pembatalan reservasi.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <section class="sh-home__bottom" aria-labelledby="sh-home-cta-title">
+      <div class="sh-home__cta sh-home__container">
+        <span class="sh-home__cta-line" aria-hidden="true"></span>
+        <h2 id="sh-home-cta-title">Rencanakan Kunjungan Anda!</h2>
+        <p>Amankan tempat liburan favorit keluarga Anda hari ini dan dapatkan penawaran spesial.</p>
+        <div class="sh-home__cta-actions">
+          <a class="sh-home__cta-button sh-home__cta-button--primary" href="../../TIIM 2/Booking/booking.html">Mulai
+            Reservasi <svg class="sh-home__icon" aria-hidden="true">
+              <use href="#sh-icon-arrow"></use>
+            </svg></a>
+          <a class="sh-home__cta-button" href="../Customer Service/CustomerService.html">Tanya Admin</a>
+        </div>
+      </div>
+
+      <footer class="sh-home__footer sh-home__container">
+        <div class="sh-home__footer-grid">
+          <div class="sh-home__footer-about">
+            <div class="sh-home__footer-brand">Saung Hibar</div>
+            <p>Destinasi wisata keluarga terbaik di Purwakarta yang menghadirkan suasana alam yang tenang, nyaman, dan
+              asri. Tempat sempurna untuk menciptakan momen berharga bersama keluarga.</p>
+          </div>
+          <div class="sh-home__footer-column">
+            <h3>Tautan Cepat</h3>
+            <a href="../Home/home.html">Home</a>
+            <a href="../../TIIM 2/Kapasitas/kapasitas.html">Kapasitas</a>
+            <a href="../Customer Service/CustomerService.html">Customer Service</a>
+            <a href="../Harga/index.html">Harga</a>
+            <a href="../Fasilitas/fasilitas.html">Fasilitas</a>
+          </div>
+          <div class="sh-home__footer-column">
+            <h3>Informasi Lanjut</h3>
+            <a href="../../TIIM 2/Booking/booking.html">Booking</a>
+            <a href="../Menu/index.html">Menu</a>
+            <a href="../Maps/maps.html">Maps</a>
+            <a href="../../TIIM 2/Rating/rating.html">Rating</a>
+            <a href="../Gallery/gallery.html">Gallery</a>
+            <a href="../../TIIM 2/Panduan/panduan.html">Panduan</a>
+          </div>
+          <div class="sh-home__footer-column sh-home__footer-contact">
+            <h3>Hubungi Kami</h3>
+            <p>Pasir muncang, Kec. Wanayasa, Kabupaten Purwakarta, Jawa Barat 41117</p>
+            <a href="tel:+6287740954371">+62 877-4095-4371</a>
+            <a href="mailto:saunghibar@gmail.com">saunghibar@gmail.com</a>
+          </div>
+        </div>
+        <div class="sh-home__footer-bottom">
+          <small>© 2026 Saung Hibar. Hak Cipta Dilindungi.</small>
+          <div class="sh-home__footer-legal">
+            <span>Syarat &amp; Ketentuan</span>
+            <span>Kebijakan Privasi</span>
+          </div>
+        </div>
+      </footer>
+    </section>
+  </main>
+</body>
+
+</html>

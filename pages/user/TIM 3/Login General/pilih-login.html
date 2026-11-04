@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saung Hibar - Pilih Login</title>
+    <!-- Import Font Lora (Hero) & Poppins (Global) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Import Ikon FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Hubungkan CSS -->
+    <link rel="stylesheet" href="pilih-login.css">
+</head>
+<body>
+    
+    <!-- HEADER / NAVBAR (Melebar 100%) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand">
+                <img src="../assets/logo.png" alt="Logo Saung Hibar" onerror="this.src='logo.png'">
+                <div class="brand-text">
+                    <span class="title">Saung Hibar Hillside</span>
+                    <span class="subtitle">MENYENANGKAN & MENENANGKAN</span>
+                </div>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-bell" id="btnNotification" title="Notifikasi"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION (Gambar Latar Melebar 100%) -->
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <!-- Teks tipis dan tebal dipisahkan dengan span -->
+            <h1 class="hero-title">
+                <span class="font-light">Selamat Datang</span><br>
+                <span class="font-bold">Saung Hibar</span>
+            </h1>
+            <p class="hero-desc">Destinasi wisata keluarga yang menghadirkan ketenangan alam dan asrinya pedesaan. Tempat terbaik untuk mengukir momen tak terlupakan bersama orang tersayang.</p>
+        </div>
+    </section>
+
+    <!-- MAIN KONTEN: PILIHAN LOGIN (Terpusat, Lebar Fleksibel) -->
+    <main class="main-container">
+        <div class="login-card">
+            <h2>PILIH LOGIN</h2>
+            <p class="login-desc">Silakan pilih jenis akun untuk melanjutkan</p>
+            
+            <div class="options-wrapper">
+                <!-- Tombol Admin -->
+                <div class="login-option" id="btnAdmin">
+                    <i class="fa-solid fa-gear option-icon"></i>
+                    <div class="option-text">
+                        <h3>Admin</h3>
+                        <span>Masuk sebagai pengelola sistem</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </div>
+
+                <!-- Tombol User -->
+                <div class="login-option">
+                    <i class="fa-solid fa-users option-icon"></i>
+                    <div class="option-text">
+                        <h3>User</h3>
+                        <span>Masuk sebagai pengunjung</span>
+                    </div>
+                    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER / BAGIAN BAWAH (Melebar 100%, Grid Multi-Kolom di Desktop) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- Info Saung Hibar & Sosmed -->
+            <div class="footer-about">
+                <div class="footer-brand">
+                    <img src="../assets/logo.png" alt="Logo" class="invert-logo" onerror="this.src='logo.png'">
+                    <span>Saung Hibar</span>
+                </div>
+                <p class="about-desc">Destinasi wisata keluarga terbaik di Purwakarta yang menghadirkan suasana alam yang tenang, nyaman, dan asri. Tempat sempurna untuk menciptakan momen berharga bersama keluarga.</p>
+                <div class="socials">
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <!-- Ikon dengan class outline-icon untuk efek hollow / no fill -->
+                    <a href="#"><i class="fa-brands fa-facebook-f outline-icon"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter outline-icon"></i></a>
+                </div>
+            </div>
+            
+            <!-- Kontak Seragam -->
+            <div class="footer-contact">
+                <h3>Hubungi Kami</h3>
+                <p>Pasir muncang, Kec. Wanayasa, Kabupaten</p>
+                <p>Purwakarta, Jawa Barat 41117</p>
+                <p>(+62) 877-4095-4371</p>
+                <p>saunghibar@gmail.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Saung Hibar. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- Hubungkan JavaScript -->
+    <script src="pilih-login.js"></script>
+</body>
+</html>
