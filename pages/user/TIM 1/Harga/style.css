@@ -1,0 +1,956 @@
+
+/* =========================================
+   SAUNG HIBAR - HALAMAN HARGA
+   ========================================= */
+
+
+/* RESET KHUSUS HALAMAN */
+
+.sh-harga,
+.sh-harga * {
+    box-sizing: border-box;
+}
+
+.sh-harga {
+    --sh-harga-primary: #315617;
+    --sh-harga-primary-dark: #284713;
+    --sh-harga-secondary: #668a50;
+    --sh-harga-background: #fcfaf7;
+    --sh-harga-white: #ffffff;
+    --sh-harga-text: #332c26;
+    --sh-harga-muted: #81776e;
+    --sh-harga-border: #e9e5df;
+    --sh-harga-light-green: #e8f3e8;
+
+    margin: 0;
+    min-height: 100vh;
+    background: var(--sh-harga-background);
+    color: var(--sh-harga-text);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.sh-harga a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.sh-harga button {
+    font: inherit;
+}
+
+.sh-harga img,
+.sh-harga svg {
+    display: block;
+}
+
+.sh-harga__svg-sprite {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
+.sh-harga__icon {
+    width: 18px;
+    height: 18px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+
+/* =========================================
+   1. HEADER / NAVBAR
+   ========================================= */
+
+.sh-harga__header {
+    position: relative;
+    z-index: 100;
+    width: 100%;
+    background: var(--sh-harga-white);
+    border-top: 2px solid var(--sh-harga-primary);
+    border-bottom: 1px solid var(--sh-harga-border);
+}
+
+.sh-harga__navbar {
+    width: 100%;
+    min-height: 64px;
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+}
+
+.sh-harga__brand {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.sh-harga__brand img {
+    width: 136px;
+    height: 44px;
+    object-fit: contain;
+    object-position: left center;
+}
+
+.sh-harga__nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 19px;
+}
+
+.sh-harga__nav-link {
+    color: var(--sh-harga-text);
+    font-size: 11px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.25s ease;
+}
+
+.sh-harga__nav-link:hover {
+    color: var(--sh-harga-primary);
+}
+
+.sh-harga__nav-link--active {
+    color: var(--sh-harga-white);
+    background: var(--sh-harga-primary);
+    padding: 9px 13px;
+    border-radius: 8px;
+}
+
+.sh-harga__nav-link--active:hover {
+    color: var(--sh-harga-white);
+    background: var(--sh-harga-primary-dark);
+}
+
+.sh-harga__header-cta {
+    display: none;
+}
+
+.sh-harga__nav-link--mobile-book {
+    display: none;
+}
+
+
+/* MENU TOGGLE */
+
+.sh-harga__menu-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    padding: 9px;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: var(--sh-harga-primary);
+    cursor: pointer;
+}
+
+.sh-harga__menu-toggle .sh-harga__icon {
+    width: 25px;
+    height: 25px;
+}
+
+.sh-harga__menu-close-icon {
+    display: none;
+}
+
+.sh-harga__menu-toggle.is-active .sh-harga__menu-open-icon {
+    display: none;
+}
+
+.sh-harga__menu-toggle.is-active .sh-harga__menu-close-icon {
+    display: block;
+}
+
+
+/* =========================================
+   2. MAIN CONTENT
+   ========================================= */
+
+.sh-harga__main {
+    width: 100%;
+    padding: 38px 24px 35px;
+    background: var(--sh-harga-background);
+}
+
+.sh-harga__container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+
+/* SECTION HEADING */
+
+.sh-harga__section-heading {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.sh-harga__section-heading h1 {
+    margin: 0 0 8px;
+    color: var(--sh-harga-text);
+    font-size: 25px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.sh-harga__section-heading p {
+    margin: 0;
+    color: var(--sh-harga-muted);
+    font-size: 11px;
+}
+
+
+/* =========================================
+   3. PACKAGE GRID
+   ========================================= */
+
+.sh-harga__package-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 14px;
+}
+
+.sh-harga__package-card {
+    position: relative;
+    min-width: 0;
+    padding: 16px 15px;
+    display: flex;
+    flex-direction: column;
+    background: var(--sh-harga-white);
+    border: 1px solid var(--sh-harga-border);
+    border-radius: 10px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.sh-harga__package-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+}
+
+
+/* POPULAR CARD */
+
+.sh-harga__package-card--popular {
+    border: 1.5px solid var(--sh-harga-primary);
+    box-shadow: 0 3px 8px rgba(49, 86, 23, 0.12);
+}
+
+.sh-harga__popular-label {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 3px 12px;
+    background: var(--sh-harga-primary);
+    color: var(--sh-harga-white);
+    border-radius: 20px;
+    font-size: 9px;
+    line-height: 1.5;
+    white-space: nowrap;
+}
+
+
+/* PACKAGE INFORMATION */
+
+.sh-harga__package-info {
+    min-height: 60px;
+}
+
+.sh-harga__package-info h2 {
+    margin: 0 0 6px;
+    color: var(--sh-harga-text);
+    font-size: 12px;
+    line-height: 1.4;
+    font-weight: 600;
+}
+
+.sh-harga__package-info p {
+    margin: 0;
+    color: var(--sh-harga-muted);
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+
+/* PACKAGE PRICE */
+
+.sh-harga__package-price {
+    margin: 9px 0 16px;
+}
+
+.sh-harga__package-price strong {
+    display: block;
+    color: #35271f;
+    font-size: 23px;
+    line-height: 1.3;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.sh-harga__package-price span {
+    display: block;
+    margin-top: 3px;
+    color: var(--sh-harga-muted);
+    font-size: 9px;
+}
+
+
+/* FEATURE LIST */
+
+.sh-harga__feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 0 0 15px;
+    padding: 0;
+    list-style: none;
+}
+
+.sh-harga__feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    color: #625c53;
+    font-size: 10px;
+    line-height: 1.5;
+}
+
+.sh-harga__feature-list .sh-harga__icon {
+    width: 13px;
+    height: 13px;
+    margin-top: 1px;
+    color: var(--sh-harga-secondary);
+    stroke-width: 2;
+}
+
+
+/* ORDER BUTTON */
+
+.sh-harga__order-button {
+    min-height: 34px;
+    width: 100%;
+    margin-top: auto;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    background: var(--sh-harga-background);
+    border: 1px solid var(--sh-harga-border);
+    border-radius: 6px;
+    color: #554b40;
+    font-size: 10px;
+    font-weight: 600;
+    transition: all 0.25s ease;
+}
+
+.sh-harga__order-button .sh-harga__icon {
+    width: 13px;
+    height: 13px;
+}
+
+.sh-harga__order-button:hover {
+    background: var(--sh-harga-primary);
+    border-color: var(--sh-harga-primary);
+    color: var(--sh-harga-white);
+}
+
+.sh-harga__order-button--popular {
+    background: var(--sh-harga-primary);
+    border-color: var(--sh-harga-primary);
+    color: var(--sh-harga-white);
+}
+
+.sh-harga__order-button--popular:hover {
+    background: var(--sh-harga-primary-dark);
+}
+
+
+/* =========================================
+   4. ADD-ONS
+   ========================================= */
+
+.sh-harga__addons {
+    margin-top: 29px;
+}
+
+.sh-harga__addons > h2 {
+    margin: 0 0 14px;
+    color: var(--sh-harga-text);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.sh-harga__addons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    padding: 14px;
+    background: var(--sh-harga-white);
+    border: 1px solid var(--sh-harga-border);
+    border-radius: 10px;
+}
+
+.sh-harga__addon-item {
+    min-height: 42px;
+    padding: 9px 11px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    background: var(--sh-harga-white);
+    border: 1px solid #eee9e3;
+    border-radius: 6px;
+}
+
+.sh-harga__addon-item span {
+    color: #655b51;
+    font-size: 10px;
+}
+
+.sh-harga__addon-item strong {
+    color: var(--sh-harga-primary);
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   5. BOOKING GUIDE
+   ========================================= */
+
+.sh-harga__booking-section {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    align-items: center;
+    gap: 35px;
+    margin-top: 7px;
+}
+
+
+/* BOOKING GUIDE */
+
+.sh-harga__booking-guide {
+    padding: 15px;
+    background: var(--sh-harga-light-green);
+    border: 1px solid #d9e8d7;
+    border-radius: 10px;
+}
+
+.sh-harga__booking-guide h2 {
+    margin: 0 0 12px;
+    color: var(--sh-harga-primary);
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.sh-harga__booking-guide ul {
+    margin: 0;
+    padding-left: 15px;
+    list-style: disc;
+}
+
+.sh-harga__booking-guide li {
+    padding-left: 2px;
+    color: #746d61;
+    font-size: 9px;
+    line-height: 1.9;
+}
+
+
+/* CUSTOM PACKAGE */
+
+.sh-harga__custom {
+    min-height: 130px;
+    padding: 22px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--sh-harga-primary);
+    border-radius: 10px;
+    color: var(--sh-harga-white);
+}
+
+.sh-harga__custom h2 {
+    margin: 0 0 9px;
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.sh-harga__custom p {
+    margin: 0 0 13px;
+    color: #e4eadc;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.sh-harga__custom-button {
+    padding: 8px 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    background: #a18a55;
+    border-radius: 6px;
+    color: var(--sh-harga-white);
+    font-size: 10px;
+    transition: background 0.25s ease;
+}
+
+.sh-harga__custom-button:hover {
+    background: #c0a56a;
+}
+
+.sh-harga__custom-button .sh-harga__icon {
+    width: 13px;
+    height: 13px;
+}
+
+
+/* =========================================
+   6. FOOTER
+   ========================================= */
+
+.sh-harga__footer {
+    width: 100%;
+    padding: 35px 24px 20px;
+    background: var(--sh-harga-primary);
+    color: var(--sh-harga-white);
+}
+
+.sh-harga__footer-container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}
+
+.sh-harga__footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr 0.8fr 1.2fr;
+    gap: 35px;
+    padding-bottom: 30px;
+}
+
+.sh-harga__footer-brand {
+    margin-bottom: 13px;
+    color: var(--sh-harga-white);
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.sh-harga__footer-about p,
+.sh-harga__footer-contact p {
+    margin: 0 0 9px;
+    color: #d9e2d0;
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.sh-harga__footer-column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.sh-harga__footer-column h3 {
+    margin: 0 0 7px;
+    color: var(--sh-harga-white);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.sh-harga__footer-column a {
+    color: #d9e2d0;
+    font-size: 10px;
+    transition: color 0.2s ease;
+}
+
+.sh-harga__footer-column a:hover {
+    color: var(--sh-harga-white);
+    text-decoration: underline;
+}
+
+
+/* FOOTER BOTTOM */
+
+.sh-harga__footer-bottom {
+    min-height: 43px;
+    padding-top: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.sh-harga__footer-bottom small {
+    color: #d9e2d0;
+    font-size: 10px;
+}
+
+.sh-harga__footer-legal {
+    display: flex;
+    gap: 20px;
+}
+
+.sh-harga__footer-legal span {
+    color: #d9e2d0;
+    font-size: 10px;
+}
+
+
+/* =========================================
+   7. TABLET RESPONSIVE
+   ========================================= */
+
+@media screen and (max-width: 1024px) {
+
+    .sh-harga__navbar {
+        padding: 0 18px;
+        gap: 14px;
+    }
+
+    .sh-harga__brand img {
+        width: 120px;
+    }
+
+    .sh-harga__nav {
+        gap: 10px;
+    }
+
+    .sh-harga__nav-link {
+        font-size: 10px;
+    }
+
+    .sh-harga__main {
+        padding: 35px 20px;
+    }
+
+    .sh-harga__package-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .sh-harga__package-card {
+        padding: 20px;
+    }
+
+    .sh-harga__package-info {
+        min-height: auto;
+    }
+
+    .sh-harga__feature-list {
+        gap: 10px;
+    }
+
+    .sh-harga__feature-list li {
+        font-size: 11px;
+    }
+
+    .sh-harga__addons-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .sh-harga__footer-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 30px;
+    }
+
+}
+
+
+/* =========================================
+   8. NAVBAR TABLET
+   ========================================= */
+
+@media screen and (min-width: 601px) and (max-width: 900px) {
+
+    .sh-harga__menu-toggle {
+        display: flex;
+    }
+
+    .sh-harga__nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 16px 22px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        background: var(--sh-harga-white);
+        border-top: 1px solid var(--sh-harga-border);
+        border-bottom: 1px solid var(--sh-harga-border);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.06);
+    }
+
+    .sh-harga__nav.is-open {
+        display: flex;
+    }
+
+    .sh-harga__nav-link {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .sh-harga__nav-link--active {
+        color: var(--sh-harga-white);
+    }
+
+    .sh-harga__nav-link--mobile-book {
+        display: block;
+        color: var(--sh-harga-primary);
+        font-weight: 700;
+    }
+
+}
+
+
+/* =========================================
+   9. MOBILE RESPONSIVE
+   ========================================= */
+
+@media screen and (max-width: 600px) {
+
+    /* NAVBAR */
+
+    .sh-harga__navbar {
+        min-height: 65px;
+        padding: 0 18px;
+    }
+
+    .sh-harga__brand img {
+        width: 136px;
+        height: 44px;
+    }
+
+    .sh-harga__menu-toggle {
+        display: flex;
+    }
+
+    .sh-harga__nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 15px 20px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        background: var(--sh-harga-white);
+        border-top: 1px solid var(--sh-harga-border);
+        border-bottom: 1px solid var(--sh-harga-border);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.07);
+    }
+
+    .sh-harga__nav.is-open {
+        display: flex;
+    }
+
+    .sh-harga__nav-link {
+        padding: 11px 12px;
+        font-size: 12px;
+    }
+
+    .sh-harga__nav-link--active {
+        color: var(--sh-harga-white);
+    }
+
+    .sh-harga__nav-link--mobile-book {
+        display: block;
+        color: var(--sh-harga-primary);
+        font-weight: 700;
+    }
+
+
+    /* MAIN */
+
+    .sh-harga__main {
+        padding: 30px 16px;
+    }
+
+    .sh-harga__section-heading {
+        margin-bottom: 27px;
+    }
+
+    .sh-harga__section-heading h1 {
+        font-size: 23px;
+    }
+
+    .sh-harga__section-heading p {
+        font-size: 11px;
+    }
+
+
+    /* PACKAGE */
+
+    .sh-harga__package-grid {
+        grid-template-columns: 1fr;
+        gap: 23px;
+    }
+
+    .sh-harga__package-card {
+        padding: 20px;
+    }
+
+    .sh-harga__package-info h2 {
+        font-size: 14px;
+    }
+
+    .sh-harga__package-info p {
+        font-size: 11px;
+    }
+
+    .sh-harga__package-price strong {
+        font-size: 25px;
+    }
+
+    .sh-harga__feature-list {
+        gap: 10px;
+    }
+
+    .sh-harga__feature-list li {
+        font-size: 11px;
+    }
+
+    .sh-harga__order-button {
+        min-height: 43px;
+        font-size: 12px;
+    }
+
+
+    /* ADD-ONS */
+
+    .sh-harga__addons {
+        margin-top: 30px;
+    }
+
+    .sh-harga__addons > h2 {
+        font-size: 16px;
+    }
+
+    .sh-harga__addons-grid {
+        grid-template-columns: 1fr;
+        padding: 12px;
+        gap: 9px;
+    }
+
+    .sh-harga__addon-item {
+        min-height: 45px;
+    }
+
+    .sh-harga__addon-item span,
+    .sh-harga__addon-item strong {
+        font-size: 11px;
+    }
+
+
+    /* BOOKING */
+
+    .sh-harga__booking-section {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        margin-top: 20px;
+    }
+
+    .sh-harga__booking-guide {
+        padding: 18px;
+    }
+
+    .sh-harga__booking-guide h2 {
+        font-size: 16px;
+    }
+
+    .sh-harga__booking-guide li {
+        font-size: 10px;
+        line-height: 1.9;
+    }
+
+    .sh-harga__custom {
+        min-height: 150px;
+        padding: 25px 18px;
+    }
+
+
+    /* FOOTER */
+
+    .sh-harga__footer {
+        padding: 30px 20px 20px;
+    }
+
+    .sh-harga__footer-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        padding-bottom: 25px;
+    }
+
+    .sh-harga__footer-brand {
+        font-size: 15px;
+    }
+
+    .sh-harga__footer-about p,
+    .sh-harga__footer-contact p,
+    .sh-harga__footer-column a {
+        font-size: 11px;
+    }
+
+    .sh-harga__footer-column h3 {
+        font-size: 13px;
+    }
+
+    .sh-harga__footer-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+}
+
+
+/* =========================================
+   10. MOBILE KECIL
+   ========================================= */
+
+@media screen and (max-width: 360px) {
+
+    .sh-harga__navbar {
+        padding: 0 12px;
+    }
+
+    .sh-harga__brand img {
+        width: 120px;
+    }
+
+    .sh-harga__main {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .sh-harga__package-price strong {
+        font-size: 22px;
+    }
+
+    .sh-harga__addon-item {
+        flex-wrap: wrap;
+    }
+
+}

@@ -1,1 +1,839 @@
+
 <!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Informasi daftar harga paket, layanan tambahan, dan reservasi Saung Hibar.">
+
+    <title>Harga | Saung Hibar</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body class="sh-harga">
+
+    <!-- SVG ICON SPRITE -->
+    <svg class="sh-harga__svg-sprite"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true">
+
+        <symbol id="sh-harga-icon-menu" viewBox="0 0 24 24">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+        </symbol>
+
+        <symbol id="sh-harga-icon-close" viewBox="0 0 24 24">
+            <path d="M18 6 6 18M6 6l12 12" />
+        </symbol>
+
+        <symbol id="sh-harga-icon-check" viewBox="0 0 24 24">
+            <path d="m5 12 4 4L19 6" />
+        </symbol>
+
+        <symbol id="sh-harga-icon-calendar" viewBox="0 0 24 24">
+            <rect x="3" y="5" width="18" height="16" rx="2" />
+            <path d="M16 3v4M8 3v4M3 10h18" />
+        </symbol>
+
+        <symbol id="sh-harga-icon-arrow" viewBox="0 0 24 24">
+            <path d="m9 18 6-6-6-6" />
+        </symbol>
+
+    </svg>
+
+
+    <!-- HEADER / NAVBAR -->
+    <header class="sh-harga__header" id="top">
+
+        <div class="sh-harga__navbar">
+
+            <a class="sh-harga__brand"
+                href="../Home/home.html"
+                aria-label="Saung Hibar - Home">
+
+                <img src="../Home/assets/images/logo.png"
+                    alt="Saung Hibar Wisata Keluarga"
+                    width="136"
+                    height="44">
+            </a>
+
+
+            <!-- MENU TOGGLE MOBILE -->
+            <button class="sh-harga__menu-toggle"
+                type="button"
+                aria-label="Buka menu navigasi"
+                aria-controls="sh-harga-nav"
+                aria-expanded="false">
+
+                <svg class="sh-harga__icon sh-harga__menu-open-icon"
+                    aria-hidden="true">
+                    <use href="#sh-harga-icon-menu"></use>
+                </svg>
+
+                <svg class="sh-harga__icon sh-harga__menu-close-icon"
+                    aria-hidden="true">
+                    <use href="#sh-harga-icon-close"></use>
+                </svg>
+
+            </button>
+
+
+            <!-- NAVIGASI -->
+            <nav class="sh-harga__nav"
+                id="sh-harga-nav"
+                aria-label="Navigasi utama">
+
+                <a class="sh-harga__nav-link"
+                    href="../Home/home.html">
+                    Home
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../../TIIM 2/Kapasitas/kapasitas.html">
+                    Kapasitas
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../Customer Service/CustomerService.html">
+                    Customer Service
+                </a>
+
+                <a class="sh-harga__nav-link sh-harga__nav-link--active"
+                    href="../Harga/index.html"
+                    aria-current="page">
+                    Harga
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../Fasilitas/fasilitas.html">
+                    Fasilitas
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../../TIIM 2/Booking/booking.html">
+                    Booking
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../Menu/menu.html">
+                    Menu
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../Maps/maps.html">
+                    Maps
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../../TIIM 2/Rating/rating.html">
+                    Rating
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../Gallery/gallery.html">
+                    Gallery
+                </a>
+
+                <a class="sh-harga__nav-link"
+                    href="../../TIIM 2/Panduan/panduan.html">
+                    Panduan
+                </a>
+
+                <a class="sh-harga__nav-link sh-harga__nav-link--mobile-book"
+                    href="../../TIIM 2/Booking/booking.html">
+                    Pesan Sekarang
+                </a>
+
+            </nav>
+
+
+            <!-- BUTTON DESKTOP -->
+            <a class="sh-harga__header-cta"
+                href="../../TIIM 2/Booking/booking.html">
+                Pesan Sekarang
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+
+
+        <!-- SECTION DAFTAR HARGA -->
+        <section class="sh-harga__main"
+            aria-labelledby="sh-harga-title">
+
+            <div class="sh-harga__container">
+
+
+                <!-- HEADING -->
+                <div class="sh-harga__section-heading">
+
+                    <h1 id="sh-harga-title">
+                        Daftar Harga
+                    </h1>
+
+                    <p>
+                        Pilih paket yang sesuai dengan kebutuhan Anda.
+                        Semua harga sudah termasuk PPN.
+                    </p>
+
+                </div>
+
+
+                <!-- PACKAGE GRID -->
+                <div class="sh-harga__package-grid">
+
+
+                    <!-- PAKET REGULER -->
+                    <article class="sh-harga__package-card">
+
+                        <div class="sh-harga__package-info">
+
+                            <h2>Paket Reguler</h2>
+
+                            <p>
+                                Cocok untuk kunjungan casual bersama
+                                keluarga kecil.
+                            </p>
+
+                        </div>
+
+
+                        <div class="sh-harga__package-price">
+
+                            <strong>Rp 150.000</strong>
+
+                            <span>per saung / 4 jam</span>
+
+                        </div>
+
+
+                        <ul class="sh-harga__feature-list">
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Saung Reguler (kapasitas 10 orang)
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Akses ke semua area umum
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Wifi gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Parkir gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Air mineral
+                            </li>
+
+                        </ul>
+
+
+                        <a class="sh-harga__order-button"
+                            href="../../TIIM 2/Booking/booking.html">
+
+                            <svg class="sh-harga__icon" aria-hidden="true">
+                                <use href="#sh-harga-icon-calendar"></use>
+                            </svg>
+
+                            Pesan Sekarang
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- PAKET KELUARGA -->
+                    <article class="sh-harga__package-card sh-harga__package-card--popular">
+
+                        <span class="sh-harga__popular-label">
+                            Paling Populer
+                        </span>
+
+
+                        <div class="sh-harga__package-info">
+
+                            <h2>Paket Keluarga</h2>
+
+                            <p>
+                                Paket terbaik untuk keluarga besar.
+                            </p>
+
+                        </div>
+
+
+                        <div class="sh-harga__package-price">
+
+                            <strong>Rp 350.000</strong>
+
+                            <span>per saung / 6 jam</span>
+
+                        </div>
+
+
+                        <ul class="sh-harga__feature-list">
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Saung Keluarga (kapasitas 15 orang)
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Welcome drink untuk semua
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Akses playground anak
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Sound system
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Wifi gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Parkir gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Dokumentasi gratis (10 foto)
+                            </li>
+
+                        </ul>
+
+
+                        <a class="sh-harga__order-button sh-harga__order-button--popular"
+                            href="../../TIIM 2/Booking/booking.html">
+
+                            <svg class="sh-harga__icon" aria-hidden="true">
+                                <use href="#sh-harga-icon-calendar"></use>
+                            </svg>
+
+                            Pesan Sekarang
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- PAKET ACARA -->
+                    <article class="sh-harga__package-card">
+
+                        <div class="sh-harga__package-info">
+
+                            <h2>Paket Acara / Gathering</h2>
+
+                            <p>
+                                Ideal untuk acara kantor atau gathering komunitas.
+                            </p>
+
+                        </div>
+
+
+                        <div class="sh-harga__package-price">
+
+                            <strong>Rp 750.000</strong>
+
+                            <span>per saung / 6 jam</span>
+
+                        </div>
+
+
+                        <ul class="sh-harga__feature-list">
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Saung VIP (kapasitas 20-30 orang)
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Dekorasi sederhana
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Sound system profesional
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Proyektor &amp; layar
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Welcome drink &amp; snack
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Wifi gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Parkir luas
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Dokumentasi profesional
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Free extra time 1 jam
+                            </li>
+
+                        </ul>
+
+
+                        <a class="sh-harga__order-button"
+                            href="../../TIIM 2/Booking/booking.html">
+
+                            <svg class="sh-harga__icon" aria-hidden="true">
+                                <use href="#sh-harga-icon-calendar"></use>
+                            </svg>
+
+                            Pesan Sekarang
+
+                        </a>
+
+                    </article>
+
+
+                    <!-- PAKET ULANG TAHUN -->
+                    <article class="sh-harga__package-card">
+
+                        <div class="sh-harga__package-info">
+
+                            <h2>Paket Ulang Tahun</h2>
+
+                            <p>
+                                Rayakan momen spesial dengan meriah.
+                            </p>
+
+                        </div>
+
+
+                        <div class="sh-harga__package-price">
+
+                            <strong>Rp 600.000</strong>
+
+                            <span>per saung / 6 jam</span>
+
+                        </div>
+
+
+                        <ul class="sh-harga__feature-list">
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Saung Premium (kapasitas 20 orang)
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Dekorasi ulang tahun
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Sound system
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Welcome drink untuk semua
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Kue ulang tahun sederhana
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Akses playground
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Wifi gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Parkir gratis
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Dokumentasi (20 foto)
+                            </li>
+
+                            <li>
+                                <svg class="sh-harga__icon" aria-hidden="true">
+                                    <use href="#sh-harga-icon-check"></use>
+                                </svg>
+                                Balon &amp; banner
+                            </li>
+
+                        </ul>
+
+
+                        <a class="sh-harga__order-button"
+                            href="../../TIIM 2/Booking/booking.html">
+
+                            <svg class="sh-harga__icon" aria-hidden="true">
+                                <use href="#sh-harga-icon-calendar"></use>
+                            </svg>
+
+                            Pesan Sekarang
+
+                        </a>
+
+                    </article>
+
+                </div>
+
+
+                <!-- ADD-ONS -->
+                <section class="sh-harga__addons"
+                    aria-labelledby="sh-harga-addons-title">
+
+                    <h2 id="sh-harga-addons-title">
+                        Layanan Tambahan (Add-ons)
+                    </h2>
+
+
+                    <div class="sh-harga__addons-grid">
+
+                        <article class="sh-harga__addon-item">
+                            <span>Extra Time (per jam)</span>
+                            <strong>Rp 50.000</strong>
+                        </article>
+
+                        <article class="sh-harga__addon-item">
+                            <span>Dekorasi Premium</span>
+                            <strong>Rp 200.000</strong>
+                        </article>
+
+                        <article class="sh-harga__addon-item">
+                            <span>Fotografer Profesional</span>
+                            <strong>Rp 300.000</strong>
+                        </article>
+
+                        <article class="sh-harga__addon-item">
+                            <span>Sound System Upgrade</span>
+                            <strong>Rp 150.000</strong>
+                        </article>
+
+                        <article class="sh-harga__addon-item">
+                            <span>Proyektor &amp; Layar</span>
+                            <strong>Rp 100.000</strong>
+                        </article>
+
+                        <article class="sh-harga__addon-item">
+                            <span>Katering (per orang)</span>
+                            <strong>Rp 50.000</strong>
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- BOOKING GUIDE & CUSTOM PACKAGE -->
+                <section class="sh-harga__booking-section">
+
+
+                    <!-- PETUNJUK BOOKING -->
+                    <article class="sh-harga__booking-guide">
+
+                        <h2>Petunjuk Booking Saung Hibar</h2>
+
+                        <ul>
+
+                            <li>
+                                Harga sewaktu-waktu dapat berubah tanpa pemberitahuan terlebih dahulu.
+                            </li>
+
+                            <li>
+                                Booking minimal H+1 sebelum tanggal kunjungan.
+                            </li>
+
+                            <li>
+                                DP minimal 30% dari total harga untuk konfirmasi booking.
+                            </li>
+
+                            <li>
+                                Pembatalan H-3 akan dikenakan biaya administrasi 20%.
+                            </li>
+
+                            <li>
+                                Pembatalan H-1 atau hari H tidak dapat dikembalikan.
+                            </li>
+
+                            <li>
+                                Keterlambatan lebih dari 30 menit akan mengurangi waktu sewa.
+                            </li>
+
+                            <li>
+                                Overtime akan dikenakan biaya tambahan Rp 50.000/jam.
+                            </li>
+
+                            <li>
+                                Kerusakan fasilitas akan dikenakan biaya ganti rugi.
+                            </li>
+
+                            <li>
+                                Dilarang membawa makanan dan minuman beralkohol.
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+
+                    <!-- CUSTOM PACKAGE -->
+                    <article class="sh-harga__custom">
+
+                        <h2>Butuh Paket Custom?</h2>
+
+                        <p>
+                            Hubungi customer service kami untuk
+                            penawaran khusus.
+                        </p>
+
+                        <a class="sh-harga__custom-button"
+                            href="../Customer Service/CustomerService.html">
+
+                            Hubungi CS
+
+                            <svg class="sh-harga__icon" aria-hidden="true">
+                                <use href="#sh-harga-icon-arrow"></use>
+                            </svg>
+
+                        </a>
+
+                    </article>
+
+                </section>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="sh-harga__footer">
+
+            <div class="sh-harga__footer-container">
+
+                <div class="sh-harga__footer-grid">
+
+
+                    <!-- FOOTER ABOUT -->
+                    <div class="sh-harga__footer-about">
+
+                        <div class="sh-harga__footer-brand">
+                            Saung Hibar
+                        </div>
+
+                        <p>
+                            Destinasi wisata keluarga terbaik di Purwakarta
+                            yang menghadirkan suasana alam yang tenang,
+                            nyaman, dan asri. Tempat sempurna untuk
+                            menciptakan momen berharga bersama keluarga.
+                        </p>
+
+                    </div>
+
+
+                    <!-- QUICK LINKS -->
+                    <div class="sh-harga__footer-column">
+
+                        <h3>Tautan Cepat</h3>
+
+                        <a href="../Home/home.html">Home</a>
+
+                        <a href="../../TIIM 2/Kapasitas/kapasitas.html">
+                            Kapasitas
+                        </a>
+
+                        <a href="../Customer Service/CustomerService.html">
+                            Customer Service
+                        </a>
+
+                        <a href="../Harga/index.html">
+                            Harga
+                        </a>
+
+                        <a href="../Fasilitas/fasilitas.html">
+                            Fasilitas
+                        </a>
+
+                    </div>
+
+
+                    <!-- INFORMATION -->
+                    <div class="sh-harga__footer-column">
+
+                        <h3>Informasi Lanjut</h3>
+
+                        <a href="../../TIIM 2/Booking/booking.html">
+                            Booking
+                        </a>
+
+                        <a href="../Menu/menu.html">Menu</a>
+
+                        <a href="../Maps/maps.html">Maps</a>
+
+                        <a href="../../TIIM 2/Rating/rating.html">
+                            Rating
+                        </a>
+
+                        <a href="../Gallery/gallery.html">
+                            Gallery
+                        </a>
+
+                        <a href="../../TIIM 2/Panduan/panduan.html">
+                            Panduan
+                        </a>
+
+                    </div>
+
+
+                    <!-- CONTACT -->
+                    <div class="sh-harga__footer-column sh-harga__footer-contact">
+
+                        <h3>Hubungi Kami</h3>
+
+                        <p>
+                            Pasir Muncang, Kec. Wanayasa,
+                            Kabupaten Purwakarta, Jawa Barat 41117
+                        </p>
+
+                        <a href="tel:+6287740954371">
+                            +62 877-4095-4371
+                        </a>
+
+                        <a href="mailto:saunghibar@gmail.com">
+                            saunghibar@gmail.com
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- FOOTER BOTTOM -->
+                <div class="sh-harga__footer-bottom">
+
+                    <small>
+                        © 2026 Saung Hibar. Hak Cipta Dilindungi.
+                    </small>
+
+                    <div class="sh-harga__footer-legal">
+                        <span>Syarat &amp; Ketentuan</span>
+                        <span>Kebijakan Privasi</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
