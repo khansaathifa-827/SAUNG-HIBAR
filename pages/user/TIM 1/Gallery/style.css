@@ -1,0 +1,495 @@
+/* Saung Hibar - Gallery: aturan khusus halaman gallery saja. */
+.sh-gallery {
+  --sh-gallery-green: #2c5018;
+  --sh-gallery-bg: #faf9f5;
+  --sh-gallery-muted: #817267;
+  --sh-gallery-line: #ece8e0;
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, "Segoe UI", sans-serif;
+  color: #302720;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+.sh-gallery,
+.sh-gallery *,
+.sh-gallery *::before,
+.sh-gallery *::after {
+  box-sizing: border-box;
+}
+.sh-gallery h1,
+.sh-gallery h2,
+.sh-gallery p,
+.sh-gallery figure {
+  margin: 0;
+}
+.sh-gallery a {
+  color: inherit;
+  text-decoration: none;
+}
+.sh-gallery button {
+  font: inherit;
+  cursor: pointer;
+}
+.sh-gallery a:focus-visible,
+.sh-gallery button:focus-visible {
+  outline: 3px solid #87b866;
+  outline-offset: 3px;
+}
+.sh-gallery__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Navbar meniru desain halaman Gallery di PDF. */
+.sh-gallery__header {
+  position: relative;
+  z-index: 20;
+  background: #fff;
+  border-bottom: 1px solid #ece9e2;
+}
+.sh-gallery__navbar {
+  width: min(1280px, calc(100% - 36px));
+  min-height: 58px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+.sh-gallery__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+.sh-gallery__brand img {
+  display: block;
+  width: 136px;
+  height: 44px;
+  object-fit: contain;
+}
+.sh-gallery__nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 3px;
+}
+.sh-gallery__nav a {
+  padding: 9px 9px;
+  font-size: 11px;
+  white-space: nowrap;
+  border-radius: 7px;
+  color: #40372d;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+}
+.sh-gallery__nav a:hover {
+  background: #edf2e9;
+  color: var(--sh-gallery-green);
+}
+.sh-gallery__nav a.sh-gallery__nav-active {
+  background: var(--sh-gallery-green);
+  color: #fff;
+}
+.sh-gallery__menu-toggle {
+  display: none;
+}
+
+/* Bagian judul, tab kategori, dan masonry. */
+.sh-gallery__main {
+  background: var(--sh-gallery-bg);
+  padding: 71px 0 0;
+}
+.sh-gallery__container {
+  width: min(1060px, calc(100% - 36px));
+  margin: 0 auto;
+}
+.sh-gallery__heading {
+  text-align: center;
+  margin-bottom: 34px;
+}
+.sh-gallery__heading h1 {
+  font-size: clamp(24px, 2.4vw, 29px);
+  line-height: 1.3;
+  font-weight: 750;
+  letter-spacing: -0.6px;
+}
+.sh-gallery__heading p {
+  margin-top: 10px;
+  font-size: 12px;
+  color: var(--sh-gallery-muted);
+  line-height: 1.6;
+}
+.sh-gallery__filters {
+  display: flex;
+  width: min(540px, 100%);
+  margin: 0 auto 28px;
+  padding: 4px;
+  border-radius: 999px;
+  background: #f2ede6;
+  gap: 3px;
+}
+.sh-gallery__filter {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 8px 7px;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: #66584a;
+  font-size: 11px;
+  white-space: nowrap;
+  transition:
+    background 0.2s,
+    color 0.2s;
+}
+.sh-gallery__filter:hover {
+  background: rgba(255, 255, 255, 0.65);
+}
+.sh-gallery__filter.is-active {
+  background: white;
+  color: #44392f;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.sh-gallery__masonry {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 12px;
+}
+.sh-gallery__column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  gap: 12px;
+}
+.sh-gallery__photo {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e1e5dc;
+  line-height: 0;
+}
+.sh-gallery__photo[hidden] {
+  display: none !important;
+}
+.sh-gallery__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.25s;
+}
+.sh-gallery__photo:hover img {
+  transform: scale(1.025);
+}
+
+/* Kotak ajakan Instagram, sesuai bagian bawah gambar Figma. */
+.sh-gallery__invitation {
+  margin-top: 136px;
+  padding: 25px 22px 26px;
+  background: #e7f4e9;
+  text-align: center;
+  border-radius: 9px 9px 0 0;
+}
+.sh-gallery__invitation h2 {
+  font-size: 19px;
+  font-weight: 700;
+}
+.sh-gallery__invitation p {
+  margin-top: 12px;
+  font-size: 11px;
+  color: #776b5f;
+  line-height: 1.65;
+}
+.sh-gallery__tags {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.sh-gallery__tags span {
+  display: inline-block;
+  padding: 7px 15px;
+  border-radius: 7px;
+  background: white;
+  color: #645746;
+  font-size: 11px;
+}
+
+/* Footer tiga kolom. */
+.sh-gallery__footer {
+  background: var(--sh-gallery-green);
+  color: #fff;
+  padding: 34px 0 23px;
+}
+.sh-gallery__footer-inner {
+  width: min(1060px, calc(100% - 36px));
+  margin: auto;
+}
+.sh-gallery__footer-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 65px;
+  padding: 0 0 35px;
+}
+.sh-gallery__footer-grid h2 {
+  margin: 0 0 15px;
+  font-size: 13px;
+  font-weight: 700;
+}
+.sh-gallery__footer-grid p,
+.sh-gallery__footer-grid a {
+  color: #ccd6c4;
+  font-size: 11px;
+  line-height: 1.65;
+}
+.sh-gallery__footer-grid p + p {
+  margin-top: 8px;
+}
+.sh-gallery__footer-grid a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.sh-gallery__copyright {
+  padding-top: 20px;
+  text-align: center;
+  font-size: 10px;
+  color: #c3cfb7;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* Pop-up perbesar foto. */
+.sh-gallery__lightbox {
+  position: fixed;
+  width: min(96vw, 1030px);
+  max-width: none;
+  max-height: 93vh;
+  padding: 46px 55px 22px;
+  border: 0;
+  border-radius: 13px;
+  background: #fff;
+  color: #28331f;
+  box-shadow: 0 15px 60px rgba(0, 0, 0, 0.25);
+}
+.sh-gallery__lightbox::backdrop {
+  background: rgba(0, 0, 0, 0.78);
+}
+.sh-gallery__lightbox[open] {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sh-gallery__lightbox-figure {
+  text-align: center;
+  min-width: 0;
+}
+.sh-gallery__lightbox-image {
+  display: block;
+  max-width: 100%;
+  max-height: calc(90vh - 130px);
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  object-fit: contain;
+  border-radius: 5px;
+}
+.sh-gallery__lightbox-caption {
+  margin-top: 13px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.sh-gallery__lightbox-close,
+.sh-gallery__lightbox-prev,
+.sh-gallery__lightbox-next {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #eef3ea;
+  color: #2d5016;
+}
+.sh-gallery__lightbox-close {
+  right: 13px;
+  top: 11px;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  line-height: 1;
+}
+.sh-gallery__lightbox-prev,
+.sh-gallery__lightbox-next {
+  width: 38px;
+  height: 38px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 32px;
+}
+.sh-gallery__lightbox-prev {
+  left: 9px;
+}
+.sh-gallery__lightbox-next {
+  right: 9px;
+}
+
+/* Navbar responsif sebelum menu menyentuh logo. */
+@media (max-width: 1120px) {
+  .sh-gallery__menu-toggle {
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    margin-left: auto;
+    background: white;
+    border: 1px solid var(--sh-gallery-line);
+    border-radius: 8px;
+    color: var(--sh-gallery-green);
+  }
+  .sh-gallery__menu-toggle svg {
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+  .sh-gallery__nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 9px 18px 17px;
+    flex-direction: column;
+    align-items: stretch;
+    background: white;
+    border-top: 1px solid var(--sh-gallery-line);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+    max-height: calc(100dvh - 60px);
+    overflow-y: auto;
+  }
+  .sh-gallery__nav.is-open {
+    display: flex;
+  }
+  .sh-gallery__nav a {
+    padding: 12px 15px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 800px) {
+  .sh-gallery__container,
+  .sh-gallery__footer-inner {
+    width: min(650px, calc(100% - 32px));
+  }
+  .sh-gallery__main {
+    padding-top: 49px;
+  }
+  .sh-gallery__masonry {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .sh-gallery__column {
+    gap: 10px;
+  }
+  .sh-gallery__invitation {
+    margin-top: 75px;
+  }
+  .sh-gallery__footer-grid {
+    gap: 24px;
+  }
+}
+@media (max-width: 520px) {
+  .sh-gallery__navbar {
+    width: calc(100% - 24px);
+  }
+  .sh-gallery__brand img {
+    width: 125px;
+    height: 40px;
+  }
+  .sh-gallery__main {
+    padding-top: 37px;
+  }
+  .sh-gallery__heading {
+    margin-bottom: 25px;
+  }
+  .sh-gallery__heading h1 {
+    font-size: 24px;
+  }
+  .sh-gallery__heading p {
+    font-size: 11px;
+  }
+  .sh-gallery__filters {
+    border-radius: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 5px;
+    margin-bottom: 22px;
+  }
+  .sh-gallery__filter {
+    flex: 0 1 auto;
+    min-width: 90px;
+    font-size: 11px;
+    min-height: 39px;
+    padding: 9px 12px;
+  }
+  .sh-gallery__masonry {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px;
+  }
+  .sh-gallery__column {
+    gap: 9px;
+  }
+  .sh-gallery__invitation {
+    margin-top: 57px;
+    padding: 25px 16px;
+  }
+  .sh-gallery__invitation h2 {
+    font-size: 17px;
+  }
+  .sh-gallery__invitation p {
+    font-size: 11px;
+  }
+  .sh-gallery__footer-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+  }
+  .sh-gallery__footer-grid h2 {
+    margin-bottom: 9px;
+  }
+  .sh-gallery__lightbox {
+    padding: 48px 37px 20px;
+    width: 98vw;
+  }
+  .sh-gallery__lightbox-prev {
+    left: 2px;
+  }
+  .sh-gallery__lightbox-next {
+    right: 2px;
+  }
+  .sh-gallery__lightbox-prev,
+  .sh-gallery__lightbox-next {
+    width: 32px;
+    height: 32px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sh-gallery *,
+  .sh-gallery *::before,
+  .sh-gallery *::after {
+    transition: none !important;
+  }
+}

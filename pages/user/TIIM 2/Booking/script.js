@@ -1,18 +1,28 @@
 
 // ================================================
-// SAUNG HIBAR - JAVASCRIPT EKSTERNAL
-// TANPA BOOTSTRAP
+// SAUNG HIBAR - JAVASCRIPT FINAL
+// HTML CSS JS EKSTERNAL
 // ================================================
 
 
 // ================================================
-// 1. HAMBURGER MENU
+// 1. NOMOR WHATSAPP ADMIN
+// ================================================
+
+// Ganti dengan nomor resmi Saung Hibar.
+// Format: 62 diikuti nomor tanpa angka 0 di depan.
+// Contoh format: 6281234567890
+
+const adminWhatsApp = "";
+
+
+// ================================================
+// 2. HAMBURGER MENU NAVBAR
 // ================================================
 
 const menuToggle = document.getElementById("menuToggle");
 const navLinks = document.getElementById("navLinks");
 
-// Buka atau tutup menu hamburger
 menuToggle.addEventListener("click", function() {
 
     const isOpen = navLinks.classList.toggle("open");
@@ -24,17 +34,13 @@ menuToggle.addEventListener("click", function() {
 
 });
 
-// Tutup menu ketika salah satu link diklik
 navLinks.querySelectorAll("a").forEach(function(link) {
 
     link.addEventListener("click", function() {
 
         navLinks.classList.remove("open");
 
-        menuToggle.setAttribute(
-            "aria-expanded",
-            "false"
-        );
+        menuToggle.setAttribute("aria-expanded", "false");
 
     });
 
@@ -42,40 +48,81 @@ navLinks.querySelectorAll("a").forEach(function(link) {
 
 
 // ================================================
-// 2. MENGAMBIL ELEMEN HTML
+// 3. MENGAMBIL ELEMEN HTML
 // ================================================
-
-const modal = document.getElementById("bookingModal");
-
-const closeModalButton = document.getElementById("closeModal");
-
-const bookingForm = document.getElementById("bookingForm");
-
-const selectedPackage = document.getElementById("selectedPackage");
-
-const guestCount = document.getElementById("guestCount");
-
-const bookingDate = document.getElementById("bookingDate");
-
-const totalPrice = document.getElementById("totalPrice");
-
-const bookingResult = document.getElementById("bookingResult");
-
-const modalAddonSummary = document.getElementById("modalAddonSummary");
 
 const addonItems = document.querySelectorAll(".addon-item");
 
 const bookingButtons = document.querySelectorAll(".booking-btn");
 
-// Menyimpan harga paket yang dipilih
+const reservationOverlay =
+    document.getElementById("reservationOverlay");
+
+const closeReservationBtn =
+    document.getElementById("closeReservationBtn");
+
+const formView = document.getElementById("formView");
+
+const successView = document.getElementById("successView");
+
+const reservationForm =
+    document.getElementById("reservationForm");
+
+const fullName = document.getElementById("fullName");
+
+const phoneNumber = document.getElementById("phoneNumber");
+
+const emailAddress = document.getElementById("emailAddress");
+
+const visitDateInput =
+    document.getElementById("visitDateInput");
+
+const guestCountInput =
+    document.getElementById("guestCountInput");
+
+const saungTypeSelect =
+    document.getElementById("saungTypeSelect");
+
+const menuPackageSelect =
+    document.getElementById("menuPackageSelect");
+
+const specialNote = document.getElementById("specialNote");
+
+const selectedPackageText =
+    document.getElementById("selectedPackageText");
+
+const selectedAddonText =
+    document.getElementById("selectedAddonText");
+
+const selectedTotalText =
+    document.getElementById("selectedTotalText");
+
+const whatsappLink = document.getElementById("whatsappLink");
+
+const backToHomeBtn =
+    document.getElementById("backToHomeBtn");
+
+
+// ================================================
+// 4. DATA HARGA PAKET
+// ================================================
+
+const packagePrices = {
+    "Paket Reguler": 150000,
+    "Paket Keluarga": 350000,
+    "Paket Acara / Gathering": 750000,
+    "Paket Ulang Tahun": 600000
+};
+
 let packagePrice = 0;
 
-// Menyimpan tombol sebelum popup dibuka
+let selectedPackageName = "";
+
 let previousFocus = null;
 
 
 // ================================================
-// 3. FORMAT ANGKA MENJADI RUPIAH
+// 5. FORMAT HARGA RUPIAH
 // ================================================
 
 function rupiah(number) {
@@ -86,49 +133,34 @@ function rupiah(number) {
 
 
 // ================================================
-// 4. MEMILIH ADD-ONS
+// 6. MEMILIH ADD-ONS
 // ================================================
-
-// Klik sekali: memilih add-on.
-// Klik lagi: membatalkan.
-// Double-click: memastikan pilihan dibatalkan.
 
 addonItems.forEach(function(item) {
 
+    // Klik untuk memilih atau membatalkan
     item.addEventListener("click", function() {
 
-        // Mengubah status pilihan
-        const isSelected = item.classList.toggle("is-selected");
+        const isSelected =
+            item.classList.toggle("is-selected");
 
-        // Memperbarui atribut tombol
         item.setAttribute(
             "aria-pressed",
             String(isSelected)
         );
 
-        // Memperbarui ringkasan add-on
-        updateAddonSummary();
-
-        // Memperbarui harga
-        calculateTotal();
+        updateReservationSummary();
 
     });
 
-
-    // Double-click untuk membatalkan add-on
+    // Double-click memastikan pilihan dibatalkan
     item.addEventListener("dblclick", function() {
 
-        // Hapus pilihan
         item.classList.remove("is-selected");
 
-        item.setAttribute(
-            "aria-pressed",
-            "false"
-        );
+        item.setAttribute("aria-pressed", "false");
 
-        updateAddonSummary();
-
-        calculateTotal();
+        updateReservationSummary();
 
     });
 
@@ -136,7 +168,7 @@ addonItems.forEach(function(item) {
 
 
 // ================================================
-// 5. MENGAMBIL ADD-ONS YANG DIPILIH
+// 7. MENGAMBIL ADD-ON TERPILIH
 // ================================================
 
 function getSelectedAddons() {
@@ -149,34 +181,30 @@ function getSelectedAddons() {
 
 
 // ================================================
-// 6. MENGHITUNG HARGA TAMBAHAN
+// 8. MENGHITUNG BIAYA ADD-ON
 // ================================================
 
 function calculateAddonCost() {
 
     const selected = getSelectedAddons();
 
-    // Jumlah orang minimal 1
     const persons = Math.max(
         1,
-        Number(guestCount.value) || 1
+        Number(guestCountInput.value) || 1
     );
 
     let addonTotal = 0;
 
     selected.forEach(function(item) {
 
-        // Ambil harga dari atribut data-price
         const price = Number(item.dataset.price);
 
-        // Jika harga dihitung per orang
         if (item.dataset.perPerson === "true") {
 
             addonTotal += price * persons;
 
         } else {
 
-            // Harga add-on biasa
             addonTotal += price;
 
         }
@@ -189,91 +217,93 @@ function calculateAddonCost() {
 
 
 // ================================================
-// 7. RINGKASAN ADD-ONS YANG DIPILIH
+// 9. DAFTAR ADD-ON YANG DIPILIH
 // ================================================
 
-function updateAddonSummary() {
+function getAddonNames() {
 
     const selected = getSelectedAddons();
 
-    // Jika belum memilih add-on
     if (selected.length === 0) {
 
-        modalAddonSummary.textContent =
-            "Belum ada add-on dipilih";
-
-        return;
+        return "Belum ada add-on dipilih";
 
     }
 
-    // Mengambil nama semua add-on
-    const names = selected.map(function(item) {
+    return selected.map(function(item) {
 
         return item.dataset.name;
 
-    });
-
-    // Menampilkan nama add-on
-    modalAddonSummary.textContent = names.join(", ");
+    }).join(", ");
 
 }
 
 
 // ================================================
-// 8. MENGHITUNG TOTAL HARGA BOOKING
+// 10. HITUNG TOTAL
 // ================================================
 
 function calculateTotal() {
 
-    // Harga paket + harga layanan tambahan
-    const total = packagePrice + calculateAddonCost();
-
-    // Menampilkan total dalam Rupiah
-    totalPrice.textContent = rupiah(total);
-
-    return total;
+    return packagePrice + calculateAddonCost();
 
 }
 
 
 // ================================================
-// 9. MEMBUKA POPUP BOOKING
+// 11. UPDATE RINGKASAN RESERVASI
+// ================================================
+
+function updateReservationSummary() {
+
+    selectedPackageText.textContent =
+        selectedPackageName || "-";
+
+    selectedAddonText.textContent = getAddonNames();
+
+    selectedTotalText.textContent = rupiah(calculateTotal());
+
+}
+
+
+// ================================================
+// 12. MEMBUKA FORM BOOKING
 // ================================================
 
 bookingButtons.forEach(function(button) {
 
     button.addEventListener("click", function() {
 
-        // Simpan posisi fokus
         previousFocus = document.activeElement;
 
-        // Reset formulir booking
-        bookingForm.reset();
+        // Nama dan harga paket yang diklik
+        selectedPackageName = button.dataset.paket;
 
-        // Sembunyikan ringkasan lama
-        bookingResult.hidden = true;
-        bookingResult.textContent = "";
-
-        // Mengambil nama paket yang diklik
-        selectedPackage.value = button.dataset.paket;
-
-        // Mengambil harga paket yang diklik
         packagePrice = Number(button.dataset.harga);
 
-        // Memperbarui pilihan add-on
-        updateAddonSummary();
+        // Kosongkan form sebelumnya
+        reservationForm.reset();
 
-        // Hitung estimasi total
-        calculateTotal();
+        // Isi dropdown sesuai paket yang diklik
+        saungTypeSelect.value = selectedPackageName;
 
-        // Tampilkan popup
-        modal.hidden = false;
+        // Tampilkan form, sembunyikan sukses
+        formView.hidden = false;
+        successView.hidden = true;
 
-        // Cegah scroll halaman belakang
+        updateReservationSummary();
+
+        // Tampilkan overlay
+        reservationOverlay.hidden = false;
+
         document.body.classList.add("modal-open");
 
-        // Fokus ke nama pemesan
-        document.getElementById("guestName").focus();
+        // Scroll panel mulai dari atas
+        document.querySelector(".reservation-panel")
+            .scrollTop = 0;
+
+        // Fokus ke kolom nama
+        fullName.focus();
 
     });
 
@@ -281,18 +311,15 @@ bookingButtons.forEach(function(button) {
 
 
 // ================================================
-// 10. MENUTUP POPUP BOOKING
+// 13. MENUTUP FORM BOOKING
 // ================================================
 
-function closeBookingModal() {
+function closeReservationOverlay() {
 
-    // Sembunyikan popup
-    modal.hidden = true;
+    reservationOverlay.hidden = true;
 
-    // Aktifkan scroll kembali
     document.body.classList.remove("modal-open");
 
-    // Kembalikan fokus ke tombol sebelumnya
     if (previousFocus) {
 
         previousFocus.focus();
@@ -302,31 +329,34 @@ function closeBookingModal() {
 }
 
 
-// Tombol X untuk menutup popup
-closeModalButton.addEventListener(
+// Tombol kembali
+closeReservationBtn.addEventListener(
     "click",
-    closeBookingModal
+    closeReservationOverlay
 );
 
 
-// Klik area luar popup untuk menutup
-modal.addEventListener("click", function(event) {
+// Klik luar form
+reservationOverlay.addEventListener("click", function(event) {
 
-    if (event.target === modal) {
+    if (event.target === reservationOverlay) {
 
-        closeBookingModal();
+        closeReservationOverlay();
 
     }
 
 });
 
 
-// Tombol Escape untuk menutup popup
+// Tekan tombol Escape
 document.addEventListener("keydown", function(event) {
 
-    if (event.key === "Escape" && !modal.hidden) {
+    if (
+        event.key === "Escape" &&
+        !reservationOverlay.hidden
+    ) {
 
-        closeBookingModal();
+        closeReservationOverlay();
 
     }
 
@@ -334,107 +364,210 @@ document.addEventListener("keydown", function(event) {
 
 
 // ================================================
-// 11. UPDATE HARGA SAAT JUMLAH ORANG BERUBAH
+// 14. TANGGAL MINIMAL H-3
 // ================================================
 
-guestCount.addEventListener("input", function() {
-
-    calculateTotal();
-
-});
-
-
-// ================================================
-// 12. TANGGAL MINIMAL BOOKING H-3
-// ================================================
-
-// Mengambil tanggal hari ini
 const minDate = new Date();
 
-// Menambah 3 hari
 minDate.setDate(minDate.getDate() + 3);
 
-// Mengambil tahun
 const year = minDate.getFullYear();
 
-// Mengambil bulan
 const month = String(
     minDate.getMonth() + 1
 ).padStart(2, "0");
 
-// Mengambil tanggal
 const day = String(
     minDate.getDate()
 ).padStart(2, "0");
 
-// Menentukan tanggal minimal
-bookingDate.min = `${year}-${month}-${day}`;
+visitDateInput.min = `${year}-${month}-${day}`;
 
 
 // ================================================
-// 13. MEMBUAT RINGKASAN BOOKING
+// 15. UPDATE HARGA JUMLAH TAMU
 // ================================================
 
-bookingForm.addEventListener("submit", function(event) {
+guestCountInput.addEventListener("input", function() {
 
-    // Mencegah halaman refresh
+    updateReservationSummary();
+
+});
+
+
+// ================================================
+// 16. UPDATE JENIS PAKET
+// ================================================
+
+saungTypeSelect.addEventListener("change", function() {
+
+    selectedPackageName = saungTypeSelect.value;
+
+    packagePrice = packagePrices[selectedPackageName] || 0;
+
+    updateReservationSummary();
+
+});
+
+
+// ================================================
+// 17. SUBMIT FORM BOOKING
+// ================================================
+
+reservationForm.addEventListener("submit", function(event) {
+
+    // Mencegah refresh halaman
     event.preventDefault();
 
-    // Validasi semua kolom
-    if (!bookingForm.reportValidity()) {
+    // Validasi form
+    if (!reservationForm.reportValidity()) {
 
         return;
 
     }
 
-    // Mengambil nama pemesan
-    const name = document
-        .getElementById("guestName")
-        .value.trim();
+    // Nama lengkap
+    const name = fullName.value.trim();
 
-    // Mengambil jumlah tamu
-    const persons = Number(guestCount.value);
+    // Nomor telepon pemesan
+    const phone = phoneNumber.value.trim();
 
-    // Mengambil tanggal
-    const date = bookingDate.value;
+    // Email
+    const email = emailAddress.value.trim() || "-";
 
-    // Mengambil add-on yang dipilih
-    const addons = getSelectedAddons();
+    // Tanggal
+    const date = visitDateInput.value;
 
-    // Nama layanan tambahan
-    const addonNames = addons.length > 0
+    // Jumlah tamu
+    const guestCount = guestCountInput.value;
 
-        ? addons.map(function(item) {
-            return item.dataset.name;
-        }).join(", ")
+    // Jenis saung
+    const saungType = saungTypeSelect.value;
 
-        : "Tidak ada";
+    // Menu makanan
+    const menuPackage =
+        menuPackageSelect.value || "Tidak memilih";
 
-    // Menghitung total booking
-    const total = calculateTotal();
+    // Catatan
+    const notes = specialNote.value.trim() || "-";
 
-    // Membuat teks hasil booking
-    bookingResult.textContent =
+    // Add-ons
+    const addonNames = getAddonNames();
 
-        "Ringkasan Booking Berhasil Dibuat!\n\n" +
+    // Total harga
+    const total = rupiah(calculateTotal());
 
-        "Nama Pemesan: " + name + "\n" +
 
-        "Paket: " + selectedPackage.value + "\n" +
+    // ============================================
+    // MENYUSUN PESAN WHATSAPP
+    // ============================================
+
+    const message =
+
+        "Halo Admin Saung Hibar!\n\n" +
+
+        "Saya ingin melakukan konfirmasi booking.\n\n" +
+
+        "Nama: " + name + "\n" +
+
+        "Nomor WhatsApp: " + phone + "\n" +
+
+        "Email: " + email + "\n" +
 
         "Tanggal Kunjungan: " + date + "\n" +
 
-        "Jumlah Orang: " + persons + "\n" +
+        "Jumlah Tamu: " + guestCount + "\n" +
+
+        "Jenis Saung: " + saungType + "\n" +
+
+        "Menu Makanan/Minuman: " + menuPackage + "\n" +
 
         "Layanan Tambahan: " + addonNames + "\n" +
 
-        "Estimasi Total: " + rupiah(total) + "\n\n" +
+        "Catatan: " + notes + "\n" +
 
-        "Terima kasih sudah memilih Saung Hibar!\n" +
+        "Estimasi Total: " + total + "\n\n" +
 
-        "Ini masih simulasi booking dan belum dikirim ke pengelola.";
+        "Mohon informasi langkah konfirmasi selanjutnya.";
 
-    // Menampilkan hasil
-    bookingResult.hidden = false;
+
+    // Mengubah pesan agar bisa digunakan pada URL
+    const encodedMessage = encodeURIComponent(message);
+
+    // Membuat link WhatsApp
+    if (adminWhatsApp !== "") {
+
+        whatsappLink.href =
+            "https://wa.me/" +
+            adminWhatsApp +
+            "?text=" +
+            encodedMessage;
+
+    } else {
+
+        whatsappLink.href = "#";
+
+    }
+
+
+    // ============================================
+    // TAMPILKAN HALAMAN SUKSES
+    // ============================================
+
+    formView.hidden = true;
+
+    successView.hidden = false;
+
+    // Kembali ke bagian atas popup
+    document.querySelector(".reservation-panel")
+        .scrollTop = 0;
+
+});
+
+
+// ================================================
+// 18. TOMBOL LANJUT KE WHATSAPP
+// ================================================
+
+whatsappLink.addEventListener("click", function(event) {
+
+    // Kalau nomor admin belum dimasukkan
+    if (adminWhatsApp === "") {
+
+        event.preventDefault();
+
+        alert(
+            "Nomor WhatsApp admin belum diatur. " +
+            "Silakan isi adminWhatsApp di script.js."
+        );
+
+        return;
+
+    }
+
+    // Membuka WhatsApp di tab baru
+    whatsappLink.target = "_blank";
+
+    whatsappLink.rel = "noopener noreferrer";
+
+});
+
+
+// ================================================
+// 19. KEMBALI KE BERANDA
+// ================================================
+
+backToHomeBtn.addEventListener("click", function() {
+
+    closeReservationOverlay();
+
+    successView.hidden = true;
+
+    formView.hidden = false;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
 
 });

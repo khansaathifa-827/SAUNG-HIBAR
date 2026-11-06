@@ -1,1 +1,568 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Review - Saung Hibar Hillside</title>
+    <meta
+      name="description"
+      content="Lihat apa yang dikatakan pengunjung Saung Hibar dan bagikan pengalaman Anda."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body class="sh-review-body">
+    <div class="sh-review">
+      <!-- ================= HEADER ================= -->
+      <header class="sh-review__header">
+        <div class="sh-review__header-inner">
+          <a
+            class="sh-review__brand"
+            href="../Home/home.html"
+            aria-label="Saung Hibar Hillside - Beranda"
+          >
+            <!-- Ganti dengan <img src="assets/logo.png"> jika logo asli sudah ada -->
+            <svg
+              class="sh-review__brand-icon"
+              viewBox="0 0 48 48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M8 40V22c0-8 6-14 14-14h2v10c0 8-6 14-14 14" />
+              <path d="M24 40V16c8 0 16 4 16 14 0 6-4 10-10 10" />
+            </svg>
+            <span class="sh-review__brand-text">
+              <strong>Saung Hibar Hillside</strong>
+              <small>MENYENANGKAN &amp; MENENANGKAN</small>
+            </span>
+          </a>
+
+          <button
+            class="sh-review__menu-btn"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sh-review-nav"
+            aria-label="Buka menu"
+          >
+            <span></span><span></span><span></span>
+          </button>
+
+          <nav
+            id="sh-review-nav"
+            class="sh-review__nav"
+            aria-label="Navigasi utama"
+          >
+            <ul>
+              <li>
+                <a href="../Home/home.html">Home</a>
+              </li>
+              <li><a href="../Kapasitas/kapasitas.html">Kapasitas</a></li>
+              <li>
+                <a href="../Customer Service/index.html">Customer Service</a>
+              </li>
+              <li><a href="../Harga/index.html">Harga</a></li>
+              <li>
+                <a href="../Kapasitas/kapasitas.html">Fasilitas</a>
+              </li>
+              <li><a href="../Booking/index.html">Booking</a></li>
+              <li><a href="../Menu/index.html">Menu</a></li>
+              <li><a href="../Maps/index.html">Maps</a></li>
+              <li><a href="rating.html" aria-current="page">Review</a></li>
+              <li><a href="../Gallery/index.html">Gallery</a></li>
+              <li><a href="../Panduan/index.html">Panduan</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <!-- ================= MAIN ================= -->
+      <main class="sh-review__main">
+        <div class="sh-review__container">
+          <section class="sh-review__intro">
+            <h1 class="sh-review__title">Review</h1>
+            <p class="sh-review__subtitle">
+              Lihat apa yang dikatakan pengunjung kami dan bagikan pengalaman
+              Anda
+            </p>
+          </section>
+
+          <div class="sh-review__layout">
+            <!-- ---------- SIDEBAR ---------- -->
+            <aside class="sh-review__sidebar">
+              <!-- Rating keseluruhan -->
+              <section
+                class="sh-review__card sh-review__summary"
+                aria-labelledby="sh-review-summary-title"
+              >
+                <h2 class="sh-review__card-title" id="sh-review-summary-title">
+                  Rating Keseluruhan
+                </h2>
+                <p class="sh-review__score">4.8</p>
+                <span
+                  class="sh-review__stars sh-review__stars--lg"
+                  style="--value: 5"
+                  role="img"
+                  aria-label="Rating 4,8 dari 5"
+                ></span>
+                <p class="sh-review__count">Berdasarkan 152 review</p>
+
+                <ul class="sh-review__bars">
+                  <li>
+                    <span class="sh-review__bar-label"
+                      >5 <i aria-hidden="true">★</i></span
+                    >
+                    <span class="sh-review__bar-track"
+                      ><span
+                        class="sh-review__bar-fill"
+                        style="width: 81.6%"
+                      ></span
+                    ></span>
+                    <span class="sh-review__bar-num">124</span>
+                  </li>
+                  <li>
+                    <span class="sh-review__bar-label"
+                      >4 <i aria-hidden="true">★</i></span
+                    >
+                    <span class="sh-review__bar-track"
+                      ><span
+                        class="sh-review__bar-fill"
+                        style="width: 13.2%"
+                      ></span
+                    ></span>
+                    <span class="sh-review__bar-num">20</span>
+                  </li>
+                  <li>
+                    <span class="sh-review__bar-label"
+                      >3 <i aria-hidden="true">★</i></span
+                    >
+                    <span class="sh-review__bar-track"
+                      ><span
+                        class="sh-review__bar-fill"
+                        style="width: 3.3%"
+                      ></span
+                    ></span>
+                    <span class="sh-review__bar-num">5</span>
+                  </li>
+                  <li>
+                    <span class="sh-review__bar-label"
+                      >2 <i aria-hidden="true">★</i></span
+                    >
+                    <span class="sh-review__bar-track"
+                      ><span
+                        class="sh-review__bar-fill"
+                        style="width: 0.7%"
+                      ></span
+                    ></span>
+                    <span class="sh-review__bar-num">1</span>
+                  </li>
+                  <li>
+                    <span class="sh-review__bar-label"
+                      >1 <i aria-hidden="true">★</i></span
+                    >
+                    <span class="sh-review__bar-track"
+                      ><span
+                        class="sh-review__bar-fill"
+                        style="width: 0.7%"
+                      ></span
+                    ></span>
+                    <span class="sh-review__bar-num">1</span>
+                  </li>
+                </ul>
+              </section>
+
+              <!-- Form tulis review -->
+              <section
+                class="sh-review__card sh-review__form-card"
+                aria-labelledby="sh-review-form-title"
+              >
+                <h2 class="sh-review__card-title" id="sh-review-form-title">
+                  Tulis Review
+                </h2>
+                <p class="sh-review__muted">
+                  Bagikan pengalaman Anda dengan kami
+                </p>
+
+                <form id="sh-review-form" class="sh-review__form" novalidate>
+                  <fieldset class="sh-review__field sh-review__fieldset">
+                    <legend class="sh-review__label">Rating Anda</legend>
+                    <div
+                      class="sh-review__rating-input"
+                      role="radiogroup"
+                      aria-label="Pilih rating"
+                    >
+                      <button
+                        type="button"
+                        class="sh-review__star-btn"
+                        data-value="1"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="1 bintang"
+                      >
+                        ★
+                      </button>
+                      <button
+                        type="button"
+                        class="sh-review__star-btn"
+                        data-value="2"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="2 bintang"
+                      >
+                        ★
+                      </button>
+                      <button
+                        type="button"
+                        class="sh-review__star-btn"
+                        data-value="3"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="3 bintang"
+                      >
+                        ★
+                      </button>
+                      <button
+                        type="button"
+                        class="sh-review__star-btn"
+                        data-value="4"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="4 bintang"
+                      >
+                        ★
+                      </button>
+                      <button
+                        type="button"
+                        class="sh-review__star-btn"
+                        data-value="5"
+                        role="radio"
+                        aria-checked="false"
+                        aria-label="5 bintang"
+                      >
+                        ★
+                      </button>
+                    </div>
+                    <input
+                      type="hidden"
+                      id="sh-review-rating"
+                      name="rating"
+                      value="0"
+                    />
+                    <p
+                      class="sh-review__error"
+                      data-error-for="rating"
+                      hidden
+                    ></p>
+                  </fieldset>
+
+                  <div class="sh-review__field">
+                    <label class="sh-review__label" for="sh-review-name"
+                      >Nama</label
+                    >
+                    <input
+                      class="sh-review__input"
+                      type="text"
+                      id="sh-review-name"
+                      name="nama"
+                      placeholder="Nama Anda"
+                      autocomplete="name"
+                    />
+                    <p
+                      class="sh-review__error"
+                      data-error-for="nama"
+                      hidden
+                    ></p>
+                  </div>
+
+                  <div class="sh-review__field">
+                    <label class="sh-review__label" for="sh-review-email"
+                      >Email</label
+                    >
+                    <input
+                      class="sh-review__input"
+                      type="email"
+                      id="sh-review-email"
+                      name="email"
+                      placeholder="email@example.com"
+                      autocomplete="email"
+                    />
+                    <p
+                      class="sh-review__error"
+                      data-error-for="email"
+                      hidden
+                    ></p>
+                  </div>
+
+                  <div class="sh-review__field">
+                    <label class="sh-review__label" for="sh-review-text"
+                      >Review</label
+                    >
+                    <textarea
+                      class="sh-review__input sh-review__textarea"
+                      id="sh-review-text"
+                      name="review"
+                      rows="4"
+                      placeholder="Ceritakan pengalaman Anda..."
+                    ></textarea>
+                    <p
+                      class="sh-review__error"
+                      data-error-for="review"
+                      hidden
+                    ></p>
+                  </div>
+
+                  <button class="sh-review__submit" type="submit">
+                    <svg
+                      viewBox="0 0 24 24"
+                      width="14"
+                      height="14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      aria-hidden="true"
+                    >
+                      <path d="M22 2 11 13" />
+                      <path d="M22 2 15 22l-4-9-9-4 20-7z" />
+                    </svg>
+                    Kirim Review
+                  </button>
+                  <p
+                    class="sh-review__status"
+                    id="sh-review-status"
+                    role="status"
+                    aria-live="polite"
+                  ></p>
+                </form>
+              </section>
+            </aside>
+
+            <!-- ---------- DAFTAR REVIEW ---------- -->
+            <section
+              class="sh-review__reviews"
+              aria-labelledby="sh-review-list-title"
+            >
+              <h2 class="sh-review__heading" id="sh-review-list-title">
+                Review dari Pengunjung
+              </h2>
+
+              <div class="sh-review__list" id="sh-review-list">
+                <article class="sh-review__item">
+                  <div class="sh-review__avatar" aria-hidden="true">B</div>
+                  <div class="sh-review__meta">
+                    <h3 class="sh-review__name">Budi Santoso</h3>
+                    <span class="sh-review__time">2 hari yang lalu</span>
+                  </div>
+                  <span
+                    class="sh-review__stars"
+                    style="--value: 5"
+                    role="img"
+                    aria-label="5 dari 5 bintang"
+                  ></span>
+                  <p class="sh-review__text">
+                    Tempat yang sangat bagus untuk berkumpul keluarga!
+                    Suasananya asri dan makanannya enak. Pelayanannya juga
+                    ramah. Pasti akan kembali lagi!
+                  </p>
+                </article>
+
+                <article class="sh-review__item">
+                  <div class="sh-review__avatar" aria-hidden="true">S</div>
+                  <div class="sh-review__meta">
+                    <h3 class="sh-review__name">Siti Aminah</h3>
+                    <span class="sh-review__time">5 hari yang lalu</span>
+                  </div>
+                  <span
+                    class="sh-review__stars"
+                    style="--value: 5"
+                    role="img"
+                    aria-label="5 dari 5 bintang"
+                  ></span>
+                  <p class="sh-review__text">
+                    Perfect untuk acara ulang tahun anak! Playground-nya bagus
+                    dan aman. Dekorasinya juga cantik. Terima kasih Saung Hibar!
+                  </p>
+                </article>
+
+                <article class="sh-review__item">
+                  <div class="sh-review__avatar" aria-hidden="true">A</div>
+                  <div class="sh-review__meta">
+                    <h3 class="sh-review__name">Ahmad Rizki</h3>
+                    <span class="sh-review__time">1 minggu yang lalu</span>
+                  </div>
+                  <span
+                    class="sh-review__stars"
+                    style="--value: 4"
+                    role="img"
+                    aria-label="4 dari 5 bintang"
+                  ></span>
+                  <p class="sh-review__text">
+                    Lokasi strategis, mudah dijangkau. Parkir luas. Saungnya
+                    bersih dan nyaman. Hanya saja saat weekend agak ramai.
+                  </p>
+                </article>
+
+                <article class="sh-review__item">
+                  <div class="sh-review__avatar" aria-hidden="true">D</div>
+                  <div class="sh-review__meta">
+                    <h3 class="sh-review__name">Dewi Lestari</h3>
+                    <span class="sh-review__time">1 minggu yang lalu</span>
+                  </div>
+                  <span
+                    class="sh-review__stars"
+                    style="--value: 5"
+                    role="img"
+                    aria-label="5 dari 5 bintang"
+                  ></span>
+                  <p class="sh-review__text">
+                    Sangat recommended! Tempatnya instagramable banget. Cocok
+                    untuk gathering kantor. Fasilitasnya lengkap.
+                  </p>
+                </article>
+
+                <article class="sh-review__item">
+                  <div class="sh-review__avatar" aria-hidden="true">H</div>
+                  <div class="sh-review__meta">
+                    <h3 class="sh-review__name">Hendra Wijaya</h3>
+                    <span class="sh-review__time">2 minggu yang lalu</span>
+                  </div>
+                  <span
+                    class="sh-review__stars"
+                    style="--value: 5"
+                    role="img"
+                    aria-label="5 dari 5 bintang"
+                  ></span>
+                  <p class="sh-review__text">
+                    Pemandangannya indah, udaranya sejuk. Makanan variatif dan
+                    harganya masih terjangkau. Great place!
+                  </p>
+                </article>
+
+                <article class="sh-review__item">
+                  <div class="sh-review__avatar" aria-hidden="true">N</div>
+                  <div class="sh-review__meta">
+                    <h3 class="sh-review__name">Nina Kartika</h3>
+                    <span class="sh-review__time">3 minggu yang lalu</span>
+                  </div>
+                  <span
+                    class="sh-review__stars"
+                    style="--value: 4"
+                    role="img"
+                    aria-label="4 dari 5 bintang"
+                  ></span>
+                  <p class="sh-review__text">
+                    Tempatnya bagus dan bersih. Staffnya helpful. Cuma agak jauh
+                    dari pusat kota, tapi worth it!
+                  </p>
+                </article>
+              </div>
+            </section>
+          </div>
+        </div>
+
+        <!-- ================= TESTIMONI ================= -->
+        <section
+          class="sh-review__container sh-review__container--wide sh-review__testi"
+          aria-labelledby="sh-review-testi-title"
+        >
+          <h2 class="sh-review__testi-title" id="sh-review-testi-title">
+            Testimoni
+          </h2>
+
+          <div class="sh-review__testi-grid sh-review__testi-grid--lg">
+            <figure class="sh-review__shot">
+              <img
+                src="assets/testimoni_1.png"
+                alt="Review Ernomo Wibowo"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="sh-review__shot">
+              <img
+                src="assets/testimoni_4.png"
+                alt="Review Alfi Mahfud"
+                loading="lazy"
+              />
+            </figure>
+          </div>
+
+          <div class="sh-review__testi-grid sh-review__testi-grid--sm">
+            <figure class="sh-review__shot">
+              <img
+                src="assets/testimoni_5.png"
+                alt="Review Sa'ida Fashion"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="sh-review__shot">
+              <img
+                src="assets/testimoni_6.png"
+                alt="Review SDN 3 MM"
+                loading="lazy"
+              />
+            </figure>
+            </figure>
+            <figure class="sh-review__shot">
+              <img
+                src="assets/testimoni_8.png"
+                alt="Review Amir rillah"
+                loading="lazy"
+              />
+          </div>
+        </section>
+      </main>
+
+      <!-- ================= FOOTER ================= -->
+      <footer class="sh-review__footer">
+        <div class="sh-review__footer-inner">
+          <div class="sh-review__footer-col">
+            <h2 class="sh-review__footer-title">Saung Hibar</h2>
+            <p>
+              Destinasi wisata keluarga yang menghadirkan suasana alam yang
+              tenang, nyaman, dan asri.
+            </p>
+          </div>
+
+          <div class="sh-review__footer-col">
+            <h2 class="sh-review__footer-title">Kontak</h2>
+            <p>
+              Pasir muncang, Kec. Wanayasa, Kabupaten Purwakarta, Jawa Barat
+              41117
+            </p>
+            <p>Phone: <a href="tel:+6287740954371">+62 877-4095-4371</a></p>
+            <p>
+              Email:
+              <a href="mailto:saunghibar@gmail.com">saunghibar@gmail.com</a>
+            </p>
+          </div>
+
+          <div class="sh-review__footer-col">
+            <h2 class="sh-review__footer-title">Jam Operasional</h2>
+            <dl class="sh-review__hours">
+              <dt>Senin - Jumat</dt>
+              <dd>: 09.00 - 21.00</dd>
+              <dt>Sabtu - Minggu</dt>
+              <dd>: 08.00 - 22.00</dd>
+            </dl>
+          </div>
+        </div>
+
+        <p class="sh-review__footer-bottom">
+          © 2026 Saung Hibar. All rights reserved.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

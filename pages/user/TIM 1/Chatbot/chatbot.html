@@ -1,1 +1,222 @@
-<!doctype html>
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Asisten Saung Hibar</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="sytle.css">
+
+    <!-- JavaScript -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="sh-chatbot">
+
+        <!-- ==================== NAVBAR ==================== -->
+        <header class="sh-chatbot__navbar">
+
+            <div class="sh-chatbot__logo">
+                <img
+                    src="assets/images/logo.png"
+                    alt="Saung Hibar
+                    Wisata Keluarga"
+                >
+            </div>
+
+            <div class="sh-chatbot__nav-actions">
+
+                <button
+                    class="sh-chatbot__icon-button"
+                    type="button"
+                    aria-label="Notifikasi"
+                >
+                    <span class="sh-chatbot__notification-icon">♟</span>
+                </button>
+
+                <button
+                    class="sh-chatbot__menu-button"
+                    type="button"
+                    aria-label="Buka menu"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- ==================== MAIN ==================== -->
+        <main class="sh-chatbot__main">
+
+            <!-- Header Chatbot -->
+            <section class="sh-chatbot__header">
+
+                <button
+                    class="sh-chatbot__back-button"
+                    type="button"
+                    aria-label="Kembali"
+                    id="backButton"
+                >
+                    ‹
+                </button>
+
+                <div>
+                    <h1>Asisten Saung Hibar</h1>
+                    <p>Atur menu makanan dan minuman</p>
+                </div>
+
+            </section>
+
+
+            <!-- ==================== CHAT AREA ==================== -->
+            <section
+                class="sh-chatbot__conversation"
+                id="chatConversation"
+                aria-label="Percakapan dengan Asisten Saung Hibar"
+            >
+
+                <!-- Pesan awal chatbot -->
+                <div class="sh-chatbot__message-row sh-chatbot__message-row--bot">
+
+                    <div class="sh-chatbot__avatar sh-chatbot__avatar--bot">
+                        <img
+                            src="assets/images/logo.png"
+                            alt="Asisten Saung Hibar"
+                        >
+                    </div>
+
+                    <div class="sh-chatbot__message-group">
+
+                        <div class="sh-chatbot__bubble sh-chatbot__bubble--bot">
+                            <p>
+                                Haloo, saya asisten virtual anda.<br>
+                                Apa ada yang bisa saya bantu?<br>
+                                Silahkan pilih pertanyaan dibawah ini.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quick Question -->
+                <div
+                    class="sh-chatbot__quick-questions"
+                    id="quickQuestions"
+                >
+
+                    <button
+                        type="button"
+                        class="sh-chatbot__quick-button"
+                        data-question="harga"
+                    >
+                        Harga
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sh-chatbot__quick-button"
+                        data-question="operasional"
+                    >
+                        Jam Operasional
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sh-chatbot__quick-button"
+                        data-question="fasilitas"
+                    >
+                        Fasilitas
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sh-chatbot__quick-button"
+                        data-question="lokasi"
+                    >
+                        Lokasi
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sh-chatbot__quick-button"
+                        data-question="menu"
+                    >
+                        Menu
+                    </button>
+
+                    <button
+                        type="button"
+                        class="sh-chatbot__quick-button"
+        data-question="booking"
+                    >
+                        Cara Booking
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- ==================== INPUT ==================== -->
+            <section class="sh-chatbot__input-area">
+
+                <button
+                    class="sh-chatbot__link-button"
+                    type="button"
+                    aria-label="Lampirkan"
+                >
+                    <span>↗</span>
+                </button>
+
+                <input
+                    type="text"
+                    id="chatInput"
+                    class="sh-chatbot__input"
+                    placeholder="Cari nama pemesan, kode booking, atau villa..."
+                    aria-label="Input pertanyaan"
+                >
+
+                <button
+                    class="sh-chatbot__send-button"
+                    id="sendButton"
+                    type="button"
+                    aria-label="Kirim pesan"
+                >
+                    <span>➤</span>
+                </button>
+
+            </section>
+
+
+            <!-- ==================== ADMIN ==================== -->
+            <section class="sh-chatbot__admin">
+
+                <p>Tidak menemukan jawabannya?</p>
+
+                <button
+                    type="button"
+                    class="sh-chatbot__admin-button"
+                    id="adminButton"
+                >
+                    Hubungi Admin Via WhatsApp
+                </button>
+
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+</html>

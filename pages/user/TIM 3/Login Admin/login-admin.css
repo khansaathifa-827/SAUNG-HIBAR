@@ -1,301 +1,93 @@
-/* Variabel Warna & Font */
+/* RESET & VARIABEL UTAMA */
 :root {
-    --primary-color: #2E7D32;
-    --primary-hover: #1B5E20;
-    --primary-light: #4CAF50;
+    --green-primary: #345e37;
+    --brown-logo: #7A4222;
+    --green-input: #4a6a4c;
     --text-dark: #333333;
     --text-gray: #777777;
-    --bg-light: #F4F7F6;
-    --white: #FFFFFF;
-    --border-color: #E0E0E0;
-    --font-main: 'Poppins', sans-serif;
+    --bg-body: #faf8f5; 
+    --border-color: #e5e5e5;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+/* BODY: Memenuhi seluruh tinggi layar dengan Flexbox */
+body { 
+    background-color: var(--bg-body); 
+    color: var(--text-dark); 
+    display: flex; 
+    flex-direction: column; 
+    min-height: 100vh; 
 }
 
-body {
-    font-family: var(--font-main);
-    background-color: var(--bg-light);
-    color: var(--text-dark);
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+/* NAVBAR: Lebar 100%, Konten terbatas max-width 1200px (Desktop-friendly) */
+.navbar { width: 100%; background: #fff; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand img { height: 32px; }
+.brand-text { display: flex; flex-direction: column; }
+.title { font-size: 16px; font-weight: 700; line-height: 1.1; color: var(--text-dark); }
+.subtitle { font-size: 9px; letter-spacing: 0.5px; color: var(--brown-logo); font-weight: 600; }
+.nav-icons { display: flex; gap: 20px; color: var(--green-primary); font-size: 20px; cursor: pointer; }
+.nav-icons i { transition: transform 0.2s; }
+.nav-icons i:hover { transform: scale(1.1); }
+
+/* HERO SECTION: Lebar 100%, responsif */
+.hero { width: 100%; position: relative; min-height: 320px; background: url('../assets/dashboard-admin.jpeg') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; padding: 60px 20px; }
+.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); }
+.hero-content { position: relative; z-index: 1; max-width: 800px; color: #fff; }
+.hero-title { font-family: 'Lora', serif; line-height: 1.25; margin-bottom: 15px; }
+.font-light { font-size: 32px; font-weight: 400; }
+.font-bold { font-size: 40px; font-weight: 700; }
+.hero-desc { font-size: 14px; font-weight: 300; line-height: 1.6; opacity: 0.95; }
+
+/* KONTEN UTAMA & FORM: Menengah di layar */
+.main-container { flex: 1; width: 100%; max-width: 1200px; margin: 0 auto; padding: 60px 24px; display: flex; justify-content: center; align-items: center; }
+.form-wrapper { background: #fff; width: 100%; max-width: 500px; border-radius: 20px; padding: 40px 32px; box-shadow: 0 10px 40px rgba(0,0,0,0.06); border: 1px solid var(--border-color); }
+.form-wrapper h2 { text-align: center; font-size: 22px; font-weight: 700; margin-bottom: 30px; color: var(--text-dark); }
+
+/* INPUT STYLING */
+.input-group { margin-bottom: 22px; }
+.input-group label { display: block; font-size: 13px; font-weight: 500; margin-bottom: 8px; color: var(--text-dark); padding-left: 5px; }
+.input-group input { width: 100%; padding: 15px 22px; border: none; border-radius: 30px; background-color: var(--green-input); color: #fff; font-size: 14px; outline: none; transition: 0.2s; }
+.input-group input:focus { box-shadow: 0 0 0 3px rgba(52, 94, 55, 0.25); }
+.password-wrapper { position: relative; }
+.toggle-pw { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); color: rgba(255,255,255,0.7); cursor: pointer; font-size: 14px; }
+
+/* OPSI & SOSMED FORM */
+.form-options { display: flex; justify-content: space-between; align-items: center; font-size: 12px; margin-bottom: 30px; padding: 0 4px; color: var(--text-gray); }
+.checkbox-container { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.forgot-pw { color: var(--text-gray); text-decoration: none; transition: color 0.2s; }
+.forgot-pw:hover { color: var(--green-primary); }
+
+.social-login { text-align: center; margin-bottom: 30px; }
+.social-login p { font-size: 12px; color: var(--text-gray); margin-bottom: 12px; }
+.social-icons { display: flex; justify-content: center; gap: 20px; font-size: 24px; }
+.social-icons i { cursor: pointer; transition: transform 0.2s; }
+.social-icons i:hover { transform: scale(1.1); }
+
+/* TOMBOL LOGIN */
+.btn-login { display: block; width: 100%; padding: 15px; background-color: var(--green-primary); color: #fff; border: none; border-radius: 30px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background-color 0.3s, transform 0.2s; box-shadow: 0 4px 15px rgba(52, 94, 55, 0.15); }
+.btn-login:hover { background-color: #244226; transform: translateY(-2px); }
+
+/* FOOTER: Lebar 100%, Grid Responsif */
+.footer { width: 100%; background: var(--green-primary); color: #fff; padding: 60px 24px 20px; margin-top: auto; }
+.footer-container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 40px; }
+@media (min-width: 768px) {
+    .footer-container { grid-template-columns: 1.5fr 1fr; }
 }
 
-/* --- LAYOUT UTAMA --- */
-.login-wrapper {
-    display: flex;
-    flex: 1;
-    background-color: var(--white);
-}
+.footer-brand { display: flex; align-items: center; gap: 12px; font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+.invert-logo { height: 28px; filter: brightness(0) invert(1); }
+.about-desc { font-size: 13.5px; line-height: 1.6; margin-bottom: 20px; opacity: 0.9; max-width: 600px; }
 
-/* --- BAGIAN KIRI (BANNER ALAM) --- */
-.login-left {
-    flex: 1.2;
-    /* Background gambar alam dengan overlay gradasi hijau */
-    background: linear-gradient(135deg, rgba(46,125,50,0.85), rgba(27,94,32,0.9)), url('https://images.unsplash.com/photo-1542662565-7e4fd1647fa3?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat;
-    color: var(--white);
-    padding: 60px 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
+.socials { display: flex; gap: 12px; margin-top: 20px; }
+.socials a { display: flex; justify-content: center; align-items: center; width: 38px; height: 38px; border: 1px solid rgba(255,255,255,0.4); border-radius: 50%; color: #fff; text-decoration: none; font-size: 15px; transition: 0.2s; }
+.socials a:hover { background: rgba(255,255,255,0.15); transform: translateY(-2px); }
+.outline-icon { color: transparent; -webkit-text-stroke: 1.5px #fff; }
 
-.branding h1 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 5px;
-}
+.footer-contact h3, .footer-contact p { margin-bottom: 10px; line-height: 1.4; }
+.footer-contact h3 { font-size: 17px; font-weight: 600; margin-bottom: 15px; }
+.footer-contact p { font-size: 13.5px; opacity: 0.9; }
 
-.badge {
-    background-color: rgba(255, 255, 255, 0.2);
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-}
-
-.welcome-text h2 {
-    font-size: 2.2rem;
-    line-height: 1.3;
-    margin-bottom: 20px;
-}
-
-.welcome-text p {
-    font-size: 1rem;
-    line-height: 1.6;
-    opacity: 0.9;
-    max-width: 90%;
-}
-
-/* --- BAGIAN KANAN (FORM LOGIN) --- */
-.login-right {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-}
-
-.login-box {
-    width: 100%;
-    max-width: 380px;
-}
-
-.login-box h3 {
-    font-size: 1.8rem;
-    color: var(--primary-hover);
-    margin-bottom: 30px;
-    font-weight: 600;
-}
-
-.input-group {
-    margin-bottom: 20px;
-}
-
-.input-group label {
-    display: block;
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-bottom: 8px;
-    color: var(--text-dark);
-}
-
-.input-group input {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    font-size: 0.95rem;
-    font-family: var(--font-main);
-    outline: none;
-    transition: border 0.3s ease;
-}
-
-.input-group input:focus {
-    border-color: var(--primary-color);
-}
-
-.login-options {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 25px;
-    font-size: 0.9rem;
-}
-
-.remember-me {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-gray);
-    cursor: pointer;
-}
-
-.forgot-pw {
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
-}
-
-.btn-primary {
-    width: 100%;
-    background-color: var(--primary-color);
-    color: var(--white);
-    border: none;
-    padding: 14px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-hover);
-}
-
-.divider {
-    text-align: center;
-    margin: 25px 0;
-    position: relative;
-}
-
-.divider span {
-    background-color: var(--white);
-    padding: 0 15px;
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    position: relative;
-    z-index: 2;
-}
-
-.divider::before {
-    content: "";
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: var(--border-color);
-    z-index: 1;
-}
-
-.social-login {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-}
-
-.btn-social {
-    width: 50px;
-    height: 50px;
-    border: 1px solid var(--border-color);
-    border-radius: 50%;
-    background-color: var(--white);
-    color: var(--text-dark);
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.btn-social:hover {
-    background-color: var(--bg-light);
-}
-
-/* --- FOOTER --- */
-.login-footer {
-    background-color: #1a1a1a;
-    color: var(--white);
-    padding: 40px 50px 20px;
-}
-
-.footer-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    border-bottom: 1px solid #333;
-    padding-bottom: 30px;
-}
-
-.footer-brand h3 {
-    color: var(--primary-light);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
-}
-
-.footer-brand p {
-    font-size: 0.9rem;
-    color: #b3b3b3;
-    line-height: 1.6;
-}
-
-.footer-contact h4 {
-    margin-bottom: 15px;
-    font-size: 1.2rem;
-}
-
-.footer-contact ul {
-    list-style: none;
-}
-
-.footer-contact ul li {
-    font-size: 0.9rem;
-    color: #b3b3b3;
-    margin-bottom: 12px;
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-}
-
-.footer-contact ul li i {
-    color: var(--primary-light);
-    margin-top: 3px;
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 0.85rem;
-    color: #888;
-}
-
-/* --- MEDIA QUERIES (RESPONSIVE MOBILE) --- */
-@media (max-width: 850px) {
-    .login-wrapper {
-        flex-direction: column;
-    }
-    
-    .login-left {
-        padding: 50px 30px;
-        text-align: center;
-        min-height: 350px;
-    }
-
-    .welcome-text p {
-        margin: 0 auto;
-    }
-
-    .login-right {
-        padding: 40px 20px;
-    }
-
-    .footer-container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .login-footer {
-        padding: 40px 20px 20px;
-    }
-}
+.footer-bottom { max-width: 1200px; margin: 40px auto 0; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.2); font-size: 12px; opacity: 0.75; }

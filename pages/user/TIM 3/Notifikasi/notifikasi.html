@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saung Hibar - Notifikasi Admin</title>
+    <!-- Import Font Poppins & FontAwesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Hubungkan CSS -->
+    <link rel="stylesheet" href="notifikasi.css">
+</head>
+<body>
+    
+    <!-- HEADER / NAVBAR (Melebar 100%) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <div class="brand" id="btnBrand">
+                <!-- Pengalamatan gambar sesuai struktur folder pada image_049f7b.png -->
+                <img src="../assets/logo.png" alt="Logo Saung Hibar" onerror="this.src='logo.png'">
+                <div class="brand-text">
+                    <span class="title">Saung Hibar Hillside</span>
+                    <span class="subtitle">MENYENANGKAN & MENENANGKAN</span>
+                </div>
+            </div>
+            <div class="nav-icons">
+                <i class="fa-solid fa-bell active-bell" id="btnNotification" title="Notifikasi"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA (Terpusat, Max-Width 1200px) -->
+    <main class="main-content">
+        
+        <!-- JUDUL HALAMAN & TOMBOL KEMBALI -->
+        <section class="page-header">
+            <div class="title-wrapper">
+                <i class="fa-solid fa-chevron-left btn-back" id="btnBack" title="Kembali"></i>
+                <h1 class="page-title">Notifikasi</h1>
+            </div>
+            <p class="page-subtitle">Pantau Informasi dan aktivitas terbaru</p>
+        </section>
+
+        <!-- TAB FILTER KATEGORI -->
+        <section class="filter-tabs">
+            <button class="tab-btn active" data-category="semua">Semua</button>
+            <button class="tab-btn" data-category="booking">Booking</button>
+            <button class="tab-btn" data-category="inventaris">Inventaris</button>
+            <button class="tab-btn" data-category="sistem">Sistem</button>
+        </section>
+
+        <!-- DAFTAR KARTU NOTIFIKASI (Fluid Grid) -->
+        <section class="notification-list" id="notificationList">
+            
+            <div class="notification-grid">
+                <!-- Notifikasi 1: Booking -->
+                <div class="notification-card" data-category="booking">
+                    <div class="notif-icon-wrapper">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <div class="notif-text">
+                        <div class="notif-header">
+                            <h3>Formulir Reservasi</h3>
+                            <span class="notif-time">10:24</span>
+                        </div>
+                        <p>Pengajuan reservasi baru dari pengunjung</p>
+                    </div>
+                </div>
+
+                <!-- Notifikasi 2: Booking -->
+                <div class="notification-card" data-category="booking">
+                    <div class="notif-icon-wrapper">
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <div class="notif-text">
+                        <div class="notif-header">
+                            <h3>Ulasan Pengunjung</h3>
+                            <span class="notif-time">08:40</span>
+                        </div>
+                        <p>Pengunjung memberikan penilaian 5 bintang</p>
+                    </div>
+                </div>
+
+                <!-- Notifikasi 3: Sistem -->
+                <div class="notification-card" data-category="sistem">
+                    <div class="notif-icon-wrapper">
+                        <i class="fa-solid fa-desktop"></i>
+                    </div>
+                    <div class="notif-text">
+                        <div class="notif-header">
+                            <h3>Pembaruan Sistem</h3>
+                            <span class="notif-time">23:11</span>
+                        </div>
+                        <p>Informasi website berhasil diperbarui</p>
+                    </div>
+                </div>
+
+                <!-- Notifikasi 4: Sistem -->
+                <div class="notification-card" data-category="sistem">
+                    <div class="notif-icon-wrapper">
+                        <i class="fa-regular fa-user"></i>
+                    </div>
+                    <div class="notif-text">
+                        <div class="notif-header">
+                            <h3>Aktivitas Akun</h3>
+                            <span class="notif-time">20:45</span>
+                        </div>
+                        <p>Pemberitahuan perubahan kata sandi...</p>
+                    </div>
+                </div>
+
+                <!-- Notifikasi 5: Booking -->
+                <div class="notification-card" data-category="booking">
+                    <div class="notif-icon-wrapper">
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+                    <div class="notif-text">
+                        <div class="notif-header">
+                            <h3>Pengingat</h3>
+                            <span class="notif-time">18:00</span>
+                        </div>
+                        <p>Tamu akan check-in hari ini (B02)</p>
+                    </div>
+                </div>
+
+                <!-- Notifikasi 6: Inventaris -->
+                <div class="notification-card" data-category="inventaris">
+                    <div class="notif-icon-wrapper">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                    </div>
+                    <div class="notif-text">
+                        <div class="notif-header">
+                            <h3>Pembaruan Stok</h3>
+                            <span class="notif-time">14:15</span>
+                        </div>
+                        <p>Stok bahan makanan dan perlengkapan villa telah diperbarui</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pesan jika kategori kosong -->
+            <div class="empty-state" id="emptyState" style="display: none">
+                <i class="fa-regular fa-folder-open"></i>
+                <p>Tidak ada notifikasi dalam kategori ini.</p>
+            </div>
+            
+        </section>
+    </main>
+
+    <!-- Script Notifikasi -->
+    <script src="notifikasi.js"></script>
+</body>
+</html>

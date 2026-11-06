@@ -1,27 +1,21 @@
 
 /* =========================================
-   SAUNG HIBAR - STYLE CSS
+   SAUNG HIBAR - STYLE CSS FINAL
    TANPA BOOTSTRAP
-   FONT INTER
 ========================================= */
-
-
-/* 1. WARNA UTAMA WEBSITE */
 
 :root {
     --green: #2C4F15;
     --green-hover: #3A6323;
-    --mint: #E7F4E8;
+    --green-soft: #E7F0E4;
     --cream: #FCFAF6;
     --white: #FFFFFF;
     --text: #27221E;
     --muted: #796F66;
     --border: #E9E3DA;
     --brown: #AB9270;
+    --brown-light: #E6CFB2;
 }
-
-
-/* 2. RESET DAN BODY */
 
 * {
     box-sizing: border-box;
@@ -29,21 +23,22 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 115px;
+    scroll-padding-top: 100px;
 }
 
 body {
     margin: 0;
-    background-color: var(--cream);
+    background: var(--cream);
     color: var(--text);
-
     font-family: 'Inter', Arial, sans-serif;
     font-size: 14px;
     line-height: 1.6;
 }
 
 button,
-input {
+input,
+select,
+textarea {
     font: inherit;
 }
 
@@ -52,188 +47,176 @@ button {
 }
 
 a {
-    color: inherit;
     text-decoration: none;
+    color: inherit;
 }
 
-.container {
-    width: min(1650px, calc(100% - 78px));
-    margin-left: auto;
-    margin-right: auto;
+img {
+    display: block;
+    max-width: 100%;
 }
 
 [hidden] {
     display: none !important;
 }
 
+.container {
+    width: min(1420px, calc(100% - 70px));
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 /* =========================================
-   3. NAVBAR STICKY
+   NAVBAR UTAMA
 ========================================= */
 
 .site-header {
-    background-color: var(--white);
-    border-bottom: 1px solid var(--border);
-
     position: sticky;
     top: 0;
     z-index: 1000;
+    background: white;
+    border-bottom: 1px solid var(--border);
 }
 
 .navbar-wrap {
-    width: min(1700px, calc(100% - 70px));
-    min-height: 100px;
-
+    width: min(1540px, calc(100% - 60px));
+    min-height: 82px;
     margin: auto;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    gap: 25px;
+    gap: 24px;
 }
 
-
-/* 4. LOGO SAUNG HIBAR */
-
 .brand {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 10px;
     flex-shrink: 0;
 }
 
 .brand-logo {
-    width: 54px;
-    height: 54px;
-
+    width: 56px;
+    height: 56px;
     object-fit: contain;
-    display: block;
 }
 
 .brand-text {
     display: flex;
     flex-direction: column;
-    line-height: 1.25;
+    justify-content: center;
+
+    gap: 5px;
+    line-height: 1.2;
 }
 
+/* JUDUL NAVBAR JADI HITAM */
 .brand-text strong {
-    color: var(--green);
+    color: #252525;
+    font-size: 20px;
     font-weight: 800;
-    font-size: 22px;
 }
 
+/* TAGLINE DIGANTI */
 .brand-text small {
-    color: #9C7559;
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 4px;
+    color: #957353;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 1px;
 }
 
 
-/* 5. MENU NAVBAR */
+/* MENU NAVBAR */
 
 .nav-links {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-
     gap: 4px;
 }
 
 .nav-links a {
-    padding: 13px 13px;
-    border-radius: 10px;
-
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 500;
     white-space: nowrap;
 
-    transition: background-color 0.25s ease,
-                color 0.25s ease;
+    padding: 11px 10px;
+    border-radius: 8px;
+
+    transition: background-color .25s,
+                color .25s;
 }
 
-/* Efek hover navbar */
 .nav-links a:hover {
-    background-color: var(--green);
+    background: var(--green);
     color: white;
 }
 
-/* Menu aktif */
 .nav-links a.active {
-    background-color: var(--green);
+    background: var(--green);
     color: white;
 }
 
 
-/* 6. HAMBURGER MENU */
+/* HAMBURGER NAVBAR UTAMA */
 
 .menu-toggle {
     display: none;
-
     width: 42px;
     height: 40px;
 
-    background-color: white;
+    background: white;
     border: 1px solid var(--border);
     border-radius: 8px;
-
     padding: 9px;
 }
 
 .menu-toggle span {
     display: block;
-
     height: 2px;
-    background-color: var(--green);
-
     margin: 5px 0;
-    border-radius: 5px;
+    border-radius: 4px;
+    background: var(--green);
 }
 
 
 /* =========================================
-   7. JUDUL DAFTAR HARGA
+   JUDUL DAFTAR HARGA
 ========================================= */
 
 .intro {
     text-align: center;
-
-    padding-top: 35px;
-    padding-bottom: 45px;
+    padding-top: 30px;
+    padding-bottom: 40px;
 }
 
 .intro h1 {
-    font-size: clamp(30px, 3vw, 48px);
+    margin: 0 0 14px;
+
+    font-size: clamp(32px, 3vw, 48px);
     font-weight: 800;
     line-height: 1.2;
-
-    margin: 0 0 18px;
 }
 
 .intro p {
-    color: var(--muted);
-    font-size: 15px;
     margin: 0;
+    font-size: 13px;
+    color: var(--muted);
 }
 
 
 /* =========================================
-   8. GRID PAKET BOOKING
+   EMPAT KARTU HARGA
 ========================================= */
 
 .packages {
-    max-width: 1500px;
-
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-
+    gap: 18px;
     align-items: stretch;
-    gap: 22px;
 }
-
-
-/* 9. KARTU PAKET NORMAL */
 
 .package-card {
     position: relative;
@@ -241,296 +224,206 @@ a {
     display: flex;
     flex-direction: column;
 
-    background-color: white;
+    min-height: 490px;
+    padding: 23px 17px 18px;
 
+    background: white;
     border: 2px solid var(--border);
-    border-radius: 15px;
+    border-radius: 14px;
 
-    min-height: 565px;
-    padding: 26px 21px 23px;
-
-    box-shadow: 0 2px 8px rgba(58, 45, 33, 0.03);
-
-    transition: border-color 0.25s ease,
-                box-shadow 0.25s ease,
-                transform 0.25s ease;
+    transition: border-color .25s,
+                box-shadow .25s,
+                transform .25s;
 }
 
-
-/* 10. HOVER KARTU PAKET */
-
-/* Kartu menjadi hijau saat kursor masuk */
 .package-card:hover,
 .package-card:focus-within {
     border-color: var(--green);
-
-    box-shadow: 0 8px 20px rgba(44, 79, 21, 0.10);
-
+    box-shadow: 0 7px 18px rgba(44, 79, 21, .12);
     transform: translateY(-3px);
 }
 
-/* Paket keluarga juga normal saat tidak hover */
 .featured-card {
     border-color: var(--border);
 }
 
+.popular-badge {
+    position: absolute;
+    left: 50%;
+    top: -14px;
+    transform: translateX(-50%);
 
-/* 11. JUDUL DAN DESKRIPSI */
+    background: var(--green);
+    color: white;
+
+    padding: 5px 15px;
+    border-radius: 8px;
+
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
 
 .package-card h2 {
-    font-size: 16px;
+    margin: 0 0 6px;
+    font-size: 15px;
     font-weight: 700;
-    line-height: 1.4;
-
-    margin: 0 0 7px;
 }
 
 .package-desc {
+    min-height: 50px;
+    margin: 0 0 17px;
     color: var(--muted);
-
-    font-size: 13px;
-    line-height: 1.6;
-
-    min-height: 67px;
-    margin: 0 0 20px;
+    font-size: 12px;
 }
 
-
-/* 12. HARGA PAKET */
-
 .price {
-    color: #241E1A;
+    margin: 0 0 2px;
+    color: #231D19;
 
-    font-size: clamp(25px, 2.4vw, 37px);
+    font-size: clamp(25px, 2.5vw, 38px);
     font-weight: 800;
-
     letter-spacing: -1px;
     line-height: 1.2;
-
-    margin: 0 0 3px;
 }
 
 .duration {
+    margin: 0 0 22px;
     color: var(--muted);
-    font-size: 12px;
-
-    margin: 0 0 31px;
+    font-size: 11px;
 }
-
-
-/* 13. LIST FASILITAS */
 
 .features {
     list-style: none;
-
+    margin: 0 0 20px;
     padding: 0;
-    margin: 0 0 26px;
 }
 
 .features li {
     position: relative;
+    padding-left: 21px;
+    margin-bottom: 9px;
 
-    padding-left: 24px;
-
-    font-size: 12px;
-    line-height: 1.65;
-
-    margin-bottom: 11px;
+    font-size: 11px;
+    line-height: 1.6;
 }
 
-/* Checklist hijau */
 .features li::before {
-    content: '✔';
-
+    content: "✔";
     position: absolute;
     left: 0;
     top: 0;
 
     color: #74A56D;
-    font-size: 14px;
     font-weight: 800;
 }
 
-
-/* 14. TOMBOL PESAN SEKARANG */
-
 .booking-btn {
-    display: block;
     width: 100%;
-
-    min-height: 46px;
-
+    min-height: 40px;
     margin-top: auto;
 
-    background-color: #FFFDF9;
-
-    border: 1px solid #E5DED2;
-    border-radius: 9px;
-
+    background: #FFFDF9;
     color: #574B3C;
 
-    font-size: 13px;
+    border: 1px solid #E5DED2;
+    border-radius: 8px;
+
+    font-size: 12px;
     font-weight: 600;
 
-    transition: background-color 0.25s ease,
-                color 0.25s ease,
-                border-color 0.25s ease;
+    transition: .25s;
 }
 
-/* Tombol ikut hijau saat kartu hover */
 .package-card:hover .booking-btn,
 .package-card:focus-within .booking-btn {
-    background-color: var(--green);
+    background: var(--green);
     border-color: var(--green);
     color: white;
 }
 
-.package-card .booking-btn:hover {
-    background-color: var(--green-hover);
+.booking-btn:hover {
+    background: var(--green-hover) !important;
     color: white;
-}
-
-
-/* 15. LABEL PALING POPULER */
-
-.popular-badge {
-    position: absolute;
-
-    top: -19px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background-color: var(--green);
-    color: white;
-
-    padding: 7px 20px;
-
-    border-radius: 9px;
-
-    font-size: 12px;
-    font-weight: 700;
-    white-space: nowrap;
 }
 
 
 /* =========================================
-   16. LAYANAN TAMBAHAN ADD-ONS
+   ADD-ONS
 ========================================= */
 
 .addons-section {
-    margin-top: 35px;
+    margin-top: 28px;
 }
 
-.addons-section > h2 {
-    font-size: 24px;
-    font-weight: 800;
-
+.addons-section h2 {
     margin: 0 0 3px;
+    font-size: 19px;
+    font-weight: 800;
 }
-
-
-/* 17. TEKS KECIL TRANSPARAN */
 
 .addons-hint {
-    color: var(--muted);
-
-    font-size: 11px;
-    font-style: italic;
-
-    opacity: 0.5;
-
     margin: 0 0 14px;
+    color: var(--muted);
+    opacity: .55;
+
+    font-size: 10px;
+    font-style: italic;
 }
-
-
-/* 18. LAYOUT ADD-ONS */
 
 .addons-box {
     display: grid;
-
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    gap: 12px;
 
-    background-color: white;
+    padding: 15px;
 
+    background: white;
     border: 1px solid var(--border);
-    border-radius: 15px;
-
-    padding: 22px;
+    border-radius: 12px;
 }
-
-
-/* 19. KOTAK ADD-ONS NORMAL */
 
 .addon-item {
     width: 100%;
-    min-height: 66px;
-
-    padding: 15px 18px;
+    min-height: 49px;
+    padding: 10px 14px;
 
     display: flex;
     align-items: center;
     justify-content: space-between;
-
-    gap: 12px;
-
-    background-color: white;
+    gap: 10px;
 
     border: 1px solid var(--border);
-    border-radius: 11px;
+    border-radius: 8px;
+    background: white;
 
-    color: var(--text);
     text-align: left;
+    color: var(--text);
+    font-size: 11px;
 
-    cursor: pointer;
-
-    font-size: 13px;
-
-    transition: border-color 0.25s ease,
-                background-color 0.25s ease,
-                box-shadow 0.25s ease,
-                transform 0.25s ease;
+    transition: border-color .25s,
+                background-color .25s,
+                box-shadow .25s,
+                transform .25s;
 }
 
 .addon-item strong {
     color: var(--green);
-    font-size: 13px;
-
+    font-size: 11px;
     white-space: nowrap;
 }
 
-
-/* 20. HOVER ADD-ONS */
-
-/* Border hijau ketika kursor diarahkan */
 .addon-item:hover {
     border-color: var(--green);
-
-    box-shadow: 0 4px 12px rgba(44, 79, 21, 0.08);
-
+    box-shadow: 0 4px 12px rgba(44, 79, 21, .09);
     transform: translateY(-2px);
 }
 
-
-/* 21. ADD-ON YANG DIPILIH */
-
-/* Tetap hijau jika sudah diklik */
 .addon-item.is-selected {
     border-color: var(--green);
-    background-color: #F3F8F0;
+    background: #F3F8F0;
 }
 
-.addon-item.is-selected strong {
-    color: var(--green);
-}
-
-/* Efek saat tombol ditekan */
-.addon-item:active {
-    transform: translateY(0);
-}
-
-/* Akses keyboard */
 .addon-item:focus-visible {
     outline: 2px solid var(--green);
     outline-offset: 2px;
@@ -538,464 +431,692 @@ a {
 
 
 /* =========================================
-   22. PETUNJUK BOOKING
+   PETUNJUK DAN PAKET CUSTOM
 ========================================= */
 
 .info-grid {
     display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 28px;
 
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-
-    margin-top: 24px;
-    margin-bottom: 25px;
+    margin-top: 18px;
+    margin-bottom: 18px;
 }
-
-
-/* 23. KOTAK ATURAN */
 
 .booking-guide {
-    background-color: var(--mint);
+    padding: 18px 23px;
 
+    background: var(--green-soft);
     border: 1px solid #D3E8D4;
-    border-radius: 15px;
+    border-radius: 12px;
 
-    padding: 24px 28px;
-
-    transition: transform 0.3s ease,
-                box-shadow 0.3s ease;
+    transition: transform .3s,
+                box-shadow .3s;
 }
 
-
-/* 24. HOVER ATURAN */
-
-/* Seluruh kotak sedikit naik */
 .booking-guide:hover {
     transform: translateY(-5px);
-
-    box-shadow: 0 8px 20px rgba(44, 79, 21, 0.10);
+    box-shadow: 0 8px 20px rgba(44, 79, 21, .09);
 }
 
 .booking-guide h2 {
-    font-size: 23px;
+    margin: 0 0 10px;
+    font-size: 17px;
     font-weight: 800;
-
-    line-height: 1.4;
-    margin: 0 0 15px;
 }
 
 .booking-guide ul {
-    padding-left: 22px;
     margin: 0;
+    padding-left: 17px;
 }
 
 .booking-guide li {
+    margin-bottom: 4px;
+    padding-left: 5px;
+
+    font-size: 11px;
     color: #746D61;
 
-    font-size: 13px;
-    line-height: 1.7;
-
-    padding-left: 8px;
-    margin-bottom: 5px;
-
-    transition: transform 0.2s ease;
+    transition: transform .2s;
 }
 
-/* Setiap baris aturan naik saat hover */
 .booking-guide li:hover {
     transform: translateY(-2px);
 }
 
-.booking-guide li::marker {
-    color: #8D7357;
-}
-
-
-/* =========================================
-   25. KOTAK PAKET CUSTOM
-========================================= */
-
 .custom-wrap {
     display: flex;
-
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .custom-card {
-    width: min(100%, 650px);
+    width: min(100%, 500px);
 
-    background-color: var(--green);
+    padding: 32px 22px;
+
+    background: var(--green);
     color: white;
-
-    border-radius: 16px;
+    border-radius: 14px;
 
     text-align: center;
-
-    padding: 37px 26px;
 }
 
 .custom-card h2 {
-    font-size: 27px;
+    margin: 0 0 9px;
+    font-size: 21px;
     font-weight: 800;
-
-    line-height: 1.4;
-
-    margin: 0 0 11px;
 }
 
 .custom-card p {
-    color: #D9E5D1;
-
-    font-size: 16px;
-
-    margin: 0 0 23px;
+    margin: 0 0 18px;
+    font-size: 13px;
+    color: #DCE8D6;
 }
 
-
-/* 26. TOMBOL HUBUNGI CS NORMAL */
-
-/* Putih dan tulisan coklat */
+/* TOMBOL CS COKLAT MUDA */
 .contact-btn {
     display: inline-flex;
-
     align-items: center;
     justify-content: center;
 
-    min-height: 51px;
+    min-height: 42px;
+    padding: 9px 23px;
 
-    padding: 11px 30px;
-
-    background-color: white;
-    color: var(--brown);
+    background: #E6CFB2;
+    color: #6B4B2E;
 
     border: 2px solid transparent;
-    border-radius: 10px;
+    border-radius: 9px;
 
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 700;
 
-    transition: border-color 0.25s ease,
-                background-color 0.25s ease,
-                color 0.25s ease,
-                transform 0.25s ease;
+    transition: .25s;
 }
 
-
-/* 27. HOVER HUBUNGI CS */
-
-/* Border coklat hanya muncul saat hover */
 .contact-btn:hover,
 .contact-btn:focus-visible {
-    background-color: white;
-    color: var(--brown);
-
-    border-color: var(--brown);
-
+    background: #D8BC98;
+    border-color: #AB9270;
+    color: #5A3D25;
     transform: translateY(-2px);
 }
 
-
-/* 28. KETIKA TOMBOL CS DITEKAN */
-
 .contact-btn:active {
-    background-color: #F4EBE1;
-    border-color: var(--brown);
-
+    background: #D4B087;
     transform: translateY(0);
 }
 
 
 /* =========================================
-   29. FOOTER
+   FOOTER
 ========================================= */
 
 .site-footer {
-    background-color: var(--green);
+    background: var(--green);
     color: white;
 }
 
 .footer-inner {
-    padding-top: 38px;
-    padding-bottom: 30px;
+    padding-top: 29px;
+    padding-bottom: 23px;
 }
 
 .footer-columns {
     display: grid;
-
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 65px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 55px;
 }
 
 .footer-columns h3 {
-    font-size: 15px;
-    font-weight: 700;
-
-    margin: 0 0 12px;
+    margin: 0 0 10px;
+    font-size: 13px;
 }
 
 .footer-columns p {
+    margin: 0 0 7px;
     color: #D7E0D0;
-
-    font-size: 12px;
-    line-height: 1.75;
-
-    margin: 0 0 8px;
+    font-size: 11px;
 }
 
 .footer-bottom {
+    margin-top: 24px;
+    padding-top: 17px;
+
     border-top: 1px solid #51703F;
 
-    margin-top: 28px;
-    padding-top: 20px;
-
-    color: #CBD8C3;
-
-    font-size: 11px;
     text-align: center;
+    color: #CBD8C3;
+    font-size: 10px;
 }
 
 
 /* =========================================
-   30. POPUP FORM BOOKING
+   OVERLAY FORMULIR BOOKING
 ========================================= */
 
 body.modal-open {
     overflow: hidden;
 }
 
-.modal-overlay {
+.reservation-overlay {
     position: fixed;
-
     inset: 0;
     z-index: 2000;
 
-    background-color: rgba(17, 29, 11, 0.62);
-
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     padding: 20px;
+    background: rgba(17, 25, 10, .58);
 }
 
-.booking-modal {
-    position: relative;
-
-    background-color: white;
-
-    width: min(100%, 490px);
-    max-height: 90vh;
+.reservation-panel {
+    width: min(100%, 390px);
+    max-height: 95vh;
+    max-height: 95dvh;
 
     overflow-y: auto;
 
-    padding: 28px;
+    background: #FAF9F6;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
 
-    border-radius: 15px;
-
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-}
-
-.booking-modal h2 {
-    font-size: 23px;
-    margin: 0 0 5px;
-}
-
-.modal-subtitle {
-    color: var(--muted);
-
-    font-size: 12px;
-    margin: 0 0 20px;
+    scrollbar-width: thin;
 }
 
 
-/* 31. TOMBOL X POPUP */
+/* =========================================
+   HEADER FORM - REVISI JARAK TAGLINE
+========================================= */
 
-.modal-close {
+.reservation-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+
+    min-height: 63px;
+    padding: 12px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    background: white;
+    border-bottom: 1px solid #ECE7DE;
+}
+
+.reservation-brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    min-width: 0;
+}
+
+.reservation-logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+.reservation-brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* JARAK ANTAR JUDUL DAN TAGLINE */
+    gap: 6px;
+
+    line-height: 1.1;
+    min-width: 0;
+}
+
+.reservation-brand-text strong {
+    color: #272727;
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.reservation-brand-text small {
+    color: #957353;
+    font-size: 6.5px;
+    font-weight: 700;
+
+    letter-spacing: .65px;
+    line-height: 1.3;
+    white-space: nowrap;
+}
+
+
+/* =========================================
+   IKON HEADER
+========================================= */
+
+.reservation-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.header-icon {
+    width: 22px;
+    height: 22px;
+    object-fit: contain;
+}
+
+
+/* =========================================
+   JUDUL FORM
+========================================= */
+
+.reservation-heading {
+    position: relative;
+    padding: 24px 24px 14px;
+    text-align: center;
+}
+
+.reservation-back {
     position: absolute;
+    top: 20px;
+    left: 12px;
 
-    top: 15px;
-    right: 16px;
+    padding: 0 8px;
+    border: none;
+    background: transparent;
 
-    width: 32px;
-    height: 32px;
-
-    background-color: #F3F0EB;
-
-    border: 0;
-    border-radius: 50%;
-
-    font-size: 23px;
+    color: var(--green);
+    font-size: 30px;
     line-height: 1;
 }
 
+.reservation-heading h2 {
+    margin: 0 0 9px;
 
-/* 32. FORM INPUT */
-
-.form-field {
-    margin-bottom: 15px;
+    color: #1F1F1F;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1.3;
 }
 
-.form-field label {
-    display: block;
+.reservation-heading p {
+    max-width: 290px;
+    margin: 0 auto;
 
+    color: #79736B;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   PEMBERITAHUAN FORM
+========================================= */
+
+.reservation-note {
+    margin: 12px 14px 18px;
+    padding: 14px 20px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    background: #E9EEE5;
+    border-radius: 14px;
+}
+
+.reservation-note strong {
+    color: #54733F;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.reservation-note span {
+    color: #6F7E63;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   KARTU FORM
+========================================= */
+
+.reservation-form {
+    padding: 0 14px 30px;
+}
+
+.form-card {
+    margin-bottom: 19px;
+
+    background: white;
+    border: 1px solid #E2DDD5;
+    border-radius: 16px;
+    overflow: hidden;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .035);
+}
+
+.form-card-title {
+    padding: 13px 20px;
+
+    background: #E8EFE5;
+    color: #54733F;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.form-body {
+    padding: 20px 20px 21px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+
+    color: #2C2C2C;
     font-size: 12px;
     font-weight: 700;
-
-    margin-bottom: 6px;
 }
 
-.form-field input {
+.form-group label span {
+    color: #EF5B5B;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
     width: 100%;
+    min-width: 0;
 
-    padding: 11px 12px;
+    padding: 11px 13px;
 
-    background-color: white;
+    background: white;
+    border: 1px solid #E5DFD5;
+    border-radius: 9px;
 
-    border: 1px solid #D7D3C9;
-    border-radius: 8px;
-
-    color: var(--text);
+    color: #2B2B2B;
     font-size: 12px;
+
+    outline: none;
+    transition: border-color .2s,
+                box-shadow .2s;
 }
 
-.form-field input:focus {
-    outline: 2px solid #B0CAA5;
-    border-color: var(--green);
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #B4ACA0;
 }
 
-.form-field input[readonly] {
-    background-color: #F6F7F3;
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #94B17D;
+    box-shadow: 0 0 0 3px rgba(148, 177, 125, .15);
 }
 
-.form-row {
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.form-row.two-cols {
     display: grid;
-
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
     gap: 12px;
 }
 
 
-/* 33. RINGKASAN ADD-ONS POPUP */
+/* =========================================
+   RINGKASAN PEMESANAN
+========================================= */
 
-.modal-addon-summary {
-    padding: 12px;
-
-    background-color: #F3F8F0;
-
-    border: 1px solid #D7E6D0;
-    border-radius: 8px;
-
-    color: var(--green);
-
-    font-size: 12px;
-    line-height: 1.7;
-}
-
-
-/* 34. TOTAL HARGA */
-
-.total-row {
-    display: flex;
-
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 15px;
-
-    padding: 15px 0;
-
-    border-top: 1px solid var(--border);
-
-    font-size: 13px;
-}
-
-.total-row strong {
-    color: var(--green);
-    font-size: 20px;
-}
-
-
-/* 35. SUBMIT BOOKING */
-
-.submit-btn {
-    width: 100%;
-
+.reservation-summary-box {
+    margin-top: 17px;
     padding: 13px;
 
-    background-color: var(--green);
+    background: #F7F8F3;
+    border: 1px solid #E5E6DF;
+    border-radius: 10px;
+}
+
+.reservation-summary-box p {
+    margin: 0 0 8px;
+
+    font-size: 11px;
+    color: #544D45;
+}
+
+.reservation-summary-box p:last-child {
+    margin-bottom: 0;
+}
+
+.reservation-summary-box strong {
+    color: var(--green);
+}
+
+.submit-reservation-btn {
+    width: 100%;
+    min-height: 43px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background: var(--green);
     color: white;
 
-    border: 0;
-    border-radius: 8px;
+    border: none;
+    border-radius: 999px;
 
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 700;
 
-    transition: background-color 0.2s;
+    transition: background-color .25s;
 }
 
-.submit-btn:hover {
-    background-color: var(--green-hover);
+.submit-reservation-btn:hover {
+    background: var(--green-hover);
 }
 
-.form-note {
-    color: var(--muted);
 
-    font-size: 10px;
+/* =========================================
+   HALAMAN SUKSES
+========================================= */
+
+.success-screen {
+    padding: 36px 16px 32px;
     text-align: center;
 }
 
-.booking-result {
-    white-space: pre-line;
 
-    background-color: var(--mint);
+/* IKON CENTANG DARI GAMBAR PNG */
 
-    border-radius: 8px;
-    padding: 14px;
+.success-icon-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    margin: 0 auto 17px;
+}
+
+.success-icon {
+    width: 116px;
+    height: 116px;
+    object-fit: contain;
+}
+
+
+/* JUDUL FORMULIR TERKIRIM */
+
+.success-screen h2 {
+    margin: 0 0 11px;
+
+    color: var(--green);
+    font-size: 21px;
+    font-weight: 800;
+}
+
+.success-description {
+    max-width: 290px;
+    margin: 0 auto 26px;
+
+    color: #777168;
     font-size: 12px;
-    line-height: 1.8;
-
-    margin-top: 14px;
+    line-height: 1.75;
 }
 
 
 /* =========================================
-   36. RESPONSIVE LAPTOP
+   LANGKAH SELANJUTNYA
 ========================================= */
 
-@media (max-width: 1400px) {
+.success-step-card {
+    margin-bottom: 25px;
 
-    .nav-links a {
-        font-size: 12px;
-        padding: 11px 8px;
-    }
+    background: white;
+    border: 1px solid #E4DDD4;
+    border-radius: 14px;
+    overflow: hidden;
 
-    .brand-text strong {
-        font-size: 18px;
-    }
+    text-align: left;
+    box-shadow: 0 2px 7px rgba(0, 0, 0, .05);
+}
 
-    .package-card {
-        padding-inline: 15px;
-    }
+.success-step-title {
+    padding: 14px 19px;
 
-    .package-card h2 {
-        font-size: 14px;
-    }
+    color: #54733F;
+    background: #F2EDE6;
 
-    .features li {
-        font-size: 11px;
-    }
+    font-size: 13px;
+    font-weight: 800;
+}
 
-    .price {
-        font-size: 28px;
-    }
+.success-step-item {
+    display: grid;
+    grid-template-columns: 25px minmax(0, 1fr);
+    gap: 12px;
+    align-items: start;
 
+    padding: 15px 18px;
+
+    border-top: 1px solid #ECE7DF;
+}
+
+
+/* IKON WHATSAPP DAN DOMPET */
+
+.step-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* KHUSUS ICON WHATSAPP AGAR TERLIHAT SAMA BESAR DENGAN DOMPET */
+.whatsapp-step-icon {
+    width: 28px;
+    height: 28px;
+    margin-top: 1px;
+}
+
+.success-step-item strong {
+    display: block;
+    margin-bottom: 4px;
+
+    color: #4D4D4D;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.success-step-item p {
+    margin: 0;
+
+    color: #7A7368;
+    font-size: 11px;
+    line-height: 1.6;
 }
 
 
 /* =========================================
-   37. RESPONSIVE TABLET
+   TOMBOL WHATSAPP DAN BERANDA
+========================================= */
+
+.success-primary-btn,
+.success-secondary-btn {
+    width: 100%;
+    min-height: 43px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+
+    border-radius: 999px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    transition: .25s;
+}
+
+.success-primary-btn {
+    margin-bottom: 11px;
+
+    background: var(--green);
+    color: white;
+    border: none;
+}
+
+.success-primary-btn:hover {
+    background: var(--green-hover);
+}
+
+/* UBAH ICON PNG HIJAU JADI PUTIH
+   SAAT ADA DI TOMBOL HIJAU */
+
+.button-whatsapp-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+
+    filter: brightness(0) invert(1);
+}
+
+.success-secondary-btn {
+    background: white;
+    color: var(--green);
+
+    border: 2px solid #E0E6DB;
+}
+
+.success-secondary-btn:hover {
+    background: #F8FBF5;
+    border-color: #B7CBA9;
+}
+
+
+/* =========================================
+   RESPONSIVE LAPTOP / TABLET
 ========================================= */
 
 @media (max-width: 1200px) {
@@ -1006,51 +1127,40 @@ body.modal-open {
 
     .navbar-wrap {
         position: relative;
-        min-height: 78px;
     }
 
     .nav-links {
         display: none;
 
         position: absolute;
-        z-index: 20;
-
         top: 100%;
         left: 0;
         right: 0;
 
+        z-index: 20;
+
         flex-direction: column;
         align-items: stretch;
 
-        background-color: white;
+        padding: 10px;
 
+        background: white;
         border: 1px solid var(--border);
         border-radius: 0 0 10px 10px;
 
-        padding: 10px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .08);
 
-        max-height: calc(100vh - 80px);
+        max-height: calc(100vh - 90px);
         overflow-y: auto;
-
-        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.09);
     }
 
     .nav-links.open {
         display: flex;
     }
 
-    .nav-links a {
-        font-size: 13px;
-        padding: 11px 12px;
-    }
-
     .packages {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        row-gap: 30px;
-    }
-
-    .package-card {
-        min-height: 500px;
+        gap: 25px 18px;
     }
 
     .addons-box {
@@ -1058,29 +1168,17 @@ body.modal-open {
     }
 
     .info-grid {
-        gap: 20px;
-    }
-
-    .custom-card h2 {
-        font-size: 21px;
-    }
-
-    .custom-card p {
-        font-size: 13px;
+        grid-template-columns: 1fr;
     }
 
 }
 
 
 /* =========================================
-   38. RESPONSIVE HANDPHONE
+   RESPONSIVE HANDPHONE
 ========================================= */
 
 @media (max-width: 650px) {
-
-    html {
-        scroll-padding-top: 85px;
-    }
 
     .container {
         width: calc(100% - 30px);
@@ -1088,7 +1186,7 @@ body.modal-open {
 
     .navbar-wrap {
         width: calc(100% - 30px);
-        min-height: 70px;
+        min-height: 68px;
     }
 
     .brand-logo {
@@ -1101,12 +1199,12 @@ body.modal-open {
     }
 
     .brand-text small {
-        font-size: 9px;
+        font-size: 6.5px;
     }
 
     .intro {
-        padding-top: 27px;
-        padding-bottom: 35px;
+        padding-top: 25px;
+        padding-bottom: 32px;
     }
 
     .intro h1 {
@@ -1119,12 +1217,11 @@ body.modal-open {
 
     .packages {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 28px;
     }
 
     .package-card {
         min-height: 0;
-        padding: 24px 19px;
     }
 
     .package-desc {
@@ -1136,51 +1233,15 @@ body.modal-open {
     }
 
     .booking-btn {
-        margin-top: 10px;
-    }
-
-    .addons-section > h2 {
-        font-size: 19px;
-    }
-
-    .addons-hint {
-        font-size: 10px;
+        margin-top: 13px;
     }
 
     .addons-box {
         grid-template-columns: 1fr;
-        gap: 12px;
-        padding: 14px;
-    }
-
-    .addon-item {
-        min-height: 55px;
-        font-size: 12px;
-    }
-
-    .addon-item strong {
-        font-size: 11px;
     }
 
     .info-grid {
         grid-template-columns: 1fr;
-        gap: 18px;
-    }
-
-    .booking-guide {
-        padding: 20px;
-    }
-
-    .booking-guide h2 {
-        font-size: 18px;
-    }
-
-    .booking-guide li {
-        font-size: 11px;
-    }
-
-    .custom-card {
-        max-width: none;
     }
 
     .footer-columns {
@@ -1188,17 +1249,54 @@ body.modal-open {
         gap: 20px;
     }
 
-    .form-row {
+    .reservation-overlay {
+        padding: 0;
+    }
+
+    .reservation-panel {
+        width: 100%;
+        max-width: 420px;
+        max-height: 100vh;
+        max-height: 100dvh;
+        min-height: 100vh;
+        min-height: 100dvh;
+    }
+
+    .reservation-heading h2 {
+        font-size: 19px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .reservation-topbar {
+        padding-inline: 10px;
+    }
+
+    .reservation-brand-text strong {
+        font-size: 10px;
+    }
+
+    .reservation-brand-text small {
+        font-size: 5.8px;
+    }
+
+    .reservation-icons {
+        gap: 5px;
+    }
+
+    .header-icon {
+        width: 19px;
+        height: 19px;
+    }
+
+    .form-row.two-cols {
         grid-template-columns: 1fr;
         gap: 0;
     }
 
 }
-
-
-/* =========================================
-   39. KURANGI ANIMASI JIKA DIPERLUKAN
-========================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
@@ -1207,12 +1305,10 @@ body.modal-open {
     }
 
     .package-card,
-    .booking-btn,
-    .nav-links a,
     .addon-item,
     .booking-guide,
-    .booking-guide li,
-    .contact-btn {
+    .contact-btn,
+    .booking-btn {
         transition: none;
     }
 
