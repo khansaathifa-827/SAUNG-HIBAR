@@ -1,0 +1,623 @@
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --hijau: #2d5018;
+        --krem: #f4eee5;
+        --abu: #f4f4f4;
+        --abu-border: #d8d8d8;
+        --teks: #171717;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: var(--krem);
+        color: var(--teks);
+        min-height: 100vh;
+      }
+
+      button,
+      input,
+      select {
+        font: inherit;
+      }
+
+      button {
+        cursor: pointer;
+      }
+
+            /* Warna tombol status booking */
+        .status-option[data-status="Semua"] {
+        background: #e8e8e8;
+        color: #333;
+        }
+
+        .status-option[data-status="Pending"] {
+        background: #fff0cc;
+        color: #875b00;
+        }
+
+        .status-option[data-status="Check-in"] {
+        background: #d8e9ff;
+        color: #1855a5;
+        }
+
+        .status-option[data-status="Check-out"] {
+        background: #d9f3e4;
+        color: #176b42;
+        }
+
+        .status-option[data-status="Selesai"] {
+        background: #ddf3d8;
+        color: #286b24;
+        }
+
+        .status-option[data-status="Dibatalkan"] {
+        background: #ffe0e0;
+        color: #a52727;
+        }
+
+        .booking-section {
+  width: 100%;
+  max-width: 600px;
+  margin: 24px auto 0;
+  box-sizing: border-box;
+}
+
+/* Judul dan jumlah booking */
+.booking-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+/* Daftar kartu berada di tengah */
+.booking-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 8px 0;
+  box-sizing: border-box;
+}
+
+/* Semua kartu memiliki ukuran seragam */
+.booking-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 620px;
+  min-height: 100px;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  background: #fff;
+  border: 1px solid #dedede;
+  border-radius: 12px;
+}
+
+/* Informasi di sebelah kiri */
+.booking-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.booking-info h3 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.booking-info p {
+  margin: 4px 0;
+  color: #666;
+  font-size: 13px;
+}
+
+/* Status di sebelah kanan */
+.booking-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-width: 90px;
+  padding: 7px 10px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Warna status */
+.status-pending {
+  background: #fff0cc;
+  color: #875b00;
+}
+
+.status-check-in {
+  background: #d8e9ff;
+  color: #1855a5;
+}
+
+.status-check-out {
+  background: #d9f3e4;
+  color: #176b42;
+}
+
+.status-selesai {
+  background: #ddf3d8;
+  color: #286b24;
+}
+
+.status-dibatalkan {
+  background: #ffe0e0;
+  color: #a52727;
+}
+
+/* Tampilan layar HP */
+@media (max-width: 480px) {
+  .booking-card {
+    gap: 10px;
+    padding: 14px;
+    min-height: 90px;
+  }
+
+  .booking-status {
+    min-width: 80px;
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}
+
+      .filter-panel {
+        width: 100%;
+        min-height: calc(100vh - 53px);
+        margin-top: 53px;
+        padding: 28px 32px;
+        background: #fff;
+        border: 1px solid #d8d3cd;
+        border-radius: 24px 24px 0 0;
+        box-shadow: 0 -2px 4px #00000008;
+      }
+
+      .filter-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 16px;
+      }
+
+      .filter-header h1 {
+        font-size: 15px;
+        font-weight: 700;
+      }
+
+      .close-button {
+        border: none;
+        background: transparent;
+        color: #888;
+        font-size: 23px;
+        line-height: 1;
+        padding: 0 3px;
+      }
+
+      .filter-group {
+        margin-bottom: 19px;
+      }
+
+      .group-title {
+        display: block;
+        color: var(--hijau);
+        font-size: 13px;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .status-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px 12px;
+      }
+
+      .status-option {
+        min-height: 27px;
+        padding: 5px 4px;
+        border: 1px solid #e0e0e0;
+        border-radius: 20px;
+        background: #f5f5f5;
+        color: #222;
+        font-size: 10px;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+
+      .status-option:hover {
+        border-color: var(--hijau);
+      }
+
+      .status-option.active {
+        background: var(--hijau);
+        color: white;
+        border-color: var(--hijau);
+      }
+
+      .field-control {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: 35px;
+        border: 1px solid var(--abu-border);
+        border-radius: 15px;
+        background: var(--abu);
+        overflow: visible;
+      }
+
+      .calendar-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: stretch;
+        min-width: 42px;
+        border-right: 1px solid var(--abu-border);
+        border-radius: 14px;
+        background: #fff;
+        color: var(--hijau);
+        font-size: 20px;
+      }
+
+      /* Kotak Area dan Blok */
+      .field-control:has(select) {
+        position: relative;
+        overflow: visible;
+        border: 1px solid #d8d8d8;
+        border-radius: 8px;
+        background: #f4f4f4;
+        transition:
+          border-color 0.2s,
+          background 0.2s;
+      }
+
+      /* Dropdown */
+      .field-control select {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 100%;
+        min-width: 0;
+        padding: 10px 36px 10px 13px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        outline: none;
+        background: transparent;
+        color: #777;
+        font-size: 12px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+      }
+
+      /* Saat kotak dipilih atau difokuskan */
+      .field-control:has(select:focus) {
+        border-color: #2d5018;
+        background: #edf4e8;
+      }
+
+      .field-control select:focus {
+        color: #2d5018;
+      }
+
+      /* Pilihan di dalam dropdown */
+      .field-control select option {
+        background: #fff;
+        color: #333;
+        padding: 10px;
+      }
+
+      .field-control select option:checked {
+        background: #2d5018;
+        color: #fff;
+      }
+
+      /* Hover kotak */
+      .field-control:has(select):hover {
+        border-color: #2d5018;
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 27px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 35px;
+        border-radius: 10px;
+        font-size: 13px;
+        font-weight: 700;
+        transition:
+          opacity 0.2s,
+          transform 0.2s;
+      }
+
+      .btn:hover {
+        opacity: 0.9;
+      }
+
+      .btn:active {
+        transform: scale(0.99);
+      }
+
+      .btn-apply {
+        background: var(--hijau);
+        color: #fff;
+        border: 1px solid var(--hijau);
+      }
+
+      .btn-reset {
+        background: #fff;
+        color: var(--hijau);
+        border: 1px solid var(--hijau);
+      }
+
+      .message {
+        display: none;
+        margin-top: 16px;
+        padding: 12px;
+        border-radius: 10px;
+        background: #edf4e8;
+        color: var(--hijau);
+        font-size: 12px;
+        line-height: 1.6;
+      }
+
+      .message.show {
+        display: block;
+      }
+
+      .filter-panel.closed {
+        display: none;
+      }
+
+      .reopen-button {
+        display: none;
+        margin: 20px auto;
+        padding: 11px 22px;
+        background: var(--hijau);
+        color: white;
+        border: none;
+        border-radius: 10px;
+      }
+
+      .reopen-button.show {
+        display: block;
+      }
+
+      @media (min-width: 600px) {
+        .filter-panel {
+          max-width: 480px;
+          min-height: 650px;
+          margin: 40px auto;
+          border-radius: 24px;
+          padding: 30px;
+        }
+
+        .status-option {
+          font-size: 12px;
+          min-height: 32px;
+        }
+
+        .group-title {
+          font-size: 14px;
+        }
+
+        .field-control {
+          min-height: 40px;
+        }
+
+        .btn {
+          min-height: 40px;
+        }
+      }
+
+      @media (max-width: 350px) {
+        .filter-panel {
+          padding: 24px 20px;
+        }
+
+        .status-grid {
+          gap: 8px;
+        }
+
+        .status-option {
+          font-size: 9px;
+        }
+      }
+      .date-range {
+        position: relative;
+      }
+
+      .date-range-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        flex: 1;
+        min-width: 0;
+        padding: 8px 13px;
+        border: none;
+        background: transparent;
+        text-align: left;
+        color: #777;
+        font-size: 12px;
+      }
+
+      .arrow-svg {
+        flex-shrink: 0;
+        color: #888;
+        transition: transform 0.2s ease;
+      }
+
+      .date-range-button[aria-expanded="true"] .arrow-svg {
+        transform: rotate(180deg);
+      }
+
+      .date-range {
+        position: relative;
+        overflow: visible;
+      }
+
+      .date-picker-popup {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        padding: 16px;
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px #00000018;
+      }
+
+      .date-picker-popup[hidden] {
+        display: none !important;
+      }
+
+      .date-picker-popup input[type="date"] {
+        display: block;
+        width: 100%;
+        padding: 9px;
+        margin-bottom: 8px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #fff;
+        color: #333;
+      }
+
+      .date-picker-popup button {
+        width: 100%;
+        padding: 10px;
+        background: #2d5018;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        margin-top: 8px;
+      }
+
+      /* Dropdown custom Area dan Blok */
+      .field-control:has(select) {
+        position: relative;
+        overflow: visible;
+        border-radius: 9px;
+      }
+
+      .field-control select {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .custom-select {
+        position: relative;
+        width: 100%;
+      }
+
+      .custom-select-button {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 39px;
+        padding: 10px 14px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        background: #f4f4f4;
+        color: #555;
+        font-size: 12px;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .custom-select-button:hover,
+      .custom-select-button[aria-expanded="true"] {
+        border-color: #2d5018;
+        background: #edf4e8;
+        color: #2d5018;
+      }
+
+      .custom-select-arrow {
+        width: 8px;
+        height: 8px;
+        flex-shrink: 0;
+        border-right: 1.5px solid currentColor;
+        border-bottom: 1.5px solid currentColor;
+        transform: translateY(-2px) rotate(45deg);
+        transition: transform 0.2s ease;
+      }
+
+      .custom-select-button[aria-expanded="true"] .custom-select-arrow {
+        transform: translateY(2px) rotate(225deg);
+      }
+
+      .custom-select-options {
+        position: absolute;
+        top: calc(100% + 5px);
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: none;
+        max-height: 190px;
+        overflow-y: auto;
+        padding: 5px;
+        border: 1px solid #d8d8d8;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 5px 15px #00000015;
+      }
+
+      .custom-select-options.show {
+        display: block;
+      }
+
+      .custom-select-option {
+        display: block;
+        width: 100%;
+        padding: 10px 12px;
+        border: none;
+        border-radius: 7px;
+        background: transparent;
+        color: #333;
+        font-size: 12px;
+        text-align: left;
+        cursor: pointer;
+        transition: 0.15s ease;
+      }
+
+      .custom-select-option:hover,
+      .custom-select-option:focus-visible {
+        background: #edf4e8;
+        color: #2d5018;
+        outline: none;
+      }
+
+      .custom-select-option.selected {
+        background: #2d5018;
+        color: #fff;
+      }
+
+      .custom-select-option.selected:hover {
+        background: #3b6723;
+      }

@@ -1,0 +1,764 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="kelola-area.css" />
+    <title>Kelola Area - Saung Hibar</title>
+  </head>
+
+  <body>
+    <div class="page">
+      <header class="header">
+        <!-- Logo di kiri -->
+        <a class="brand" href="kelola-area.html" aria-label="Saung Hibar">
+          <span class="brand-symbol">
+            <img src="assets/logo.png" alt="Logo Saung Hibar" />
+          </span>
+        </a>
+
+        <!-- Lonceng dan burger di kanan -->
+        <div class="header-actions">
+          <button class="header-icon" type="button" aria-label="Notifikasi">
+            🔔
+          </button>
+
+          <div class="menu-wrapper">
+            <button
+              class="header-icon"
+              type="button"
+              id="menuButton"
+              aria-label="Buka menu"
+              aria-expanded="false"
+              aria-controls="navigationMenu"
+            >
+              ☰
+            </button>
+
+            <nav id="navigationMenu" class="navigation-menu hidden">
+              <a class="nav-item" href="kelola-area.html">
+                Kelola Area Camping
+              </a>
+              <a
+                class="nav-item"
+                href="../Detail%20%26%20Update%20Area/detail-update-area.html"
+              >
+                Detail / Update Area
+              </a>
+              <a class="nav-item" href="tambah-area.html"> Tambah Area </a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-heading">
+          <button
+            class="back-button"
+            type="button"
+            onclick="history.back()"
+            aria-label="Kembali"
+          >
+            ‹
+          </button>
+          <div>
+            <h1>Kelola Area Camping</h1>
+            <p>Atur ketersediaan dan informasi area camping</p>
+          </div>
+        </div>
+
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Cari blok..."
+            aria-label="Cari blok"
+          />
+        </div>
+
+        <div class="toolbar">
+          <a
+            href="../Kalender-Ketersediaan/kalender-ketersediaan.html"
+            class="filter-button"
+          >
+            <span text="center">Filter</span>
+          </a>
+
+          <button class="add-small" type="button" id="addSmallButton">
+            <span>Area Baru</span><span>＋</span>
+          </button>
+        </div>
+
+        <div class="list-heading">
+          <h2>Daftar Blok</h2>
+          <span class="result-count" id="blockCount">14 blok</span>
+        </div>
+
+        <section
+          class="block-list"
+          id="blockList"
+          aria-label="Daftar blok camping"
+        >
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/A1.jpeg" alt="Foto blok A1" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">A1</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok A1"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/A2.jpeg" alt="Foto blok A2" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">A2</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok A2"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status unavailable">● Tidak Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/A3.jpeg" alt="Foto blok A3" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">A3</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok A3"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status unavailable">● Tidak Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/A4.jpeg" alt="Foto blok A4" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">A4</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok A4"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/A5.jpeg" alt="Foto blok A5" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">A5</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok A5"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B1.jpeg" alt="Foto blok B1" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B1</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B1"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B2.jpeg" alt="Foto blok B2" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B2</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B2"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B3.jpeg" alt="Foto blok B3" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B3</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B3"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B4.jpeg" alt="Foto blok B4" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B4</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B4"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B5.jpeg" alt="Foto blok B5" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B5</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B5"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B6.jpeg" alt="Foto blok B6" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B6</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B6"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B7.jpeg" alt="Foto blok B7" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B7</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B7"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img src="assets/B8.jpeg" alt="Foto blok B8" loading="lazy" />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">B8</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok B8"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+          <article class="block-card">
+            <div class="block-photo">
+              <img
+                src="assets/campervan.jpeg"
+                alt="Foto blok C"
+                loading="lazy"
+              />
+            </div>
+            <div class="block-info">
+              <div class="block-top">
+                <h3 class="block-name">Campervan</h3>
+                <button
+                  class="edit-button"
+                  type="button"
+                  aria-label="Edit blok C"
+                >
+                  ✎ Edit
+                </button>
+              </div>
+              <div class="block-details">
+                <div class="detail-item">
+                  <span class="detail-symbol">♙</span><span>4 Orang</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">ϟ</span><span>Listrik</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">♧</span><span>Air Bersih</span>
+                </div>
+                <div class="detail-item">
+                  <span class="detail-symbol">⌁</span><span>Wi-Fi</span>
+                </div>
+              </div>
+              <div class="block-bottom">
+                <span class="area-label"> </span
+                ><span class="status">● Tersedia</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <button class="add-main" type="button" id="addMainButton">
+          <span>＋</span> Tambah Blok Baru
+        </button>
+      </main>
+    </div>
+
+    <!-- FORM TAMBAH / EDIT -->
+    <div class="modal" id="blockModal" hidden="">
+      <section
+        class="modal-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
+      >
+        <div class="modal-heading">
+          <h2 id="modalTitle">Tambah Blok</h2>
+          <button
+            class="close-button"
+            type="button"
+            id="closeModal"
+            aria-label="Tutup"
+          >
+            ×
+          </button>
+        </div>
+
+        <form id="blockForm">
+          <label class="photo-picker" id="photoPicker">
+            <img id="photoPreview" alt="Pratinjau foto blok" />
+            <span class="photo-placeholder">
+              <span>＋</span>
+              <small>Tambah Foto Blok</small>
+            </span>
+            <input
+              type="file"
+              id="photoInput"
+              accept="image/*"
+              aria-label="Pilih foto blok"
+            />
+          </label>
+
+          <div class="form-card">
+            <div class="form-group">
+              <label for="areaType">
+                Nama Area <span class="required">*</span>
+              </label>
+              <input
+                class="form-control"
+                id="areaType"
+                list="areaSuggestions"
+                required=""
+                placeholder="Contoh: Camping"
+              />
+              <datalist id="areaSuggestions">
+                <option value="Camping"></option>
+                <option value="Area A"></option>
+                <option value="Area B"></option>
+              </datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="blockName">
+                Nama Blok <span class="required">*</span>
+              </label>
+              <input
+                class="form-control"
+                id="blockName"
+                required=""
+                maxlength="30"
+                placeholder="Contoh: A1"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="areaCapacity">
+                Kapasitas Maksimal <span class="required">*</span>
+              </label>
+              <input
+                class="form-control"
+                id="areaCapacity"
+                type="number"
+                min="1"
+                max="100"
+                required=""
+                placeholder="Jumlah orang"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="areaStatus">
+                Status <span class="required">*</span>
+              </label>
+              <select class="form-control" id="areaStatus" required="">
+                <option value="Tersedia">Tersedia</option>
+                <option value="Tidak Tersedia">Tidak Tersedia</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label> Fasilitas <span class="required">*</span> </label>
+
+              <div class="facilities">
+                <label class="facility-option">
+                  <input
+                    type="checkbox"
+                    name="facility"
+                    value="Listrik"
+                    checked=""
+                  />
+                  <span>Listrik</span>
+                </label>
+
+                <label class="facility-option">
+                  <input
+                    type="checkbox"
+                    name="facility"
+                    value="Air Bersih"
+                    checked=""
+                  />
+                  <span>Air Bersih</span>
+                </label>
+
+                <label class="facility-option">
+                  <input
+                    type="checkbox"
+                    name="facility"
+                    value="Wi-Fi"
+                    checked=""
+                  />
+                  <span>Wi-Fi</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="description">Catatan / Deskripsi</label>
+              <textarea
+                class="form-control"
+                id="description"
+                placeholder="Tambahkan catatan tentang blok..."
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button class="save-button" type="submit">Simpan</button>
+            <button class="cancel-button" type="button" id="cancelButton">
+              Batal
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="toast" id="toast" role="status" hidden=""></div>
+
+    <script src="navbar.js"></script>
+    <script src="kelola-area.js"></script>
+  </body>
+</html>

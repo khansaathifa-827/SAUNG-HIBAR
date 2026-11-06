@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tambah Menu - Saung Hibar</title>
+    <link rel="stylesheet" href="tambah-menu.css" />
+  </head>
+  <body data-page="tambah-menu">
+    <div class="page">
+      <header class="header">
+        <a class="brand" href="tambah-menu.html" aria-label="Saung Hibar">
+          <img
+            src="../Tambah Menu/assets/logo.png"
+            alt="Saung Hibar - Wisata Keluarga"
+            onerror="
+              this.hidden = true;
+              this.nextElementSibling.hidden = false;
+            "
+          />
+          <span class="brand-fallback" hidden
+            ><strong>Saung Hibar</strong><small>WISATA KELUARGA</small></span
+          >
+        </a>
+        <div class="header-actions">
+          <button class="header-icon" type="button" aria-label="Notifikasi">
+            ♧
+          </button>
+          <div class="menu-wrapper">
+            <button
+              class="header-icon"
+              type="button"
+              id="menuButton"
+              aria-label="Buka menu"
+              aria-expanded="false"
+              aria-controls="navigationMenu"
+            >
+              ☰
+            </button>
+            <nav id="navigationMenu" class="navigation-menu hidden">
+              <a class="nav-item" href="../Kelola%20Menu/kelola-menu.html"
+                >Kelola Menu</a
+              >
+              <a class="nav-item" href="detail-update-menu.html"
+                >Detail / Update Menu</a
+              >
+              <a class="nav-item" href="tambah-menu.html">Tambah Menu</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-heading">
+          <button
+            class="back-button"
+            type="button"
+            onclick="history.back()"
+            aria-label="Kembali"
+          >
+            ‹
+          </button>
+          <h1>Tambah Menu</h1>
+        </div>
+
+        <form id="menuTambah">
+          <label class="photo-picker" id="photoPicker">
+            <img id="photoPreview" alt="Pratinjau foto menu" />
+            <span class="photo-placeholder"
+              ><strong>＋</strong><small>Tambah Foto Menu</small></span
+            >
+            <input
+              type="file"
+              id="photoInput"
+              accept="image/*"
+              aria-label="Pilih foto menu"
+            />
+          </label>
+
+          <section class="form-card">
+            <div class="form-group">
+              <label for="menuName"
+                >Nama Menu <span class="required">*</span></label
+              >
+              <input
+                class="form-control"
+                id="menuName"
+                name="name"
+                required
+                placeholder="Contoh: Gemblong"
+              />
+            </div>
+            <div class="form-group">
+              <label for="menuCategory"
+                >Kategori <span class="required">*</span></label
+              >
+              <select
+                class="form-control"
+                id="menuCategory"
+                name="category"
+                required
+              >
+                <option value="">Pilih Kategori</option>
+                <option value="Makanan">Makanan</option>
+                <option value="Minuman">Minuman</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="menuPrice"
+                >Harga <span class="required">*</span></label
+              >
+              <input
+                class="form-control"
+                id="menuPrice"
+                name="price"
+                type="number"
+                min="0"
+                step="500"
+                required
+                placeholder="Rp ..."
+              />
+            </div>
+            <div class="form-group">
+              <label for="menuUnit">Satuan (opsional)</label>
+              <input
+                class="form-control"
+                id="menuUnit"
+                name="unit"
+                placeholder="Contoh: /tusuk"
+              />
+            </div>
+            <div class="form-group">
+              <label for="menuStatus"
+                >Status <span class="required">*</span></label
+              >
+              <select
+                class="form-control"
+                id="menuStatus"
+                name="status"
+                required
+              >
+                <option value="Tersedia">Tersedia</option>
+                <option value="Tidak Tersedia">Tidak Tersedia</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="menuDescription">Catatan / Deskripsi</label>
+              <textarea
+                class="form-control"
+                id="menuDescription"
+                name="description"
+                placeholder="Tambahkan catatan atau deskripsi menu..."
+              ></textarea>
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button class="save-button" type="submit">Simpan</button>
+            <button class="cancel-button" type="button" id="cancelButton">
+              Batal
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script src="tambah-menu.js"></script>
+  </body>
+</html>

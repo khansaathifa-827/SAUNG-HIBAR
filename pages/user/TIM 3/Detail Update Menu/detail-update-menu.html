@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail / Update Menu - Saung Hibar</title>
+    <link rel="stylesheet" href="detail-update-menu.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header class="header">
+        <a class="brand" href="../Kelola%20Menu/kelola-menu.html">
+          <img
+            src="../Detail Update Menu/assets/logo.png"
+            alt="Saung Hibar"
+            onerror="
+              this.hidden = true;
+              this.nextElementSibling.hidden = false;
+            "
+          />
+          <span class="brand-fallback" hidden>
+            <strong>Saung Hibar</strong>
+            <small>WISATA KELUARGA</small>
+          </span>
+        </a>
+
+        <div class="header-actions">
+          <button class="header-icon" type="button" aria-label="Notifikasi">
+            ♧
+          </button>
+
+          <div class="menu-wrapper">
+            <button
+              class="header-icon"
+              type="button"
+              id="menuButton"
+              aria-label="Buka menu"
+              aria-expanded="false"
+              aria-controls="navigationMenu"
+            >
+              ☰
+            </button>
+
+            <nav class="navigation-menu hidden" id="navigationMenu">
+              <a href="../Kelola%20Menu/kelola-menu.html">Kelola Menu</a>
+              <a href="detail-update-menu.html">Detail / Update Menu</a>
+              <a href="tambah-menu.html">Tambah Menu</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-heading">
+          <button
+            class="back-button"
+            type="button"
+            id="backButton"
+            aria-label="Kembali"
+          >
+            ‹
+          </button>
+          <h1>Detail / Update Menu</h1>
+        </div>
+
+        <label class="photo-picker" id="photoPicker" for="photoInput">
+          <img
+            src="../Detail Update Menu/assets/ikan-goreng.png"
+            alt="Saung Hibar"
+          />
+          <span class="photo-hint">＋<small>Ganti Foto Menu</small></span>
+        </label>
+        <input type="file" id="photoInput" accept="image/*" hidden />
+
+        <form id="menuForm" class="form-card">
+          <div class="form-group">
+            <label for="menuName">Nama Menu <b>*</b></label>
+            <input
+              class="form-control"
+              id="menuName"
+              type="text"
+              placeholder="Nama menu"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="menuCategory">Kategori <b>*</b></label>
+            <select class="form-control" id="menuCategory" required>
+              <option value="">Pilih Kategori</option>
+              <option value="Makanan">Makanan</option>
+              <option value="Minuman">Minuman</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="menuPrice">Harga <b>*</b></label>
+            <input
+              class="form-control"
+              id="menuPrice"
+              type="number"
+              min="0"
+              step="500"
+              placeholder="Masukkan harga"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="menuStatus">Status <b>*</b></label>
+            <select class="form-control status-select" id="menuStatus" required>
+              <option value="Tersedia">Tersedia</option>
+              <option value="Tidak Tersedia">Tidak Tersedia</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="menuDescription">Catatan / Deskripsi</label>
+            <textarea
+              class="form-control"
+              id="menuDescription"
+              placeholder="..."
+            ></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="save-button" type="submit">Simpan</button>
+            <button class="cancel-button" type="button" id="cancelButton">
+              Batal
+            </button>
+          </div>
+        </form>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script src="detail-update-menu.js"></script>
+  </body>
+</html>

@@ -1,1 +1,303 @@
-<!DOCTYPE html>
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kelola Menu - Saung Hibar</title>
+    <link rel="stylesheet" href="kelola-menu.css" />
+  </head>
+  <body data-page="kelola-menu">
+    <div class="page">
+      <header class="header">
+        <a class="brand" href="kelola-menu.html" aria-label="Saung Hibar">
+          <img
+            src="../Kelola Menu//assets/logo.png"
+            alt="Saung Hibar - Wisata Keluarga"
+            onerror="
+              this.hidden = true;
+              this.nextElementSibling.hidden = false;
+            "
+          />
+          <span class="brand-fallback" hidden>
+            <strong>Saung Hibar</strong><small>WISATA KELUARGA</small>
+          </span>
+        </a>
+        <div class="header-actions">
+          <button class="header-icon" type="button" aria-label="Notifikasi">
+            ♧
+          </button>
+          <div class="menu-wrapper">
+            <button
+              class="header-icon"
+              type="button"
+              id="menuButton"
+              aria-label="Buka menu"
+              aria-expanded="false"
+              aria-controls="navigationMenu"
+            >
+              ☰
+            </button>
+            <nav id="navigationMenu" class="navigation-menu hidden">
+              <a class="nav-item" href="kelola-menu.html">Kelola Menu</a>
+              <a class="nav-item" href="detail-update-menu.html"
+                >Detail / Update Menu</a
+              >
+              <a class="nav-item" href="tambah-menu.html">Tambah Menu</a>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+      <main class="content">
+        <div class="page-heading">
+          <button
+            class="back-button"
+            type="button"
+            onclick="history.back()"
+            aria-label="Kembali"
+          >
+            ‹
+          </button>
+          <div>
+            <h1>Kelola Menu</h1>
+            <p>Atur menu makanan dan minuman</p>
+          </div>
+        </div>
+
+        <label class="search-box">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Cari menu makanan atau minuman..."
+            aria-label="Cari menu makanan atau minuman"
+          />
+        </label>
+
+        <div class="toolbar">
+          <div class="filter-wrap">
+            <div class="filter-panel" id="filterPanel" hidden>
+              <label for="statusFilter">Status Menu</label>
+              <select id="statusFilter">
+                <option value="">Semua Status</option>
+                <option value="Tersedia">Tersedia</option>
+                <option value="Tidak Tersedia">Tidak Tersedia</option>
+              </select>
+              <label for="categoryFilter">Kategori</label>
+              <select id="categoryFilter">
+                <option value="">Semua Kategori</option>
+                <option value="Makanan">Makanan</option>
+                <option value="Minuman">Minuman</option>
+              </select>
+            </div>
+          </div>
+          <a
+            href="../Detail%20Update%20Menu/detail-update-menu.html"
+            class="add-small"
+          >
+            Edit Menu
+          </a>
+        </div>
+
+        <div class="list-heading">
+          <h2>Daftar Menu</h2>
+          <span class="result-count" id="menuCount">6 menu</span>
+        </div>
+
+        <section class="menu-list" id="menuList" aria-label="Daftar menu">
+          <article class="block-card menu-card" data-menu-id="ayam-goreng">
+            <div class="block-photo menu-photo">
+              <img
+                src="../Kelola Menu/assets/ayam-goreng.png"
+                alt="Ayam Goreng"
+              />
+            </div>
+            <div class="block-info menu-info">
+              <div class="block-top menu-top">
+                <div class="menu-heading">
+                  <h3 class="menu-name">Ayam Goreng</h3>
+                  <p class="menu-price">Rp20.000</p>
+                </div>
+                <div class="menu-actions">
+                  <a
+                    class="edit-button"
+                    href="../Detail%20Update%20Menu/detail-update-menu.html?id=ayam-goreng"
+                  >
+                    ✎ Edit
+                  </a>
+                </div>
+              </div>
+              <div class="block-bottom menu-bottom">
+                <span class="menu-category">Makanan</span>
+                <span class="status">Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="block-card menu-card" data-menu-id="ikan-goreng">
+            <div class="block-photo menu-photo">
+              <img src="../assets/ikan-goreng.png" alt="Ikan Goreng" />
+            </div>
+            <div class="block-info menu-info">
+              <div class="block-top menu-top">
+                <div class="menu-heading">
+                  <h3 class="menu-name">Ikan Goreng</h3>
+                  <p class="menu-price">Rp25.000</p>
+                </div>
+                <div class="menu-actions">
+                  <a
+                    class="edit-button"
+                    href="../Detail%20Update%20Menu/detail-update-menu.html?id=ayam-goreng"
+                  >
+                    ✎ Edit
+                  </a>
+                </div>
+              </div>
+              <div class="block-bottom menu-bottom">
+                <span class="menu-category">Makanan</span>
+                <span class="status">Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="block-card menu-card" data-menu-id="kangkung">
+            <div class="block-photo menu-photo">
+              <img src="../assets/kangkung.png" alt="Kangkung" />
+            </div>
+            <div class="block-info menu-info">
+              <div class="block-top menu-top">
+                <div class="menu-heading">
+                  <h3 class="menu-name">Kangkung</h3>
+                  <p class="menu-price">Rp10.000</p>
+                </div>
+                <div class="menu-actions">
+                  <a
+                    class="edit-button"
+                    href="../Detail%20Update%20Menu/detail-update-menu.html?id=ayam-goreng"
+                  >
+                    ✎ Edit
+                  </a>
+                </div>
+              </div>
+              <div class="block-bottom menu-bottom">
+                <span class="menu-category">Makanan</span>
+                <span class="status unavailable">Tidak Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="block-card menu-card" data-menu-id="jengkol-goreng">
+            <div class="block-photo menu-photo">
+              <img src="../assets/jengkol-goreng.png" alt="Jengkol Goreng" />
+            </div>
+            <div class="block-info menu-info">
+              <div class="block-top menu-top">
+                <div class="menu-heading">
+                  <h3 class="menu-name">Jengkol Goreng</h3>
+                  <p class="menu-price">Rp10.000</p>
+                </div>
+                <div class="menu-actions">
+                  <a
+                    class="edit-button"
+                    href="../Detail%20Update%20Menu/detail-update-menu.html?id=ayam-goreng"
+                  >
+                    ✎ Edit
+                  </a>
+                </div>
+              </div>
+              <div class="block-bottom menu-bottom">
+                <span class="menu-category">Makanan</span>
+                <span class="status">Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="block-card menu-card" data-menu-id="sate-sapi">
+            <div class="block-photo menu-photo">
+              <img src="../assets/sate-sapi.png" alt="Sate Sapi" />
+            </div>
+            <div class="block-info menu-info">
+              <div class="block-top menu-top">
+                <div class="menu-heading">
+                  <h3 class="menu-name">Sate Sapi</h3>
+                  <p class="menu-price">Rp3.500/tusuk</p>
+                </div>
+                <div class="menu-actions">
+                  <a
+                    class="edit-button"
+                    href="../Detail%20Update%20Menu/detail-update-menu.html?id=ayam-goreng"
+                  >
+                    ✎ Edit
+                  </a>
+                </div>
+              </div>
+              <div class="block-bottom menu-bottom">
+                <span class="menu-category">Makanan</span>
+                <span class="status">Tersedia</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="block-card menu-card" data-menu-id="cireng">
+            <div class="block-photo menu-photo">
+              <img src="../assets/cireng.png" alt="Cireng" />
+            </div>
+            <div class="block-info menu-info">
+              <div class="block-top menu-top">
+                <div class="menu-heading">
+                  <h3 class="menu-name">Cireng</h3>
+                  <p class="menu-price">Rp5.000</p>
+                </div>
+                <div class="menu-actions">
+                  <a
+                    class="edit-button"
+                    href="../Detail%20Update%20Menu/detail-update-menu.html?id=ayam-goreng"
+                  >
+                    ✎ Edit
+                  </a>
+                </div>
+              </div>
+              <div>
+                <template id="menuTemplate">
+                  <article class="block-card menu-card">
+                    <div class="block-photo menu-photo">
+                      <img src="" alt="" />
+                    </div>
+
+                    <div class="block-info menu-info">
+                      <div class="block-top menu-top">
+                        <div class="menu-heading">
+                          <h3 class="menu-name"></h3>
+                          <p class="menu-price"></p>
+                        </div>
+
+                        <div class="menu-actions">
+                          <a class="edit-button" href="#"> ✎ Edit </a>
+                        </div>
+                      </div>
+
+                      <div class="block-bottom menu-bottom">
+                        <span class="menu-category"></span>
+                        <span class="status"></span>
+                      </div>
+                    </div>
+                  </article>
+                </template>
+              </div>
+
+              <div class="block-bottom menu-bottom">
+                <span class="menu-category">Makanan</span>
+                <span class="status">Tersedia</span>
+              </div>
+            </div>
+          </article>
+        </section>
+        <a class="add-main" href="../Tambah-Edit%20Menu/tambah-menu.html">
+          <span>＋</span> Tambah Menu Baru
+        </a>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status" hidden></div>
+    <script src="kelola-menu.js"></script>
+  </body>
+</html>
